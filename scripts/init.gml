@@ -169,3 +169,6 @@ staticloop = 0;
 
 //Dtilt
 dtiltjumpcancel = false;
+
+//DAIR
+DAIR_jcTimer = 0;

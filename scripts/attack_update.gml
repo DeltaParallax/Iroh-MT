@@ -258,35 +258,24 @@ if(attack == AT_JAB){
     }
 }
 
+//#endregion
+
 //#region Dash Attack
 if(attack == AT_DATTACK){
     if(window == 2){
-    if(was_parried){
+        if(was_parried){
         window = 3;
         window_timer = 0;
-    }
-    }
-}
-
-//#endregion
-
-//#region Aerials
-
-    //#region Dair
-if(attack == AT_DAIR && window == 2){
-    if(!free){
-        window = 3;
-        window_timer = 0;
-        image_index = 0;
+        }
     }
 }
-
-
 //#endregion
 
 
 //#region Tilts
 
+
+    //#region DTILT
 if(attack == AT_DTILT){
     if(window == 1 && window_timer == 1){
         dtiltjumpcancel = false;
@@ -296,6 +285,8 @@ if(attack == AT_DTILT){
     }
 }
 
+    //#endregion
+
 
 //#endregion
 
@@ -303,19 +294,42 @@ if(attack == AT_DTILT){
 
     //#region DAIR
 if(attack == AT_DAIR){
+    if(window == 1 && window_timer == 14){
+        DAIR_jcTimer = 1;
+    }
     if(window == 2){
-        if(window_timer > 30){
+        if(!free){
+            window = 3;
+            window_timer = 0;
+            image_index = 0;
+        }
+        if((!slActive && DAIR_jcTimer > 20) || (slActive && DAIR_jcTimer >10)){
             can_jump = true;
             can_special = true;
         }
         
+        
         can_wall_jump = true;
     }
+    DAIR_jcTimer++
     
 }
 
+    //#endregion
+
+    //#region NAIR
+    if(attack == AT_DAIR){
+        air_accel = 0.2;
+    }
+    
+    
+    
+    //#endregion
 
 
 //#endregion
 
-//#endregion
+if(attack == AT_TAUNT && window == 1 && window_timer == 1){
+    
+    slTimer += 600;
+}

@@ -142,6 +142,33 @@ if(attack == AT_DSPECIAL){
             state = PS_IDLE;
         }
     }
+    
+    
+}
+
+if(attack == AT_DSPECIAL_2){
+    if(window == 1 && window_timer == 1){
+        slActive = false;
+        slTimer = 0;
+    }
+    if(window == 1 || window  == 2){
+        soft_armor = 99999;
+    }
+}
+
+if(attack == AT_DSPECIAL_AIR){
+    if(window == 1 && window_timer == 1){
+        slActive = false;
+        slTimer = 0;
+    }
+    if(window == 1 || window == 2){
+        soft_armor = 9999;
+    }
+    if(window == 2 && !free){
+        window = 3;
+        window_timer = 0;
+        image_index = 0;
+    }
 }
 
 

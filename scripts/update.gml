@@ -100,12 +100,19 @@ with(oPlayer){
 
 //#endregion
 
-//Sanguine Lightning
+//#region Sanguine Lightning
 if (slTimer >= slTimerLimit and !slActive)
 {
 	slActive = true
 	slTimer = slTimerLimit
 	slHurtTimer = slMaxHurtTime;
+}
+
+if(slTimer < 0){
+	slHurtTimer = 0
+	slDamageMult = slNormalDamage
+	slKBMult = slNormalKB
+	
 }
 
 if slActive
@@ -135,3 +142,5 @@ else
 }
 
 dsActive = slActive
+
+//#endregion

@@ -104,7 +104,7 @@ jump_loop = 0
 
 //Sanguine Lightning Variables
 slActive = false;
-slTimer = 0;
+slTimer = 590;
 slTimerLimit = 600; //10 seconds worth of frames
 
 //self-damage

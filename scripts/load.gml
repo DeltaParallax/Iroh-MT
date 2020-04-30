@@ -50,6 +50,8 @@ sprite_change_offset("fspecial", 79, 88);
 sprite_change_offset("fspecial_air", 79, 88);
 sprite_change_offset("uspecial", 43, 143);
 sprite_change_offset("dspecial", 60, 86);
+sprite_change_offset("dspecial_2", 60, 134);
+sprite_change_offset("dspecial_air", 50, 138);
 sprite_change_offset("taunt", 50, 80);
 
 sprite_change_offset("cooldownbar", 0, 10);

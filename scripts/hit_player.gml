@@ -17,6 +17,7 @@ if ( my_hitboxID.attack == AT_USPECIAL && (my_hitboxID.hbox_num == 1 ||  my_hitb
 
 
     //#endregion
+    
 //#endregion
 
 
@@ -34,7 +35,7 @@ if(my_hitboxID.attack == AT_USTRONG && (my_hitboxID.hbox_num == 1)){
             y = other.y - 85
         }
     }
-    //#region summon sparks
+        //#region summon sparks
      for (var spark = 1; spark <= 14; spark++)
      {
          var obSpark;
@@ -55,15 +56,17 @@ if(my_hitboxID.attack == AT_USTRONG && (my_hitboxID.hbox_num == 1)){
         //#region Spark angle
         obSpark.image_angle = random_func(spark, 360, true)
         //#endregion
-        //#endregion
      }
     
-    //#endregion
     
     
     window = 6;
     window_timer = 0;
 }
+
+    //#endregion
+    
+    //#region Dstrong
 if(my_hitboxID.attack == AT_DSTRONG && (my_hitboxID.hbox_num == 1)){
     hit_player_obj.should_make_shockwave = false;
     }
@@ -136,3 +139,11 @@ if(my_hitboxID.attack == AT_DTILT){
 }
     //#endregion
 //#endregion
+
+//#region SL Add
+if(!slActive){
+    slTimer += 9 * floor(my_hitboxID.damage)
+}
+if(slActive){
+    slTimer += 6 * floor(my_hitboxID.damage)
+}

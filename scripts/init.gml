@@ -163,6 +163,7 @@ explode = false;
 
 //Dspecial
 shake = 0;
+dspec_airgrab = false;
 
 //Fstrong
 staticloop = 0;

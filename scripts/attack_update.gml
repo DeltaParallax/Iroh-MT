@@ -158,12 +158,21 @@ if(attack == AT_DSPECIAL_2){
 
 if(attack == AT_DSPECIAL_AIR){
     if(window == 1 && window_timer == 1){
-        
+        dspec_airgrab = false;
         slTimer = 0;
     }
     if(window == 1 || window == 2){
         soft_armor = 9999;
     }
+    if(window == 2 && dspec_airgrab == true){
+        with(oPlayer){
+            if(id != other.id){
+                x = other.x + (60 * other.spr_dir)
+                y = other.y + 30
+            }
+        }
+    }
+    
     if(window == 2 && !free){
         window = 3;
         window_timer = 0;

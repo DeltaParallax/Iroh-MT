@@ -18,6 +18,22 @@ if ( my_hitboxID.attack == AT_USPECIAL && (my_hitboxID.hbox_num == 1 ||  my_hitb
 
     //#endregion
     
+    //#region Dspecial_2
+if ( my_hitboxID.attack == AT_DSPECIAL_2 || my_hitboxID.attack == AT_DSPECIAL_AIR) {
+        hit_player_obj.should_make_shockwave = false;
+}
+    //#endregion
+    
+    
+    //#region Dspecial_air
+    
+if (my_hitboxID.attack == AT_DSPECIAL_AIR && my_hitboxID.hbox_num == 5){
+    dspec_airgrab = true;
+    
+}
+    //#endregion
+    
+    
 //#endregion
 
 
@@ -41,7 +57,7 @@ if(my_hitboxID.attack == AT_USTRONG && (my_hitboxID.hbox_num == 1)){
      for (var spark = 1; spark <= 14; spark++)
      {
          var obSpark;
-         obSpark = create_hitbox(AT_USTRONG, 3, x + (25 + random_func(spark, 70, true)) * spr_dir, y - 180 + random_func_2(15-spark, 50, true))
+         obSpark = create_hitbox(AT_USTRONG, 3, x + (2 + random_func(spark, 70, true)) * spr_dir, y - 170 + random_func_2(15-spark, 50, true))
 
         //#endregion)
     

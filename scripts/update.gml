@@ -104,6 +104,7 @@ with(oPlayer){
 if (slTimer >= slTimerLimit and !slActive)
 {
 	slActive = true
+	SL_attacks();
 	slTimer = slTimerLimit
 	slHurtTimer = slMaxHurtTime;
 }
@@ -123,9 +124,11 @@ if slActive
 	slDamageMult = slActiveDamage
 	slKBMult = slActiveKB
 	
-	if slTimer == 0 
+	if slTimer <= 0 
 	{
+		slTimer = 0;
 		slActive = false
+		SL_attacks();
 	}
 	
 	if slHurtTimer <= 0
@@ -142,5 +145,65 @@ else
 }
 
 dsActive = slActive
+
+//#endregion
+
+
+#define SL_attacks
+//#region Sangiune Lightning Alts
+if(slActive){
+    //Ustrong Kill Version
+    set_hitbox_value(AT_USTRONG, 1, HG_BASE_KNOCKBACK, 15);
+    set_hitbox_value(AT_USTRONG, 1, HG_DAMAGE, 12);
+    set_hitbox_value(AT_USTRONG, 1, HG_KNOCKBACK_SCALING, 1.8);
+    set_hitbox_value(AT_USTRONG, 1, HG_HITSTUN_MULTIPLIER, 0.75);
+    
+    //Dstrong Kill Version
+    set_hitbox_value(AT_DSTRONG, 2, HG_BASE_KNOCKBACK, 11);
+    set_hitbox_value(AT_DSTRONG, 2, HG_DAMAGE, 10);
+    set_hitbox_value(AT_DSTRONG, 2, HG_KNOCKBACK_SCALING, 0.9);
+    set_hitbox_value(AT_DSTRONG, 2, HG_BASE_HITPAUSE, 15);
+    set_hitbox_value(AT_DSTRONG, 2, HG_HITPAUSE_SCALING, 0.9);
+    set_hitbox_value(AT_DSTRONG, 2, HG_ANGLE, 135);
+    
+    //Fstrong Kill Version
+    for(var i = 1; i <= 12; i++){
+    	set_hitbox_value(AT_FSTRONG, i, HG_BASE_KNOCKBACK, 8.5);
+    	set_hitbox_value(AT_FSTRONG, i, HG_KNOCKBACK_SCALING, 0.70);
+    	set_hitbox_value(AT_FSTRONG, i, HG_ANGLE, 40);
+    	set_hitbox_value(AT_FSTRONG, i, HG_BASE_HITPAUSE, 18);
+    	set_hitbox_value(AT_FSTRONG, i, HG_HITPAUSE_SCALING, 1);
+    	set_hitbox_value(AT_FSTRONG, i, HG_EXTRA_HITPAUSE, 0);
+    	set_hitbox_value(AT_FSTRONG, i, HG_DAMAGE, 10);
+    }
+    
+    
+}
+else{
+    //Ustrong reset
+    reset_hitbox_value(AT_USTRONG, 1, HG_BASE_KNOCKBACK);
+    reset_hitbox_value(AT_USTRONG, 1, HG_DAMAGE);
+    reset_hitbox_value(AT_USTRONG, 1, HG_KNOCKBACK_SCALING);
+    reset_hitbox_value(AT_USTRONG, 1, HG_HITSTUN_MULTIPLIER);
+    
+    //Dstrong reset
+    reset_hitbox_value(AT_DSTRONG, 2, HG_BASE_KNOCKBACK);
+    reset_hitbox_value(AT_DSTRONG, 2, HG_DAMAGE);
+    reset_hitbox_value(AT_DSTRONG, 2, HG_KNOCKBACK_SCALING);
+    reset_hitbox_value(AT_DSTRONG, 2, HG_BASE_HITPAUSE);
+    reset_hitbox_value(AT_DSTRONG, 2, HG_HITPAUSE_SCALING);
+    reset_hitbox_value(AT_DSTRONG, 2, HG_ANGLE);
+    
+    //Fstrong reset
+    for(var i = 1; i <= 12; i++){
+    	reset_hitbox_value(AT_FSTRONG, i, HG_BASE_KNOCKBACK);
+    	reset_hitbox_value(AT_FSTRONG, i, HG_KNOCKBACK_SCALING);
+    	reset_hitbox_value(AT_FSTRONG, i, HG_ANGLE);
+    	reset_hitbox_value(AT_FSTRONG, i, HG_BASE_HITPAUSE);
+    	reset_hitbox_value(AT_FSTRONG, i, HG_HITPAUSE_SCALING);
+    	reset_hitbox_value(AT_FSTRONG, i, HG_EXTRA_HITPAUSE);
+    	reset_hitbox_value(AT_FSTRONG, i, HG_DAMAGE);
+    }
+}
 
 //#endregion

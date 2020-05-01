@@ -148,8 +148,8 @@ if(attack == AT_DSPECIAL){
 
 if(attack == AT_DSPECIAL_2){
     if(window == 1 && window_timer == 1){
-        slActive = false;
-        slTimer = 0;
+        
+        slTimer = 1;
     }
     if(window == 1 || window  == 2){
         soft_armor = 99999;
@@ -158,7 +158,7 @@ if(attack == AT_DSPECIAL_2){
 
 if(attack == AT_DSPECIAL_AIR){
     if(window == 1 && window_timer == 1){
-        slActive = false;
+        
         slTimer = 0;
     }
     if(window == 1 || window == 2){
@@ -333,3 +333,4 @@ if(attack == AT_TAUNT && window == 1 && window_timer == 1){
     
     slTimer += 600;
 }
+

@@ -6,7 +6,7 @@ if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || a
 //#region Specials
     //#region Nspecial
 if (attack == AT_NSPECIAL){
-    if(window == 1 && !hit_pause){
+    if(window == 2 && !hit_pause){
         if(state_timer % 2 == 0){
             create_hitbox(AT_NSPECIAL, 2, x, y)
         }
@@ -14,28 +14,28 @@ if (attack == AT_NSPECIAL){
             create_hitbox(AT_NSPECIAL, 3, x, y)
         }
         if(state_timer == 30){
-            window = 2;
+            window = 3;
             window_timer = 0;
             image_index = 0;
         }
     }
-    if(window == 2){
+    if(window == 3){
         
         can_strong = true;
         if(special_down){
             explode = true;
         }
         if(window_timer = 12 && explode == true){
-            window = 3;
+            window = 4;
             window_timer = 0;
             image_index = 0;
         
         }
     }
-    if(window == 3){
+    if(window == 4){
         explode = false;
         if(window_timer == 20){
-            window = 4;
+            window = 5;
             window_timer = 0;
             image_index = 0;
         }
@@ -47,7 +47,7 @@ if (attack == AT_NSPECIAL){
         vsp = 3.5
     }
 }
-//#endregion
+    //#endregion
 
     //#region Fspecial
 if (attack == AT_FSPECIAL){

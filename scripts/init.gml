@@ -13,10 +13,10 @@ pratfall_anim_speed = .25;
 walk_speed = 2.75;
 walk_accel = 0.2;
 walk_turn_time = 2;
-initial_dash_time = 2;
-initial_dash_speed = 6.8;
+initial_dash_time = 3;
+initial_dash_speed = 6.3;
 dash_speed = 5.5;
-dash_turn_time = 2;
+dash_turn_time = 6;
 dash_turn_accel = 1.3;
 dash_stop_time = 5;
 dash_stop_percent = .35; //the value to multiply your hsp by when going into idle from dash or dashstop
@@ -25,13 +25,13 @@ moonwalk_accel = 1.4;
 
 jump_start_time = 5;
 jump_speed = 11;
-short_hop_speed = 8;
+short_hop_speed = 7;
 djump_speed = 12;
 leave_ground_max = 7; //the maximum hsp you can have when you go from grounded to aerial without jumping
-max_jump_hsp = 6; //the maximum hsp you can have when jumping from the ground
-air_max_speed = 6; //the maximum hsp you can accelerate to when in a normal aerial state
+max_jump_hsp = 5.8; //the maximum hsp you can have when jumping from the ground
+air_max_speed = 5.8; //the maximum hsp you can accelerate to when in a normal aerial state
 jump_change = 3; //maximum hsp when double jumping. If already going faster, it will not slow you down
-air_accel = .35;
+air_accel = .32;
 prat_fall_accel = 2; //multiplier of air_accel while in pratfall
 air_friction = .07;
 max_djumps = 1;
@@ -42,8 +42,8 @@ walljump_time = 8;
 max_fall = 16; //maximum fall speed without fastfalling
 fast_fall = 15; //fast fall speed
 gravity_speed = .5;
-hitstun_grav = .7;
-knockback_adj = 1.0; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
+hitstun_grav = .6;
+knockback_adj = 0.90; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
 
 land_time = 4; //normal landing frames
 prat_land_time = 15;

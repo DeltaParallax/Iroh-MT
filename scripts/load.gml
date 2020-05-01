@@ -1,5 +1,6 @@
 sprite_change_offset("idle", 60, 100);
 sprite_change_offset("hurt", 47, 79);
+sprite_change_offset("uphurt", 47, 79);
 sprite_change_offset("crouch", 49, 68);
 sprite_change_offset("walk", 60, 98);
 sprite_change_offset("walkstart", 37, 77);
@@ -41,7 +42,7 @@ sprite_change_offset("fair", 64, 94);
 sprite_change_offset("bair", 70, 122);
 sprite_change_offset("uair", 68, 120);
 sprite_change_offset("dair", 50, 88);
-sprite_change_offset("fstrong", 64, 106);
+sprite_change_offset("fstrong", 64, 118);
 sprite_change_offset("fstrong_charge", 64, 106);
 sprite_change_offset("ustrong", 48, 116);
 sprite_change_offset("dstrong", 125, 75);

@@ -173,3 +173,79 @@ dtiltjumpcancel = false;
 
 //DAIR
 DAIR_jcTimer = 0;
+
+//#region SL Sprites
+
+useskins = false;
+
+//Ground
+spr_idle = sprite_get("idle");
+spr_crouch = sprite_get("crouch");
+spr_walk = sprite_get("walk");
+spr_walkturn = sprite_get("walkturn");
+spr_walkstart = sprite_get("walkstart");
+spr_walkstop = sprite_get("walkstop");
+spr_dash = sprite_get("dash");
+spr_dashstart = sprite_get("dashstart");
+spr_dashstop = sprite_get("dashstop");
+spr_dashturn = sprite_get("dashturn");
+
+//Air
+spr_jumpstart = sprite_get("jumpstart");
+spr_jump = sprite_get("jump");
+spr_doublejump = sprite_get("doublejump");
+spr_walljump = sprite_get("walljump");
+spr_pratfall = sprite_get("pratfall");
+spr_land = sprite_get("land");
+spr_landinglag = sprite_get("landinglag");
+
+//Dodge
+spr_parry = sprite_get("parry");
+spr_roll_forward = sprite_get("roll_forward");
+spr_roll_backward = sprite_get("roll_backward");
+spr_airdodge = sprite_get("airdodge");
+spr_airdodge_forward = sprite_get("airdodge_forward");
+spr_airdodge_back = sprite_get("airdodge_back");
+spr_airdodge_upforward = sprite_get("airdodge_upforward");
+spr_airdodge_downforward = sprite_get("airdodge_downforward");
+spr_airdodge_upback = sprite_get("airdodge_upback");
+spr_airdodge_downback = sprite_get("airdodge_downback");
+spr_airdodge_waveland = sprite_get("waveland");
+spr_tech = sprite_get("tech");
+
+//Hurt
+spr_hurt = sprite_get("hurt");
+spr_bighurt = sprite_get("bighurt");
+spr_hurtground = sprite_get("hurtground");
+spr_uphurt = sprite_get("uphurt");
+spr_downhurt = sprite_get("downhurt");
+spr_bouncehurt = sprite_get("bouncehurt");
+spr_spinhurt = sprite_get("spinhurt");
+
+//Attack
+spr_jab = sprite_get("jab");
+spr_dattack = sprite_get("dattack");
+spr_ftilt = sprite_get("ftilt");
+spr_dtilt = sprite_get("dtilt");
+spr_utilt = sprite_get("utilt");
+spr_nair = sprite_get("nair");
+spr_fair = sprite_get("fair");
+spr_bair = sprite_get("bair");
+spr_uair = sprite_get("uair");
+spr_dair = sprite_get("dair");
+spr_fstrong = sprite_get("fstrong");
+spr_ustrong = sprite_get("ustrong");
+spr_dstrong = sprite_get("dstrong");
+spr_nspecial = sprite_get("nspecial");
+spr_fspecial = sprite_get("fspecial");
+spr_fspecial_air = sprite_get("fspecial_air");
+spr_uspecial = sprite_get("uspecial");
+spr_dspecial = sprite_get("dspecial");
+spr_dspecial_2 = sprite_get("dspecial_2");
+spr_dspecial_air = sprite_get("dspecial_air");
+spr_taunt = sprite_get("taunt");
+
+//Respawn
+spr_plat = sprite_get("plat");
+
+//#endregion

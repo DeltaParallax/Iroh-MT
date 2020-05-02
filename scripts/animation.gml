@@ -117,18 +117,24 @@ if useskins{
 //Handle certain looping animations
 if (sprite_index == spr_idle){
     var frames = 16;
-    var frame_dur = 8;
+    var frame_dur = 5;
     image_index = floor((state_timer mod (frames * frame_dur)) / frame_dur);
 }
 if (sprite_index == spr_walk){
 	
     var frames = 8;
-    var frame_dur = 8;
+    var frame_dur = 4 ;
     image_index = floor((state_timer mod (frames * frame_dur)) / frame_dur);
 }
 if (sprite_index == spr_dash){
+	if(slActive){
+		dash_ASP = 3;
+	}
+	else {
+		dash_ASP = 4;
+	}
     var frames = 10;
-    var frame_dur = 4;
+    var frame_dur = dash_ASP;
     image_index = floor((state_timer mod (frames * frame_dur)) / frame_dur);
 }
 

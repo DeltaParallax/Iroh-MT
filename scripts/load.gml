@@ -56,7 +56,7 @@ sprite_change_offset("dspecial_air", 50, 138);
 sprite_change_offset("taunt", 50, 80);
 
 //#region SL Loads
-sprite_change_offset("SL_idle", 60, 72);
+sprite_change_offset("SL_idle", 60, 70);
 sprite_change_offset("SL_hurt", 47, 79);
 sprite_change_offset("SL_uphurt", 47, 79);
 sprite_change_offset("SL_crouch", 49, 68);
@@ -64,9 +64,9 @@ sprite_change_offset("SL_walk", 60, 74);
 sprite_change_offset("SL_walkstart", 37, 77);
 sprite_change_offset("SL_walkend", 37, 77);
 sprite_change_offset("SL_walkturn", 36, 71);
-sprite_change_offset("SL_dash", 55, 74);
-sprite_change_offset("SL_dashstart", 37, 74);
-sprite_change_offset("SL_dashstop", 49, 74);
+sprite_change_offset("SL_dash", 55, 73);
+sprite_change_offset("SL_dashstart", 37, 70);
+sprite_change_offset("SL_dashstop", 55, 70);
 sprite_change_offset("SL_dashturn", 50, 73);
 
 sprite_change_offset("SL_jumpstart", 53, 75);
@@ -74,8 +74,8 @@ sprite_change_offset("SL_jump", 51, 83);
 sprite_change_offset("SL_doublejump", 51, 85);
 sprite_change_offset("SL_walljump", 15, 62);
 sprite_change_offset("SL_pratfall", 47, 80);
-sprite_change_offset("SL_land", 49, 73);
-sprite_change_offset("SL_landinglag", 50, 74);
+sprite_change_offset("SL_land", 49, 66);
+sprite_change_offset("SL_landinglag", 50, 66);
 
 sprite_change_offset("SL_parry", 61, 69);
 sprite_change_offset("SL_roll_forward", 32, 72);
@@ -92,7 +92,7 @@ sprite_change_offset("SL_tech", 32, 96);
 
 sprite_change_offset("SL_jab", 64, 78);
 sprite_change_offset("SL_dattack", 64, 82);
-sprite_change_offset("SL_ftilt", 55, 86);
+sprite_change_offset("SL_ftilt", 63, 85);
 sprite_change_offset("SL_dtilt", 64, 68);
 sprite_change_offset("SL_utilt", 64, 104);
 sprite_change_offset("SL_nair", 50, 84);
@@ -111,7 +111,7 @@ sprite_change_offset("SL_uspecial", 43, 143);
 sprite_change_offset("SL_dspecial", 60, 86);
 sprite_change_offset("SL_dspecial_2", 60, 134);
 sprite_change_offset("SL_dspecial_air", 50, 138);
-sprite_change_offset("SL_taunt", 50, 80);
+sprite_change_offset("SL_taunt", 65, 80);
 
 //#endregion
 

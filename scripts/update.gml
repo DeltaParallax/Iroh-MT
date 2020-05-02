@@ -318,5 +318,25 @@ else{
     useskins = false;
 }
 
+//#endregion
+
+
+//#region movement buff
+
+if(slActive){
+	dash_speed = 8.6;
+	initial_dash_speed = 9;
+	max_jump_hsp = 8;
+	air_accel = 0.6
+}
+else{
+	dash_speed = 6.8;
+	initial_dash_speed = 7.3;
+	max_jump_hsp = 5.8
+	air_accel = 0.4
+}
+
 
 //#endregion
+
+

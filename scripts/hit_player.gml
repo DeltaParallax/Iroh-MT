@@ -47,12 +47,8 @@ if(my_hitboxID.attack == AT_USTRONG && (my_hitboxID.hbox_num == 1)){
         hit_player_obj.throwlock = 0;
         hit_player_obj.throwid = id;
     }
-    with(oPlayer){
-        if(id != other.id){
-            x = other.x + (15 * other.spr_dir)
-            y = other.y - 85
-        }
-    }
+            hit_player_obj.x = x + (15 * spr_dir)
+            hit_player_obj.y = y - 85
         //#region summon sparks
      for (var spark = 1; spark <= 14; spark++)
      {

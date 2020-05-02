@@ -111,7 +111,7 @@ slTimerLimit = 600; //10 seconds worth of frames
 //self-damage
 slHurtTimer = 0;
 slMaxHurtTime = 120; //2 seconds worth of frames
-slHurtAmount = 2 
+slHurtAmount = 4 
 
 //damage
 slNormalDamage = 1;
@@ -159,6 +159,9 @@ dsNoDiscrim = 1; //0 for certain attacks and states, 1 for everything
 dsSpawnDuring = []; //list of trigger states
 dsSpawnAttack = [] //list of trigger attack indexes
 
+//Uspecial
+can_US = false;
+
 //Nspecial
 explode = false;
 
@@ -174,6 +177,10 @@ dtiltjumpcancel = false;
 
 //DAIR
 DAIR_jcTimer = 0;
+
+//SL transformation
+SL_trans_timer = 60;
+sltrans = noone;
 
 //#region SL Sprites
 

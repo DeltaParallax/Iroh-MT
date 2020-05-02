@@ -100,14 +100,37 @@ with(oPlayer){
 
 //#endregion
 
+
+//#region Uspecial SL cooldown
+if(can_US = false){
+    move_cooldown[AT_USPECIAL] = 50;
+}
+if(can_US = true){
+	move_cooldown[AT_USPECIAL] = 0;
+}
+
+if (!free || state == PS_WALL_JUMP || state_cat == SC_HITSTUN) {
+  can_US = true;
+}
+
+//#endregion
+
+
+
 //#region Sanguine Lightning
 if (slTimer >= slTimerLimit and !slActive)
 {
 	slActive = true
-	SL_attacks();
+	SL_mode();
 	slTimer = slTimerLimit
 	slHurtTimer = slMaxHurtTime;
+	with(oPlayer){
+		hitpause = true;
+		hitstop = 45;
+	}
+	SL_trans_timer = 0;
 }
+	SL_trans_timer += 0.25;
 
 if(slTimer < 0){
 	slHurtTimer = 0
@@ -118,8 +141,10 @@ if(slTimer < 0){
 
 if slActive
 {
-	slTimer-=1
-	slHurtTimer-=1
+	if(!hitpause){
+		slTimer-=1
+		slHurtTimer-=1
+	}
 	
 	slDamageMult = slActiveDamage
 	slKBMult = slActiveKB
@@ -128,7 +153,7 @@ if slActive
 	{
 		slTimer = 0;
 		slActive = false
-		SL_attacks();
+		SL_mode();
 	}
 	
 	if slHurtTimer <= 0
@@ -149,8 +174,8 @@ dsActive = slActive
 //#endregion
 
 
-#define SL_attacks
-//#region Sangiune Lightning Alts
+#define SL_mode
+//#region Sangiune Lightning Strong Hitboxes
 if(slActive){
     //Ustrong Kill Version
     set_hitbox_value(AT_USTRONG, 1, HG_BASE_KNOCKBACK, 15);
@@ -204,6 +229,49 @@ else{
     	reset_hitbox_value(AT_FSTRONG, i, HG_EXTRA_HITPAUSE);
     	reset_hitbox_value(AT_FSTRONG, i, HG_DAMAGE);
     }
+}
+
+//#endregion
+
+//#region Sanguine Lightning Alt attacks
+
+if(slActive){
+	set_window_value(AT_FAIR, 1, AG_WINDOW_LENGTH, 4)	
+	set_window_value(AT_FAIR, 3, AG_WINDOW_LENGTH, 4)
+	
+	set_window_value(AT_UAIR, 1, AG_WINDOW_LENGTH, 3)
+	set_window_value(AT_UAIR, 3, AG_WINDOW_LENGTH, 6)
+	
+	set_window_value(AT_USPECIAL, 3, AG_WINDOW_TYPE, 1)
+	
+	set_window_value(AT_FSPECIAL, 1, AG_WINDOW_LENGTH, 18)
+	
+	set_window_value(AT_DTILT, 1, AG_WINDOW_LENGTH, 3)
+	set_window_value(AT_DTILT, 2, AG_WINDOW_HSPEED, 14)
+	
+	set_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED, 14)
+	set_window_value(AT_DATTACK, 3, AG_WINDOW_LENGTH, 7)
+	
+	
+}
+else{
+	reset_window_value(AT_FAIR, 1, AG_WINDOW_LENGTH)
+	reset_window_value(AT_FAIR, 3, AG_WINDOW_LENGTH)
+	
+	reset_window_value(AT_UAIR, 1, AG_WINDOW_LENGTH)
+	reset_window_value(AT_UAIR, 3, AG_WINDOW_LENGTH)
+	
+	reset_window_value(AT_USPECIAL, 3, AG_WINDOW_TYPE)
+	
+	reset_window_value(AT_FSPECIAL, 1, AG_WINDOW_LENGTH)
+	
+	reset_window_value(AT_DTILT, 1, AG_WINDOW_LENGTH)
+	reset_window_value(AT_DTILT, 2, AG_WINDOW_LENGTH)
+	
+	reset_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED)
+	reset_window_value(AT_DATTACK, 3, AG_WINDOW_LENGTH)
+	
+	
 }
 
 //#endregion
@@ -321,7 +389,7 @@ else{
 //#endregion
 
 
-//#region movement buff
+//#region Sanguine Lightning movement buff
 
 if(slActive){
 	dash_speed = 8.6;

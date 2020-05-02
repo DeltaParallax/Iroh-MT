@@ -74,6 +74,9 @@ if (attack == AT_FSPECIAL){
 
     //#region Uspecial
 if(attack == AT_USPECIAL){
+    if(window == 2 && window_timer == 6){
+        can_US = false;
+    }
 
     if(window == 2){
         if(window_timer == 1){
@@ -81,17 +84,23 @@ if(attack == AT_USPECIAL){
             USPdir = joy_dir;    
             }
         }
-                if((USPdir >= 80 && USPdir <= 100) || (USPdir >= 170 && USPdir <= 360) || USPdir <= 10){
-                    vsp = ease_cubeOut(-30, 0, window_timer, 26);
-                }
-                if(USPdir > 100 && USPdir < 170){
-                    vsp = sin((110 / 180) * 3.14) * ease_cubeOut(-30, 0, window_timer, 26);
-                    hsp = cos((110 / 180) * 3.14) * ease_cubeOut(30, 0, window_timer, 26);
-                }
-                if(USPdir > 10 && USPdir < 80){
-                    vsp = sin((70 / 180) * 3.14) * ease_cubeOut(-30, 0, window_timer, 26);
-                    hsp = cos((70 / 180) * 3.14) * ease_cubeOut(30, 0, window_timer, 26);
-                }
+        if(!hitpause){
+            if((USPdir >= 80 && USPdir <= 100) || (USPdir >= 170 && USPdir <= 360) || USPdir <= 10){
+                vsp = ease_cubeOut(-30, 0, window_timer, 26);
+            }
+            if(USPdir > 100 && USPdir < 170){
+                vsp = sin((110 / 180) * 3.14) * ease_cubeOut(-30, 0, window_timer, 26);
+                hsp = cos((110 / 180) * 3.14) * ease_cubeOut(30, 0, window_timer, 26);
+            }
+            if(USPdir > 10 && USPdir < 80){
+                vsp = sin((70 / 180) * 3.14) * ease_cubeOut(-30, 0, window_timer, 26);
+                hsp = cos((70 / 180) * 3.14) * ease_cubeOut(30, 0, window_timer, 26);
+            }
+        }
+        else{
+            vsp = 0;
+            hsp = 0;
+        }
             
                     
             
@@ -338,7 +347,7 @@ if(attack == AT_DAIR){
 
 //#endregion
 
-if(attack == AT_TAUNT && window == 1 && window_timer == 1){
+if(attack == AT_TAUNT && window == 1 && window_timer == 1 && !hitpause){
     
     slTimer += 600;
 }

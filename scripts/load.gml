@@ -59,7 +59,7 @@ sprite_change_offset("taunt", 50, 80);
 sprite_change_offset("SL_idle", 60, 70);
 sprite_change_offset("SL_hurt", 47, 79);
 sprite_change_offset("SL_uphurt", 47, 79);
-sprite_change_offset("SL_crouch", 49, 68);
+sprite_change_offset("SL_crouch", 55, 64);
 sprite_change_offset("SL_walk", 60, 74);
 sprite_change_offset("SL_walkstart", 37, 77);
 sprite_change_offset("SL_walkend", 37, 77);
@@ -87,7 +87,7 @@ sprite_change_offset("SL_airdodge_upback", 32, 62);
 sprite_change_offset("SL_airdodge_downforward", 32, 62);
 sprite_change_offset("SL_airdodge_downback", 32, 62);
 sprite_change_offset("SL_airdodge", 32, 62);
-sprite_change_offset("SL_waveland", 50, 74);
+sprite_change_offset("SL_waveland", 70, 55);
 sprite_change_offset("SL_tech", 32, 96);
 
 sprite_change_offset("SL_jab", 64, 78);

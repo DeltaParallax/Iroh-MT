@@ -130,7 +130,7 @@ if (slTimer >= slTimerLimit and !slActive)
 	}
 	SL_trans_timer = 0;
 }
-	SL_trans_timer += 0.25;
+	SL_trans_timer += 0.32;
 
 if(slTimer < 0){
 	slHurtTimer = 0
@@ -173,6 +173,17 @@ dsActive = slActive
 
 //#endregion
 
+
+//#region SL sparks
+/*if(slActive && slTimer == 600 ){
+	instance_create(x, y - 40, "obj_article2");
+	spark_state = 1;
+}*/
+
+SL_fizzle_timer += 0.2;
+
+
+//#endregion
 
 #define SL_mode
 //#region Sangiune Lightning Strong Hitboxes
@@ -249,8 +260,25 @@ if(slActive){
 	set_window_value(AT_DTILT, 1, AG_WINDOW_LENGTH, 3)
 	set_window_value(AT_DTILT, 2, AG_WINDOW_HSPEED, 14)
 	
+	set_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH, 4)
+	set_window_value(AT_FTILT, 3, AG_WINDOW_LENGTH, 4)
+	set_window_value(AT_FTILT, 4, AG_WINDOW_LENGTH, 3)
+	
+	set_hitbox_value(AT_UTILT, 1, HG_DAMAGE, 11)
+	set_hitbox_value(AT_UTILT, 10, HG_DAMAGE, 11)
+	
 	set_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED, 14)
 	set_window_value(AT_DATTACK, 3, AG_WINDOW_LENGTH, 7)
+	
+	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 4)
+	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 1)
+	
+	set_hitbox_value(AT_NSPECIAL, 1, HG_DAMAGE, 8)
+	set_hitbox_value(AT_NSPECIAL, 1, HG_KNOCKBACK_SCALING, 1.4)
+	
+	set_hitbox_value(AT_JAB, 3, HG_DAMAGE, 6)
+	set_hitbox_value(AT_JAB, 2, HG_DAMAGE, 6)
+	set_hitbox_value(AT_JAB, 1, HG_DAMAGE, 6)
 	
 	
 }
@@ -266,10 +294,27 @@ else{
 	reset_window_value(AT_FSPECIAL, 1, AG_WINDOW_LENGTH)
 	
 	reset_window_value(AT_DTILT, 1, AG_WINDOW_LENGTH)
-	reset_window_value(AT_DTILT, 2, AG_WINDOW_LENGTH)
+	reset_window_value(AT_DTILT, 2, AG_WINDOW_HSPEED)
+	
+	reset_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH)
+	reset_window_value(AT_FTILT, 3, AG_WINDOW_LENGTH)
+	reset_window_value(AT_FTILT, 4, AG_WINDOW_LENGTH)
+	
+	reset_hitbox_value(AT_UTILT, 1, HG_DAMAGE)
+	reset_hitbox_value(AT_UTILT, 10, HG_DAMAGE)
 	
 	reset_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED)
 	reset_window_value(AT_DATTACK, 3, AG_WINDOW_LENGTH)
+	
+	reset_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH)
+	reset_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH)
+	
+	reset_hitbox_value(AT_NSPECIAL, 1, HG_DAMAGE)
+	reset_hitbox_value(AT_NSPECIAL, 1, HG_KNOCKBACK_SCALING)
+	
+	reset_hitbox_value(AT_JAB, 3, HG_DAMAGE)
+	reset_hitbox_value(AT_JAB, 2, HG_DAMAGE)
+	reset_hitbox_value(AT_JAB, 1, HG_DAMAGE)
 	
 	
 }

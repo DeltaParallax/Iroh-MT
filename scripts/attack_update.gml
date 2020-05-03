@@ -174,18 +174,19 @@ if(attack == AT_DSPECIAL_AIR){
         soft_armor = 9999;
     }
     if(window == 2 && dspec_airgrab == true){
-        with(oPlayer){
-            if(id != other.id){
-                x = other.x + (60 * other.spr_dir)
-                y = other.y + 30
-            }
-        }
+                dspec_id.x = x + (60 * spr_dir)
+                dspec_id.y = y + 30
+            
+        
     }
     
     if(window == 2 && !free){
         window = 3;
         window_timer = 0;
         image_index = 0;
+    }
+    if(window == 3){
+        dspec_id = 0;
     }
 }
 

@@ -29,6 +29,7 @@ if ( my_hitboxID.attack == AT_DSPECIAL_2 || my_hitboxID.attack == AT_DSPECIAL_AI
     
 if (my_hitboxID.attack == AT_DSPECIAL_AIR && my_hitboxID.hbox_num == 5){
     dspec_airgrab = true;
+    dspec_id = hit_player_obj;
     
 }
     //#endregion

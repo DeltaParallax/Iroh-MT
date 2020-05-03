@@ -78,6 +78,12 @@ if useskins{
     changeAnim(spr_roll_forward, sprite_get("roll_forward"));
     changeAnim(spr_roll_backward, sprite_get("roll_backward"));
     changeAnim(spr_airdodge, sprite_get("airdodge"));
+    changeAnim(spr_airdodge_forward, sprite_get("airdodge_forward"));
+    changeAnim(spr_airdodge_back, sprite_get("airdodge_back"));
+    changeAnim(spr_airdodge_upback, sprite_get("airdodge_upback"));
+    changeAnim(spr_airdodge_upforward, sprite_get("airdodge_upforward"));
+    changeAnim(spr_airdodge_downback, sprite_get("airdodge_downback"));
+    changeAnim(spr_airdodge_downforward, sprite_get("airdodge_downforward"));
     changeAnim(spr_airdodge_waveland, sprite_get("waveland"));
     changeAnim(spr_tech, sprite_get("tech"));
 

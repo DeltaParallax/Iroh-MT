@@ -168,6 +168,7 @@ explode = false;
 //Dspecial
 shake = 0;
 dspec_airgrab = false;
+dspec_id = 0;
 
 //Fstrong
 staticloop = 0;
@@ -181,6 +182,12 @@ DAIR_jcTimer = 0;
 //SL transformation
 SL_trans_timer = 60;
 sltrans = noone;
+
+//sparks
+spark_state = 0;
+SL_trans_timer = 0;
+SL_fizzle = noone;
+SL_fizzle_timer = 0;
 
 //#region SL Sprites
 

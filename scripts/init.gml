@@ -236,6 +236,9 @@ spr_taunt = sprite_get("taunt");
 //Respawn
 spr_plat = sprite_get("plat");
 
+// hud meter ease
+hud_timer = 0;
+
 //#endregion
 
 particles = ds_list_create()

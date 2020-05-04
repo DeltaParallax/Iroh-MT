@@ -126,6 +126,15 @@ if(state == PS_ATTACK_AIR && attack == AT_DSPECIAL_AIR){
 
 //#endregion
 
+
+//#region HUD Timer easing
+
+var temp_timer = floor((floor(slTimer)/slTimerLimit)*23*0.5)*2;
+hud_timer += (temp_timer>hud_timer?2:(temp_timer<hud_timer?-2:0));
+
+
+//#endregion
+
 #define SL_mode
 
 //#region Sangiune Lightning Strong Hitboxes

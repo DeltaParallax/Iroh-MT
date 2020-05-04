@@ -54,7 +54,7 @@ if(my_hitboxID.attack == AT_USTRONG && (my_hitboxID.hbox_num == 1)){
      for (var spark = 1; spark <= 14; spark++)
      {
          var obSpark;
-         obSpark = create_hitbox(AT_USTRONG, 3, x + (2 + random_func(spark, 70, true)) * spr_dir, y - 170 + random_func_2(15-spark, 50, true))
+         obSpark = create_hitbox(AT_USTRONG, 3, hit_player_obj.x + (-38 + random_func(spark, 70, true)) * spr_dir, hit_player_obj.y - 80 + random_func_2(15-spark, 50, true))
 
         //#endregion)
     
@@ -93,7 +93,7 @@ if(my_hitboxID.attack == AT_DSTRONG && (my_hitboxID.hbox_num == 2)){
      for (var spark = 1; spark <= 14; spark++)
      {
          var obSpark;
-         obSpark = create_hitbox(AT_USTRONG, 3, x + (-120 + random_func(spark, 70, true)) * spr_dir, y - 60 + random_func_2(15-spark, 50, true))
+         obSpark = create_hitbox(AT_USTRONG, 3, hit_player_obj.x + (-30+ random_func(spark, 70, true)) * spr_dir, hit_player_obj.y - 50+ random_func_2(15-spark, 50, true))
 
         //#endregion)
     

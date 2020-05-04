@@ -1,5 +1,5 @@
 //B - Reversals
-if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || attack == AT_USPECIAL){
+if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || attack == AT_USPECIAL || attack == AT_DAIR || attack == AT_DSPECIAL_AIR){
     trigger_b_reverse();
 }
 
@@ -156,6 +156,9 @@ if(attack == AT_DSPECIAL){
 }
 
 if(attack == AT_DSPECIAL_2){
+    for(var i = 1; i <= 4; i++){
+        set_hitbox_value(AT_DSPECIAL_2, i, HG_DAMAGE, 10 + DSP_dam)
+    }
     if(window == 1 && window_timer == 1){
         
         slTimer = 1;
@@ -166,6 +169,9 @@ if(attack == AT_DSPECIAL_2){
 }
 
 if(attack == AT_DSPECIAL_AIR){
+    for(var i = 1; i <= 4; i++){
+        set_hitbox_value(AT_DSPECIAL_AIR, i, HG_DAMAGE, 10 + DSP_dam)
+    }
     if(window == 1 && window_timer == 1){
         dspec_airgrab = false;
         slTimer = 0;
@@ -200,6 +206,7 @@ if(attack == AT_DSPECIAL_AIR){
     //#region Ustrong
 if(attack == AT_USTRONG){
     if(window == 3 && !hitpause){
+        
         vsp = ease_sineOut(-6 + (floor(strong_charge / 15) *  -2), 0, window_timer, 20); //jump charge distance
         hsp = 0;
         if(window_timer == 1){
@@ -353,3 +360,9 @@ if(attack == AT_TAUNT && window == 1 && window_timer == 1 && !hitpause){
     slTimer += 600;
 }
 
+if(slActive){
+            set_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_SPRITE, sprite_get("SL_spark"))
+        }
+        else{
+            reset_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_SPRITE)
+        }

@@ -122,6 +122,7 @@ if (slTimer >= slTimerLimit and !slActive)
 {
 	slActive = true
 	SL_mode();
+	DSP_dam = 0;
 	slTimer = slTimerLimit
 	slHurtTimer = slMaxHurtTime;
 	with(oPlayer){
@@ -160,6 +161,7 @@ if slActive
 	{
 		slHurtTimer = slMaxHurtTime;
 		take_damage(player,-1,slHurtAmount)
+		DSP_dam += slHurtAmount;
 	}
 }
 else
@@ -175,17 +177,33 @@ dsActive = slActive
 
 
 //#region SL sparks
-/*if(slActive && slTimer == 600 ){
-	instance_create(x, y - 40, "obj_article2");
-	spark_state = 1;
-}*/
-
-SL_fizzle_timer += 0.2;
-
+if(slActive){
+	for(var n = 0; n <= 1; n++)
+	if(!hitpause){
+		if(slTimer % 30 = n){
+			for(var m = 1; m <= 4; m++){
+				var xran = random_func(m, 90, true)
+				var yran = random_func_2(m, 90, true)
+				instance_create(x + (xran - 45) * spr_dir, y + yran - 80, "obj_article2")
+			}
+		}
+	}
+	if((hsp != 0 || vsp != 0) && !hitpause){
+		for(var n = 0; n <= 2; n++)
+		if(slTimer % 6 = n){
+			for(var m = 1; m <= 4; m++){
+				var xran = random_func(m, 90, true)
+				var yran = random_func_2(m, 90, true)
+				instance_create(x + (xran - 45) * spr_dir, y + yran - 80, "obj_article2")
+			}
+		}
+	}
+}
 
 //#endregion
 
 #define SL_mode
+
 //#region Sangiune Lightning Strong Hitboxes
 if(slActive){
     //Ustrong Kill Version
@@ -203,14 +221,14 @@ if(slActive){
     set_hitbox_value(AT_DSTRONG, 2, HG_ANGLE, 135);
     
     //Fstrong Kill Version
-    for(var i = 1; i <= 12; i++){
-    	set_hitbox_value(AT_FSTRONG, i, HG_BASE_KNOCKBACK, 8.5);
-    	set_hitbox_value(AT_FSTRONG, i, HG_KNOCKBACK_SCALING, 0.70);
-    	set_hitbox_value(AT_FSTRONG, i, HG_ANGLE, 40);
-    	set_hitbox_value(AT_FSTRONG, i, HG_BASE_HITPAUSE, 18);
-    	set_hitbox_value(AT_FSTRONG, i, HG_HITPAUSE_SCALING, 1);
-    	set_hitbox_value(AT_FSTRONG, i, HG_EXTRA_HITPAUSE, 0);
-    	set_hitbox_value(AT_FSTRONG, i, HG_DAMAGE, 10);
+    for(var k = 1; k <= 12; k++){
+    	set_hitbox_value(AT_FSTRONG, k, HG_BASE_KNOCKBACK, 8.5);
+    	set_hitbox_value(AT_FSTRONG, k, HG_KNOCKBACK_SCALING, 0.70);
+    	set_hitbox_value(AT_FSTRONG, k, HG_ANGLE, 40);
+    	set_hitbox_value(AT_FSTRONG, k, HG_BASE_HITPAUSE, 18);
+    	set_hitbox_value(AT_FSTRONG, k, HG_HITPAUSE_SCALING, 1);
+    	set_hitbox_value(AT_FSTRONG, k, HG_EXTRA_HITPAUSE, 0);
+    	set_hitbox_value(AT_FSTRONG, k, HG_DAMAGE, 10);
     }
     
     
@@ -231,14 +249,14 @@ else{
     reset_hitbox_value(AT_DSTRONG, 2, HG_ANGLE);
     
     //Fstrong reset
-    for(var i = 1; i <= 12; i++){
-    	reset_hitbox_value(AT_FSTRONG, i, HG_BASE_KNOCKBACK);
-    	reset_hitbox_value(AT_FSTRONG, i, HG_KNOCKBACK_SCALING);
-    	reset_hitbox_value(AT_FSTRONG, i, HG_ANGLE);
-    	reset_hitbox_value(AT_FSTRONG, i, HG_BASE_HITPAUSE);
-    	reset_hitbox_value(AT_FSTRONG, i, HG_HITPAUSE_SCALING);
-    	reset_hitbox_value(AT_FSTRONG, i, HG_EXTRA_HITPAUSE);
-    	reset_hitbox_value(AT_FSTRONG, i, HG_DAMAGE);
+    for(var k = 1; k <= 12; k++){
+    	reset_hitbox_value(AT_FSTRONG, k, HG_BASE_KNOCKBACK);
+    	reset_hitbox_value(AT_FSTRONG, k, HG_KNOCKBACK_SCALING);
+    	reset_hitbox_value(AT_FSTRONG, k, HG_ANGLE);
+    	reset_hitbox_value(AT_FSTRONG, k, HG_BASE_HITPAUSE);
+    	reset_hitbox_value(AT_FSTRONG, k, HG_HITPAUSE_SCALING);
+    	reset_hitbox_value(AT_FSTRONG, k, HG_EXTRA_HITPAUSE);
+    	reset_hitbox_value(AT_FSTRONG, k, HG_DAMAGE);
     }
 }
 
@@ -362,7 +380,7 @@ if slActive {
     spr_nspecial = sprite_get("SL_nspecial")
     spr_parry = sprite_get("SL_parry")
     spr_pratfall = sprite_get("SL_pratfall")
-    spr_sparks = sprite_get("SL_sparks")
+    spr_spark = sprite_get("SL_spark")
     spr_tech = sprite_get("SL_tech")
     spr_uair = sprite_get("SL_uair")
     spr_uphurt = sprite_get("SL_uphurt")
@@ -415,7 +433,7 @@ else{
     spr_nspecial = sprite_get("nspecial")
     spr_parry = sprite_get("parry")
     spr_pratfall = sprite_get("pratfall")
-    spr_sparks = sprite_get("sparks")
+    spr_spark = sprite_get("spark")
     spr_tech = sprite_get("tech")
     spr_uair = sprite_get("uair")
     spr_uphurt = sprite_get("uphurt")

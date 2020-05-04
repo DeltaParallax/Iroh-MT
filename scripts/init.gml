@@ -105,7 +105,7 @@ jump_loop = 0
 
 //Sanguine Lightning Variables
 slActive = false;
-slTimer = 590;
+slTimer = 0;
 slTimerLimit = 600; //10 seconds worth of frames
 
 //self-damage
@@ -123,6 +123,9 @@ slNormalKB = 1;
 slActiveKB = 1.4;
 slKBMult = slNormalKB;
 
+//bar stuff
+slBarShake = 0
+slBarIndex = 0
 
 //Uspecial 
 USPpow = false; //Sweet Spot Kill box

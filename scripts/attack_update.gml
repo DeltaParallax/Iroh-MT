@@ -158,6 +158,7 @@ if(attack == AT_DSPECIAL){
 }
 
 if(attack == AT_DSPECIAL_2){
+    
     for(var i = 1; i <= 4; i++){
         set_hitbox_value(AT_DSPECIAL_2, i, HG_DAMAGE, 10 + DSP_dam)
     }

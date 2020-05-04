@@ -65,7 +65,7 @@ set_hitbox_value(AT_USTRONG, 3, HG_LIFETIME, 25);
 set_hitbox_value(AT_USTRONG, 3, HG_SHAPE, 0);
 set_hitbox_value(AT_USTRONG, 3, HG_WIDTH, 2);
 set_hitbox_value(AT_USTRONG, 3, HG_HEIGHT, 2);
-set_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_SPRITE, sprite_get("sparks"));
+set_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_SPRITE, sprite_get("spark"));
 set_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_MASK, -1);
 set_hitbox_value(AT_USTRONG, 3, HG_PRIORITY, 0);
 set_hitbox_value(AT_USTRONG, 3, HG_DAMAGE, 0);

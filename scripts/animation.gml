@@ -116,6 +116,7 @@ if useskins{
     changeAnim(spr_uspecial, sprite_get("uspecial"));
     changeAnim(spr_dspecial, sprite_get("dspecial"));
     changeAnim(spr_taunt, sprite_get("taunt"));
+    changeAnim(spr_spark, sprite_get("spark"));
 }
 
 

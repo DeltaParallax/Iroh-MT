@@ -138,6 +138,7 @@ explode = false;
 shake = 0;
 dspec_airgrab = false;
 dspec_id = 0;
+DSP_dam = 0;
 
 //Fstrong
 staticloop = 0;

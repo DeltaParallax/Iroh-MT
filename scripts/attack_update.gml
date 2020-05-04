@@ -1,6 +1,12 @@
 //B - Reversals
-if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || attack == AT_USPECIAL){
+switch (attack)
+{
+case AT_NSPECIAL:
+case AT_FSPECIAL:
+case AT_DSPECIAL:
+case AT_USPECIAL:
     trigger_b_reverse();
+	break;
 }
 
 //#region Specials
@@ -20,12 +26,11 @@ if (attack == AT_NSPECIAL){
         }
     }
     if(window == 3){
-        
         can_strong = true;
         if(special_down){
             explode = true;
         }
-        if(window_timer = 12 && explode == true){
+        if(window_timer = 12 && explode){
             window = 4;
             window_timer = 0;
             image_index = 0;
@@ -40,12 +45,7 @@ if (attack == AT_NSPECIAL){
             image_index = 0;
         }
     }
-    if(vsp < -4){
-        vsp = -4;
-    }
-    if(vsp > 3.5){
-        vsp = 3.5
-    }
+	vsp = clamp(vsp, -4, 3.5);
 }
     //#endregion
 
@@ -81,7 +81,7 @@ if(attack == AT_USPECIAL){
     if(window == 2){
         if(window_timer == 1){
             if(!joy_pad_idle){
-            USPdir = joy_dir;    
+				USPdir = joy_dir;    
             }
         }
         if(!hitpause){
@@ -132,7 +132,7 @@ if(attack == AT_USPECIAL){
     //#region Dspecial
 
 if(attack == AT_DSPECIAL){
-    shake++
+    ++shake;
     if(window == 1){
         can_fast_fall = false;
         soft_armor = 99999;
@@ -157,10 +157,9 @@ if(attack == AT_DSPECIAL){
 
 if(attack == AT_DSPECIAL_2){
     if(window == 1 && window_timer == 1){
-        
         slTimer = 1;
     }
-    if(window == 1 || window  == 2){
+    if(window == 1 || window == 2){
         soft_armor = 99999;
     }
 }
@@ -173,11 +172,9 @@ if(attack == AT_DSPECIAL_AIR){
     if(window == 1 || window == 2){
         soft_armor = 9999;
     }
-    if(window == 2 && dspec_airgrab == true){
-                dspec_id.x = x + (60 * spr_dir)
-                dspec_id.y = y + 30
-            
-        
+    if(window == 2 && dspec_airgrab){
+        dspec_id.x = x + (60 * spr_dir)
+        dspec_id.y = y + 30
     }
     
     if(window == 2 && !free){
@@ -272,7 +269,7 @@ if(attack == AT_JAB){
     if(window == 1){
         move_cooldown[AT_JAB] = 40;
     }
-    if(window == 6){
+    else if(window == 6){
         can_attack = true;
     }
 }
@@ -283,8 +280,8 @@ if(attack == AT_JAB){
 if(attack == AT_DATTACK){
     if(window == 2){
         if(was_parried){
-        window = 3;
-        window_timer = 0;
+			window = 3;
+			window_timer = 0;
         }
     }
 }
@@ -293,13 +290,12 @@ if(attack == AT_DATTACK){
 
 //#region Tilts
 
-
     //#region DTILT
 if(attack == AT_DTILT){
     if(window == 1 && window_timer == 1){
         dtiltjumpcancel = false;
     }
-    if(dtiltjumpcancel = true){
+    if(dtiltjumpcancel){
         can_jump = true;
     }
 }
@@ -327,10 +323,9 @@ if(attack == AT_DAIR){
             can_special = true;
         }
         
-        
         can_wall_jump = true;
     }
-    DAIR_jcTimer++
+    ++DAIR_jcTimer;
     
 }
 
@@ -341,15 +336,11 @@ if(attack == AT_DAIR){
         air_accel = 0.2;
     }
     
-    
-    
     //#endregion
-
 
 //#endregion
 
 if(attack == AT_TAUNT && window == 1 && window_timer == 1 && !hitpause){
-    
     slTimer += 600;
 }
 

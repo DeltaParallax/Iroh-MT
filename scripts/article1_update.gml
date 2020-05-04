@@ -12,4 +12,5 @@ if (image_alpha <= 0)
 {
 	player_id.dsNumShadows -=1
 	instance_destroy();
+	exit;
 }

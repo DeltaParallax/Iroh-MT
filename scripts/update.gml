@@ -190,7 +190,7 @@ if(slActive){
 	}
 	if((hsp != 0 || vsp != 0) && !hitpause){
 		for(var n = 0; n <= 2; n++)
-		if(slTimer % 6 = n){
+		if(slTimer % 9 = n){
 			for(var m = 1; m <= 4; m++){
 				var xran = random_func(m, 90, true)
 				var yran = random_func_2(m, 90, true)
@@ -198,6 +198,17 @@ if(slActive){
 			}
 		}
 	}
+}
+
+if(state == PS_ATTACK_AIR && attack == AT_DSPECIAL_AIR){
+	for(var l = 0; l <= 2; l++)
+		if(slTimer % 9 = l){
+			for(var v = 1; v <= 4; v++){
+				var xran = random_func(v, 90, true)
+				var yran = random_func_2(v, 90, true)
+				instance_create(x + (xran - 45) * spr_dir, y + yran - 80, "obj_article2")
+			}
+		}
 }
 
 //#endregion

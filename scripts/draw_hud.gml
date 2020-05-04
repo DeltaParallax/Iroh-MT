@@ -27,6 +27,6 @@ bx = 10
 by = -14
 
 
-draw_sprite(bar,slBarIndex,temp_x+bx,temp_y+by)
-draw_sprite(meter,(floor(slTimer)/slTimerLimit)*23,temp_x+bx+11,temp_y+by)
+draw_sprite(bar,slBarIndex,temp_x+bx-9,temp_y+by-21)
+draw_sprite(meter,(floor(slTimer)/slTimerLimit)*23,temp_x+bx+11,temp_y+by-3)
 draw_sprite(cycle,(floor(slHurtTimer)/slMaxHurtTime)*12,temp_x+bx-9,temp_y+by-9)

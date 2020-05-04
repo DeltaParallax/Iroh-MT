@@ -131,7 +131,7 @@ USPdir = 0; //Angle direction input.
 ///Shadow Dash: Variables
 
 //Control variables
-dsActive = 0; //0 = inactive, 1 = active
+dsActive = false; //false = inactive, true = active
 dsSpawnTimer = 0; //should be 0 if dsActive is 0
 dsMaxSpawnTime = 5; //Every dsMaxSpawnTime frames, a dash shadow spawns
 dsMaxShadows = -1; //Maximum number of shadows that can exist, -1 for unlimited

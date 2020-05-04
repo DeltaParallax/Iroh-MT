@@ -1,5 +1,75 @@
 // Lukaru's css draw, with Muno's base
 
+// Note from Luka: this runs every frame :(
+{
+	// Fur
+	set_color_profile_slot( 0, 0, 200, 200, 240 );
+	set_color_profile_slot_range( 0, 27, 24, 29 );
+	// Skin
+	set_color_profile_slot( 0, 1, 219, 119, 101 );
+	// Alt Fur
+	set_color_profile_slot( 0, 6, 253, 253, 253 );
+	set_color_profile_slot( 1, 0, 128, 171, 244 ); //Fur
+	set_color_profile_slot( 1, 1, 219, 119, 101 ); //Skin
+	set_color_profile_slot( 1, 6, 253, 253, 253 ); //Alt Fur
+
+	set_color_profile_slot( 2, 0, 239, 109, 86 ); //Fur
+	set_color_profile_slot( 2, 1, 230, 157, 145 ); //Skin
+	set_color_profile_slot( 2, 6, 253, 253, 253 ); //Alt Fur
+
+	set_color_profile_slot( 3, 0, 51, 85, 68 ); //Fur
+	set_color_profile_slot( 3, 1, 51, 85, 68 ); //Skin
+	set_color_profile_slot( 3, 6, 51, 85, 68 ); //Alt Fur
+
+	set_color_profile_slot( 4, 0, 104, 101, 133 ); //Fur
+	set_color_profile_slot( 4, 1, 104, 101, 133 ); //Skin
+	set_color_profile_slot( 4, 6, 104, 101, 133 ); //Alt Fur
+
+	set_color_profile_slot( 5, 0, 86, 58, 88 ); //Fur
+	set_color_profile_slot( 5, 1, 86, 58, 88 ); //Skin
+	set_color_profile_slot( 5, 6, 86, 58, 88 ); //Alt Fur
+
+	set_color_profile_slot( 6, 0, 104, 73, 139 ); //Fur
+	set_color_profile_slot( 6, 1, 104, 73, 139 ); //Skin
+	set_color_profile_slot( 6, 6, 104, 73, 139 ); //Alt Fur
+
+	set_color_profile_slot( 7, 0, 173, 179, 81 ); //Fur
+	set_color_profile_slot( 7, 1, 173, 179, 81 ); //Skin
+	set_color_profile_slot( 7, 6, 173, 179, 81 ); //Alt Fur
+
+	set_color_profile_slot( 8, 0, 168, 64, 147 ); //Fur
+	set_color_profile_slot( 8, 1, 168, 64, 147 ); //Skin
+	set_color_profile_slot( 8, 6, 168, 64, 147 ); //Alt Fur
+
+	set_color_profile_slot( 9, 0, 98, 90, 139 ); //Fur
+	set_color_profile_slot( 9, 1, 219, 119, 101 ); //Skin
+	set_color_profile_slot( 9, 6, 232, 232, 236 ); //Alt Fur
+
+	set_color_profile_slot( 10, 0, 119, 136, 187 ); //Fur
+	set_color_profile_slot( 10, 1, 219, 119, 101 ); //Skin
+	set_color_profile_slot( 10, 6, 253, 253, 253 ); //Alt Fur
+
+	set_color_profile_slot( 11, 0, 106, 99, 118 ); //Fur
+	set_color_profile_slot( 11, 1, 166, 150, 177 ); //Skin
+	set_color_profile_slot( 11, 6, 204, 194, 209 ); //Alt Fur
+
+	set_color_profile_slot( 12, 0, 140, 114, 175 ); //Fur
+	set_color_profile_slot( 12, 1, 166, 150, 177 ); //Skin
+	set_color_profile_slot( 12, 6, 228, 224, 233 ); //Alt Fur
+
+	set_color_profile_slot( 13, 0, 0, 0, 0 ); //Fur
+	set_color_profile_slot( 13, 1, 0, 0, 0 ); //Skin
+	set_color_profile_slot( 13, 6, 0, 0, 0 ); //Alt Fur
+
+	set_color_profile_slot( 14, 0, 0, 0, 0 ); //Fur
+	set_color_profile_slot( 14, 1, 0, 0, 0 ); //Skin
+	set_color_profile_slot( 14, 6, 0, 0, 0 ); //Alt Fur
+
+	set_color_profile_slot( 15, 0, 0, 0, 0 ); //Fur
+	set_color_profile_slot( 15, 1, 0, 0, 0 ); //Skin
+	set_color_profile_slot( 15, 6, 0, 0, 0 ); //Alt Fur
+}
+
 var temp_x = x + 8;
 var temp_y = y + 9;
 

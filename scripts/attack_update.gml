@@ -71,6 +71,7 @@ if (attack == AT_FSPECIAL){
     }
     can_fast_fall = false;
     move_cooldown[AT_FSPECIAL] = 40;
+	x = clamp(x, 0, room_width);
 }
 //#endregion
 
@@ -206,7 +207,6 @@ if(attack == AT_DSPECIAL_AIR){
     //#region Ustrong
 if(attack == AT_USTRONG){
     if(window == 3 && !hitpause){
-        
         vsp = ease_sineOut(-6 + (floor(strong_charge / 15) *  -2), 0, window_timer, 20); //jump charge distance
         hsp = 0;
         if(window_timer == 1){
@@ -215,34 +215,69 @@ if(attack == AT_USTRONG){
                 UST.kb_value = 12 + floor(window_timer / 5) * 3;
         }
     }
-    if(window == 6 && !hitpause){
-        vsp = ease_sineOut(-8, -4, window_timer, 15);
-        
-        if(window_timer <= 6 && window_timer % 3 = 0){
-            var USTsparks1 = create_hitbox(AT_USTRONG, 3, x + (12 + random_func(1, 3, true)) * spr_dir, y - 100 + random_func(5, 3, true)); 
-            var USTsparks2 = create_hitbox(AT_USTRONG, 3, x + (12 + random_func(2, 3, true)) * spr_dir, y - 100 + random_func(6, 3, true)); 
-            var USTsparks3 = create_hitbox(AT_USTRONG, 3, x + (12 + random_func(3, 3, true)) * spr_dir, y - 100 + random_func(7, 3, true)); 
-            var USTsparks4 = create_hitbox(AT_USTRONG, 3, x + (12 + random_func(4, 3, true)) * spr_dir, y - 100 + random_func(8, 3, true)); 
-        
-        var USTsparkspeed = -7;
-        
-        USTsparks1.vsp = USTsparkspeed * sin(degtorad(258 + random_func(1, 30, true))); 
-        USTsparks1.hsp = USTsparkspeed * cos(degtorad(258 + random_func(1, 30, true))) * spr_dir * -1;
-        
-        USTsparks2.vsp = USTsparkspeed * sin(degtorad(258 + random_func(2, 30, true))); 
-        USTsparks2.hsp = USTsparkspeed * cos(degtorad(258 + random_func(2, 30, true))) * spr_dir * -1;
-        
-        USTsparks3.vsp = USTsparkspeed * sin(degtorad(258 + random_func(3, 30, true))); 
-        USTsparks3.hsp = USTsparkspeed * cos(degtorad(258 + random_func(3, 30, true))) * spr_dir * -1;
-        
-        USTsparks4.vsp = USTsparkspeed * sin(degtorad(258 + random_func(4, 30, true))); 
-        USTsparks4.hsp = USTsparkspeed * cos(degtorad(258 + random_func(4, 30, true))) * spr_dir * -1;
-        /*
-        can_jump = true;
-        can_special = true;
-        can_move = true;
-        can_attack = true;*/
-        }
+    if(window == 6){
+		if (hitpause)
+		{
+			if (hit_player)
+			{
+				if (hitstop == 0)
+				{
+					hit_player_obj.x = x + spr_dir * 15;
+					hit_player_obj.y = y - 85;
+				}
+				else
+				{
+					if (hit_player_obj.x > (x + spr_dir * 15))
+					{
+						hit_player_obj.x -= (hit_player_obj.x - (x + spr_dir * 15))/6;
+					}
+					else if (hit_player_obj.x < (x + spr_dir * 15))
+					{
+						hit_player_obj.x += ((x + spr_dir * 15) - hit_player_obj.x)/6;
+					}
+					if (hit_player_obj.y > (y - 85))
+					{
+						hit_player_obj.y -= (hit_player_obj.y - (y - 85))/6;
+					}
+					else if (hit_player_obj.y < (y - 85))
+					{
+						hit_player_obj.y += ((y - 85) - hit_player_obj.y)/6;
+					}
+				}
+				hit_player_obj.hsp = 0;
+				hit_player_obj.vsp = 0;
+			}
+		}
+		else
+		{
+			vsp = ease_sineOut(-8, -4, window_timer, 15);
+			
+			if(window_timer <= 6 && window_timer % 3 = 0){
+			    var USTsparks1 = create_hitbox(AT_USTRONG, 3, x + (12 + random_func(1, 3, true)) * spr_dir, y - 100 + random_func(5, 3, true)); 
+			    var USTsparks2 = create_hitbox(AT_USTRONG, 3, x + (12 + random_func(2, 3, true)) * spr_dir, y - 100 + random_func(6, 3, true)); 
+			    var USTsparks3 = create_hitbox(AT_USTRONG, 3, x + (12 + random_func(3, 3, true)) * spr_dir, y - 100 + random_func(7, 3, true)); 
+			    var USTsparks4 = create_hitbox(AT_USTRONG, 3, x + (12 + random_func(4, 3, true)) * spr_dir, y - 100 + random_func(8, 3, true)); 
+			
+				var USTsparkspeed = -7;
+				
+				USTsparks1.vsp = USTsparkspeed * sin(degtorad(258 + random_func(1, 30, true))); 
+				USTsparks1.hsp = USTsparkspeed * cos(degtorad(258 + random_func(1, 30, true))) * spr_dir * -1;
+				
+				USTsparks2.vsp = USTsparkspeed * sin(degtorad(258 + random_func(2, 30, true))); 
+				USTsparks2.hsp = USTsparkspeed * cos(degtorad(258 + random_func(2, 30, true))) * spr_dir * -1;
+				
+				USTsparks3.vsp = USTsparkspeed * sin(degtorad(258 + random_func(3, 30, true))); 
+				USTsparks3.hsp = USTsparkspeed * cos(degtorad(258 + random_func(3, 30, true))) * spr_dir * -1;
+				
+				USTsparks4.vsp = USTsparkspeed * sin(degtorad(258 + random_func(4, 30, true))); 
+				USTsparks4.hsp = USTsparkspeed * cos(degtorad(258 + random_func(4, 30, true))) * spr_dir * -1;
+				/*
+				can_jump = true;
+				can_special = true;
+				can_move = true;
+				can_attack = true;*/
+			}
+		}
     }
 }
 

@@ -1,91 +1,9 @@
 
 //#region Shadow dash
 //shadow dash spawn
+if slActive createParticle(particles, 1, 0, 0, sprite_index, image_index, x, y, 0, 0, 0, 0, 0, 1,-0.2,10)
 
-dsSpawnTimer = (dsActive?dsSpawnTimer+1:0);
-
-if (state != PS_RESPAWN)
-{
-	if (dsSpawnTimer == dsMaxSpawnTime)
-	{
-		dsSpawnTimer=0;
-		if (dsMaxShadows != -1)
-		{
-			if (dsMaxShadows > dsNumShadows)
-			{
-				++dsNumShadows
-				var shadow,change;
-				change = [1,1];
-				if (dsDispChangeWith[0] == 1) change[0] = image_xscale;
-				if (dsDispChangeWith[1] == 1) change[1] = image_yscale;
-				//note from supersonic: always floor your x and y values on instance_create, create_hitbox, and create_deathbox.
-				shadow = instance_create(floor(x+(dsStartDisp[0])*change[0]),floor(y+(dsStartDisp[1])*change[1]),"obj_article1");
-				shadow.dsEndDisp = dsEndDisp;
-				shadow.dsLifetime = dsLifetime;
-				shadow.dsStartScale = dsStartScale;
-				shadow.dsEndScale = dsEndScale;
-				shadow.dsSnapPos = dsSnapPos;
-				shadow.spr_dir = image_xscale;
-				shadow.sprite_index = sprite_index;
-				shadow.image_index = image_index;
-				shadow.image_speed = 0;
-				shadow.image_alpha = dsStartAlpha;
-				shadow.image_xscale=dsStartScale[0];
-				shadow.image_yscale = dsStartScale[1];
-			}
-		}
-		else
-		{
-			++dsNumShadows
-			var shadow,change;
-			change = [1,1];
-			if (dsDispChangeWith[0] == 1) change[0] = image_xscale;
-			if (dsDispChangeWith[1] == 1) change[1] = image_yscale;
-			shadow = instance_create(floor(x+(dsStartDisp[0])*change[0]),floor(y+(dsStartDisp[1])*change[1]),"obj_article1");
-			shadow.dsEndDisp = dsEndDisp;
-			shadow.dsLifetime = dsLifetime;
-			shadow.dsStartScale = dsStartScale;
-			shadow.dsEndScale = dsEndScale;
-			shadow.dsSnapPos = dsSnapPos;
-			shadow.spr_dir = image_xscale;
-			shadow.sprite_index = sprite_index;
-			shadow.image_index = image_index;
-			shadow.image_speed = 0;
-			shadow.image_alpha = dsStartAlpha;
-			shadow.image_xscale=dsStartScale[0];
-			shadow.image_yscale = dsStartScale[1];
-		}
-	}
-}
-else
-{
-	dsSpawnTimer=0;
-}
-
-//dash shadow activating
-if (dsNoDiscrim == 0)
-{
-	dsActive = false;
-	for (var i = 0; i <array_length_1d(dsSpawnDuring); ++i)
-	{
-		if (state == dsSpawnDuring[i])
-		{
-			dsActive = true;
-		}
-	}
-	for (var j = 0; j <array_length_1d(dsSpawnAttack); ++j)
-	{
-		if (attack ==dsSpawnAttack[j] && (state == PS_ATTACK_AIR || state == PS_ATTACK_GROUND))
-		{
-			dsActive = true;
-		}
-	}
-}
-else
-{
-	dsActive = true;
-}
-
+p_process(particles)
 //#endregion
 
 //#region Ustrong Lock
@@ -102,7 +20,12 @@ with(oPlayer){
 
 
 //#region Uspecial SL cooldown
-move_cooldown[AT_USPECIAL] = (can_US?0:50);
+if(can_US = false){
+    move_cooldown[AT_USPECIAL] = 50;
+}
+if(can_US = true){
+	move_cooldown[AT_USPECIAL] = 0;
+}
 
 if (!free || state == PS_WALL_JUMP || state_cat == SC_HITSTUN) {
   can_US = true;
@@ -113,7 +36,7 @@ if (!free || state == PS_WALL_JUMP || state_cat == SC_HITSTUN) {
 
 
 //#region Sanguine Lightning
-if (slTimer >= slTimerLimit && !slActive)
+if (slTimer >= slTimerLimit and !slActive)
 {
 	slActive = true
 	SL_mode();
@@ -137,8 +60,8 @@ if(slTimer < 0){
 if slActive
 {
 	if(!hitpause){
-		--slTimer;
-		--slHurtTimer;
+		slTimer-=1
+		slHurtTimer-=1
 	}
 	
 	slDamageMult = slActiveDamage
@@ -164,7 +87,7 @@ else
 	slKBMult = slNormalKB
 }
 
-dsActive = slActive
+
 
 //#endregion
 
@@ -198,7 +121,7 @@ if(slActive){
     set_hitbox_value(AT_DSTRONG, 2, HG_ANGLE, 135);
     
     //Fstrong Kill Version
-    for(var i = 1; i <= 12; ++i){
+    for(var i = 1; i <= 12; i++){
     	set_hitbox_value(AT_FSTRONG, i, HG_BASE_KNOCKBACK, 8.5);
     	set_hitbox_value(AT_FSTRONG, i, HG_KNOCKBACK_SCALING, 0.70);
     	set_hitbox_value(AT_FSTRONG, i, HG_ANGLE, 40);
@@ -226,7 +149,7 @@ else{
     reset_hitbox_value(AT_DSTRONG, 2, HG_ANGLE);
     
     //Fstrong reset
-    for(var i = 1; i <= 12; ++i){
+    for(var i = 1; i <= 12; i++){
     	reset_hitbox_value(AT_FSTRONG, i, HG_BASE_KNOCKBACK);
     	reset_hitbox_value(AT_FSTRONG, i, HG_KNOCKBACK_SCALING);
     	reset_hitbox_value(AT_FSTRONG, i, HG_ANGLE);
@@ -255,11 +178,25 @@ if(slActive){
 	set_window_value(AT_DTILT, 1, AG_WINDOW_LENGTH, 3)
 	set_window_value(AT_DTILT, 2, AG_WINDOW_HSPEED, 14)
 	
+	set_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH, 4)
+	set_window_value(AT_FTILT, 3, AG_WINDOW_LENGTH, 4)
+	set_window_value(AT_FTILT, 4, AG_WINDOW_LENGTH, 3)
+	
+	set_hitbox_value(AT_UTILT, 1, HG_DAMAGE, 11)
+	set_hitbox_value(AT_UTILT, 10, HG_DAMAGE, 11)
+	
 	set_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED, 14)
 	set_window_value(AT_DATTACK, 3, AG_WINDOW_LENGTH, 7)
 	
 	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 4)
 	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 1)
+	
+	set_hitbox_value(AT_NSPECIAL, 1, HG_DAMAGE, 8)
+	set_hitbox_value(AT_NSPECIAL, 1, HG_KNOCKBACK_SCALING, 1.4)
+	
+	set_hitbox_value(AT_JAB, 3, HG_DAMAGE, 6)
+	set_hitbox_value(AT_JAB, 2, HG_DAMAGE, 6)
+	set_hitbox_value(AT_JAB, 1, HG_DAMAGE, 6)
 	
 	
 }
@@ -275,13 +212,27 @@ else{
 	reset_window_value(AT_FSPECIAL, 1, AG_WINDOW_LENGTH)
 	
 	reset_window_value(AT_DTILT, 1, AG_WINDOW_LENGTH)
-	reset_window_value(AT_DTILT, 2, AG_WINDOW_LENGTH)
+	reset_window_value(AT_DTILT, 2, AG_WINDOW_HSPEED)
+	
+	reset_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH)
+	reset_window_value(AT_FTILT, 3, AG_WINDOW_LENGTH)
+	reset_window_value(AT_FTILT, 4, AG_WINDOW_LENGTH)
+	
+	reset_hitbox_value(AT_UTILT, 1, HG_DAMAGE)
+	reset_hitbox_value(AT_UTILT, 10, HG_DAMAGE)
 	
 	reset_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED)
 	reset_window_value(AT_DATTACK, 3, AG_WINDOW_LENGTH)
 	
 	reset_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH)
 	reset_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH)
+	
+	reset_hitbox_value(AT_NSPECIAL, 1, HG_DAMAGE)
+	reset_hitbox_value(AT_NSPECIAL, 1, HG_KNOCKBACK_SCALING)
+	
+	reset_hitbox_value(AT_JAB, 3, HG_DAMAGE)
+	reset_hitbox_value(AT_JAB, 2, HG_DAMAGE)
+	reset_hitbox_value(AT_JAB, 1, HG_DAMAGE)
 	
 	
 }
@@ -407,210 +358,82 @@ if(slActive){
 	dash_speed = 8.6;
 	initial_dash_speed = 9;
 	max_jump_hsp = 8;
-	air_accel = 0.6;
+	air_accel = 0.6
 }
 else{
 	dash_speed = 6.8;
 	initial_dash_speed = 7.3;
-	max_jump_hsp = 5.8;
-	air_accel = 0.4;
+	max_jump_hsp = 5.8
+	air_accel = 0.4
 }
+
 
 //#endregion
 
-
-//#region Sanguine Lightning Colour Palette
-
-// note from Luka: this isnt synced with the transformation animation
-// another note from Luka: the values here are from colors.gml
-// Bugs found so far:	transform and then quit to css (css will have wrong colours)
-//						article 1 doesn't use alt colours
-//						player icon (beside the % HUD) will not change to SL sprite and colours
-if(slActive){
-	// Fur
-	set_color_profile_slot( 0, 0, 173, 67, 100 );
-	set_color_profile_slot_range( 0, 21, 4, 29 );
-	
-	// Skin
-	set_color_profile_slot( 0, 1, 221, 45, 80 );
-	
-	// Alt Fur
-	set_color_profile_slot( 0, 6, 252, 252, 211 );
-	
-	switch (get_player_color(player))
-	{
-	case 1:
-		set_color_profile_slot( 1, 0, 177, 94, 189 ); //Fur
-		set_color_profile_slot( 1, 1, 243, 58, 211 ); //Skin
-		set_color_profile_slot( 1, 6, 252, 211, 251 ); //Alt Fur
-	break;
-	case 2:
-		set_color_profile_slot( 2, 0, 209, 186, 194 ); //Fur
-		set_color_profile_slot( 2, 1, 221, 45, 80 ); //Skin
-		set_color_profile_slot( 2, 6, 240, 175, 172 ); //Alt Fur
-	break;
-	case 3:
-		set_color_profile_slot( 3, 0, 51, 85, 68 ); //Fur
-		set_color_profile_slot( 3, 1, 51, 85, 68 ); //Skin
-		set_color_profile_slot( 3, 6, 51, 85, 68 ); //Alt Fur
-	break;
-	case 4:
-		set_color_profile_slot( 4, 0, 104, 101, 133 ); //Fur
-		set_color_profile_slot( 4, 1, 104, 101, 133 ); //Skin
-		set_color_profile_slot( 4, 6, 104, 101, 133 ); //Alt Fur
-	break;
-	case 5:
-		set_color_profile_slot( 5, 0, 86, 58, 88 ); //Fur
-		set_color_profile_slot( 5, 1, 86, 58, 88 ); //Skin
-		set_color_profile_slot( 5, 6, 86, 58, 88 ); //Alt Fur
-	break;
-	case 6:
-		set_color_profile_slot( 6, 0, 104, 73, 139 ); //Fur
-		set_color_profile_slot( 6, 1, 104, 73, 139 ); //Skin
-		set_color_profile_slot( 6, 6, 104, 73, 139 ); //Alt Fur
-	break;
-	case 7:
-		set_color_profile_slot( 7, 0, 173, 179, 81 ); //Fur
-		set_color_profile_slot( 7, 1, 173, 179, 81 ); //Skin
-		set_color_profile_slot( 7, 6, 173, 179, 81 ); //Alt Fur
-	break;
-	case 8:
-		set_color_profile_slot( 8, 0, 168, 64, 147 ); //Fur
-		set_color_profile_slot( 8, 1, 168, 64, 147 ); //Skin
-		set_color_profile_slot( 8, 6, 168, 64, 147 ); //Alt Fur
-	break;
-	case 9:
-		set_color_profile_slot( 9, 0, 80, 129, 165 ); //Fur
-		set_color_profile_slot( 9, 1, 0, 225, 191 ); //Skin
-		set_color_profile_slot( 9, 6, 143, 181, 211 ); //Alt Fur
-	break;
-	case 10:
-		set_color_profile_slot( 10, 0, 173, 66, 99 ); //Fur
-		set_color_profile_slot( 10, 1, 206, 0, 0 ); //Skin
-		set_color_profile_slot( 10, 6, 222, 206, 156 ); //Alt Fur
-	break;
-	case 11:
-		set_color_profile_slot( 11, 0, 117, 162, 210 ); //Fur
-		set_color_profile_slot( 11, 1, 221, 45, 80 ); //Skin
-		set_color_profile_slot( 11, 6, 236, 247, 255 ); //Alt Fur
-	break;
-	case 12:
-		set_color_profile_slot( 12, 0, 173, 67, 100 ); //Fur
-		set_color_profile_slot( 12, 1, 221, 45, 80 ); //Skin
-		set_color_profile_slot( 12, 6, 252, 252, 211 ); //Alt Fur
-	break;
-	case 13:
-		set_color_profile_slot( 13, 0, 0, 0, 0 ); //Fur
-		set_color_profile_slot( 13, 1, 0, 0, 0 ); //Skin
-		set_color_profile_slot( 13, 6, 0, 0, 0 ); //Alt Fur
-	break;
-	case 14:
-		set_color_profile_slot( 14, 0, 0, 0, 0 ); //Fur
-		set_color_profile_slot( 14, 1, 0, 0, 0 ); //Skin
-		set_color_profile_slot( 14, 6, 0, 0, 0 ); //Alt Fur
-	break;
-	case 15:
-		set_color_profile_slot( 15, 0, 0, 0, 0 ); //Fur
-		set_color_profile_slot( 15, 1, 0, 0, 0 ); //Skin
-		set_color_profile_slot( 15, 6, 0, 0, 0 ); //Alt Fur
-	break;
-	default:
-	break;
-	}
-}
-else{
-	// Fur
-	set_color_profile_slot( 0, 0, 200, 200, 240 );
-	set_color_profile_slot_range( 0, 27, 24, 29 );
-	
-	// Skin
-	set_color_profile_slot( 0, 1, 219, 119, 101 );
-	
-	// Alt Fur
-	set_color_profile_slot( 0, 6, 253, 253, 253 );
-	
-	switch (get_player_color(player))
-	{
-	case 1:
-		set_color_profile_slot( 1, 0, 128, 171, 244 ); //Fur
-		set_color_profile_slot( 1, 1, 219, 119, 101 ); //Skin
-		set_color_profile_slot( 1, 6, 253, 253, 253 ); //Alt Fur
-	break;
-	case 2:
-		set_color_profile_slot( 2, 0, 239, 109, 86 ); //Fur
-		set_color_profile_slot( 2, 1, 230, 157, 145 ); //Skin
-		set_color_profile_slot( 2, 6, 253, 253, 253 ); //Alt Fur
-	break;
-	case 3:
-		set_color_profile_slot( 3, 0, 51, 85, 68 ); //Fur
-		set_color_profile_slot( 3, 1, 51, 85, 68 ); //Skin
-		set_color_profile_slot( 3, 6, 51, 85, 68 ); //Alt Fur
-	break;
-	case 4:
-		set_color_profile_slot( 4, 0, 104, 101, 133 ); //Fur
-		set_color_profile_slot( 4, 1, 104, 101, 133 ); //Skin
-		set_color_profile_slot( 4, 6, 104, 101, 133 ); //Alt Fur
-	break;
-	case 5:
-		set_color_profile_slot( 5, 0, 86, 58, 88 ); //Fur
-		set_color_profile_slot( 5, 1, 86, 58, 88 ); //Skin
-		set_color_profile_slot( 5, 6, 86, 58, 88 ); //Alt Fur
-	break;
-	case 6:
-		set_color_profile_slot( 6, 0, 104, 73, 139 ); //Fur
-		set_color_profile_slot( 6, 1, 104, 73, 139 ); //Skin
-		set_color_profile_slot( 6, 6, 104, 73, 139 ); //Alt Fur
-	break;
-	case 7:
-		set_color_profile_slot( 7, 0, 173, 179, 81 ); //Fur
-		set_color_profile_slot( 7, 1, 173, 179, 81 ); //Skin
-		set_color_profile_slot( 7, 6, 173, 179, 81 ); //Alt Fur
-	break;
-	case 8:
-		set_color_profile_slot( 8, 0, 168, 64, 147 ); //Fur
-		set_color_profile_slot( 8, 1, 168, 64, 147 ); //Skin
-		set_color_profile_slot( 8, 6, 168, 64, 147 ); //Alt Fur
-	break;
-	case 9:
-		set_color_profile_slot( 9, 0, 98, 90, 139 ); //Fur
-		set_color_profile_slot( 9, 1, 219, 119, 101 ); //Skin
-		set_color_profile_slot( 9, 6, 232, 232, 236 ); //Alt Fur
-	break;
-	case 10:
-		set_color_profile_slot( 10, 0, 119, 136, 187 ); //Fur
-		set_color_profile_slot( 10, 1, 219, 119, 101 ); //Skin
-		set_color_profile_slot( 10, 6, 253, 253, 253 ); //Alt Fur
-	break;
-	case 11:
-		set_color_profile_slot( 11, 0, 106, 99, 118 ); //Fur
-		set_color_profile_slot( 11, 1, 166, 150, 177 ); //Skin
-		set_color_profile_slot( 11, 6, 204, 194, 209 ); //Alt Fur
-	break;
-	case 12:
-		set_color_profile_slot( 12, 0, 140, 114, 175 ); //Fur
-		set_color_profile_slot( 12, 1, 166, 150, 177 ); //Skin
-		set_color_profile_slot( 12, 6, 228, 224, 233 ); //Alt Fur
-	break;
-	case 13:
-		set_color_profile_slot( 13, 0, 0, 0, 0 ); //Fur
-		set_color_profile_slot( 13, 1, 0, 0, 0 ); //Skin
-		set_color_profile_slot( 13, 6, 0, 0, 0 ); //Alt Fur
-	break;
-	case 14:
-		set_color_profile_slot( 14, 0, 0, 0, 0 ); //Fur
-		set_color_profile_slot( 14, 1, 0, 0, 0 ); //Skin
-		set_color_profile_slot( 14, 6, 0, 0, 0 ); //Alt Fur
-	break;
-	case 15:
-		set_color_profile_slot( 15, 0, 0, 0, 0 ); //Fur
-		set_color_profile_slot( 15, 1, 0, 0, 0 ); //Skin
-		set_color_profile_slot( 15, 6, 0, 0, 0 ); //Alt Fur
-	break;
-	default:
-	break;
-	}
+#define p_process(list)
+///- process the particles in the list provided
+// This function goes in update.gml.
+//process particles. everything here should be self explanatory.
+if (ds_list_size(list) <= 0) return false;
+var i = 0;
+repeat (ds_list_size(list)) {
+    var ap = list[| i];
+    if (ap.sprite != -1) {
+        ap.alpha += ap.alpha_rate;
+        ap.image += ap.frame_rate;
+        ap.timer++;
+        ap.x += ap.hsp;
+        ap.y += ap.vsp;
+        ap.hsp += ap.hAccel;
+        ap.vsp += ap.vAccel;
+        if ((ap.alpha < 0 && sign(ap.alpha_rate) == -1) || ap.timer > ap.lifetime || (ap.frame_end && ap.image == sprite_get_number(ap.sprite))) {
+            ds_list_delete(list,i);
+            continue;
+        }
+        i++;
+    }
 }
 
-//#endregion
-
-
+#define createParticle
+///createParticle(list, amt, xvar, yvar, sprite, image, x, y, hsp, vsp, ?frame_rate, ?hAccel, ?vAccel, ?alpha, ?alpha_rate, ?lifetime, ?uses_shader, ?stop_at_last_frame)
+///- create a number (amt) of particles
+// This function goes wherever you want to create particles from.
+var ind = 0;
+var list = argument[0];
+var amt = argument[1]; //Amount of particles
+var xvar = argument[2]; //X Variation
+var yvar = argument[3];	//Y Variation
+var sprite = argument[4], image = argument[5],
+	_x = argument[6], _y = argument[7],
+	_hsp = argument[8], _vsp = argument[9];
+var frame_rate = argument_count >= 11 ? argument[10] : 0; //animation framerate
+var hAccel = argument_count >= 12 ? argument[11] : 0; //horizontal acceleration
+var vAccel = argument_count >= 13 ? argument[12] : 0; //vertical acceleration
+var alpha = argument_count >= 14 ? argument[13] : 1; //the starting alpha.
+var alpha_rate = argument_count >= 15 ? argument[14] : -0.1; //the rate the alpha changes at.
+var lifetime = argument_count >= 16 ? argument[15] : 30; //particle lifetime.
+var uses_shader = argument_count >= 17 ? argument[16] : true; //whether the particle should recolor with the character
+var stop_at_last_frame = argument_count >= 18 ? argument[17] : false; //if this is true, instead of looping the particle will despawn after hitting the final frame.
+//actual function
+if argument_count <= 8 return false; //if it returns false you didn't give it enough arguments so it can't make a particle
+repeat(amt) {
+    var newParticle = {
+        sprite: sprite,     //sprite
+        image: image,
+        frame_rate: frame_rate,
+        x: _x+random_func((ind++)%25,xvar,true)-floor(xvar/2),      //x
+        y: _y+random_func((ind++)%25,yvar,true)-floor(yvar/2),      //y
+        hsp: _hsp,      //hsp
+        vsp: _vsp,      //vsp
+        hAccel: hAccel,      //hAccel
+        vAccel: vAccel,      //vAccel
+        alpha: alpha,      //alpha
+        alpha_rate: alpha_rate,      //alpha rate
+        timer: 0,      //particle timer
+        lifetime: lifetime,       //particle lifetime
+        shader: uses_shader,
+        frame_end: stop_at_last_frame,
+        xscale: image_xscale
+        };
+    ds_list_add(list,newParticle);
+}

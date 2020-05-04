@@ -128,37 +128,6 @@ slKBMult = slNormalKB;
 USPpow = false; //Sweet Spot Kill box
 USPdir = 0; //Angle direction input.
 
-///Shadow Dash: Variables
-
-//Control variables
-dsActive = false; //false = inactive, true = active
-dsSpawnTimer = 0; //should be 0 if dsActive is 0
-dsMaxSpawnTime = 5; //Every dsMaxSpawnTime frames, a dash shadow spawns
-dsMaxShadows = -1; //Maximum number of shadows that can exist, -1 for unlimited
-
-//Number of shadows. Should not be changed manually, as it is monitored by itself.
-dsNumShadows = 0; //Number of shadows in existence. If dsUseArticle is 0, then this is monitored by the size of the list of lists. Otherwise, it is monitored by the creation/destruction of the shadow article.
-
-//Individual Shadow Variables
-dsStartAlpha = 1; //Starting Alpha for the dash shadow
-dsLifetime = 15; //This is how many frames the dash shadow lasts for, if dsStartAlpha = 1
-dsStartScale = [1,1] //This is the starting x- and y- scales
-dsEndScale = [1,1] //This is the ending x- and y- scales
-dsStartDisp = [0,0] //Relative displacement at start
-dsEndDisp = [0,0] //Relative displacement at end
-dsDispChangeWith = [1,1] //Reflect displacement with x- scale or y-scale?
-dsSnapPos = [0,0]; //Snap position to player (x,y) position
-
-//Overriding sprites (WIP for non-articles)
-dsOverrideSprite = 0; //0 for sprite_index, 1 for custom
-dsReplacedSprite = -1; //-1 is none, anything else is a custom sprite index
-dsReplacedIndex = -2 //-2 is sync with sprite_index of character, -1 is animate over and over, anything else is a single frame
-
-//Shadow Dash: SPAWN DURING
-dsNoDiscrim = 1; //0 for certain attacks and states, 1 for everything
-dsSpawnDuring = []; //list of trigger states
-dsSpawnAttack = [] //list of trigger attack indexes
-
 //Uspecial
 can_US = false;
 
@@ -264,3 +233,5 @@ spr_taunt = sprite_get("taunt");
 spr_plat = sprite_get("plat");
 
 //#endregion
+
+particles = ds_list_create()

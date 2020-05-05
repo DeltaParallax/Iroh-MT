@@ -19,15 +19,14 @@
 
 //#endregion
 
-var bar, meter, cycle, bx, by;
-bar = sprite_get("slbaroutside");
-meter = sprite_get("slbarpurple");
-cycle = sprite_get("slbarhurtcycle");
-bx = 10;
-by = -14;
-
 if ("slBarIndex" in self)
 {
+	var bar, meter, cycle, bx, by;
+	bar = sprite_get("slbaroutside");
+	meter = sprite_get("slbarpurple");
+	cycle = sprite_get("slbarhurtcycle");
+	bx = 10;
+	by = -14;
 	shader_start();
 	draw_sprite(bar,slBarIndex,temp_x+bx-9,temp_y+by-21);
 	draw_sprite(cycle,(floor(slHurtTimer)/slMaxHurtTime)*12,temp_x+bx-9,temp_y+by-9);
@@ -37,5 +36,12 @@ if ("slBarIndex" in self)
 		draw_sprite(meter,hud_timer,temp_x+bx+11,temp_y+by-3);
 		draw_rectangle_colour(temp_x+bx+11+hud_timer*2, temp_y+by-3, temp_x+bx+11+hud_timer*2+1, temp_y+by+2, c_black, c_black, c_black, c_black, false);
 	}
+	shader_end();
+}
+
+if ("slActive" in self && slActive)
+{
+	shader_start();
+	draw_sprite(sprite_get(state_cat==SC_HITSTUN?"SL_hurts":"SL_huds"),0,temp_x+28,temp_y+8);
 	shader_end();
 }

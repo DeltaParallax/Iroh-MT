@@ -5,6 +5,7 @@ if (get_player_color(player) == 7)
 	{
         set_character_color_shading(i, 0);
     }
+    outline_color = [ 35, 67, 49 ];
 }
 //#region Sanguine Lightning Colour Palette
 
@@ -13,7 +14,7 @@ if (get_player_color(player) == 7)
 // Bugs found so far:	transform and then quit to css (css will have wrong colours)
 //						article 1 doesn't use alt colours
 //						player icon (beside the % HUD) will not change to SL sprite and colours
-if(slActive){
+if("slActive" in self && slActive){
 	// Skin
 	set_color_profile_slot( 0, 1, 221, 45, 80 );
 	

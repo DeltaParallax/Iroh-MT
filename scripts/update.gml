@@ -95,27 +95,28 @@ if(slActive){
 	if(!hitpause){
 		if(slTimer % 30 = n){
 			for(var m = 1; m <= 4; m++){
-				var xran = random_func(m, 90, true)
-				var yran = random_func_2(m, 90, true)
-				instance_create(x + (xran - 45) * spr_dir, y + yran - 80, "obj_article2")
+				var xran = random_func(m, 110, true)
+				var yran = random_func_2(m, 120, true)
+				instance_create(x + (xran - 70) * spr_dir, y + yran - 100, "obj_article2")
 			}
 		}
 	}
 	if((hsp != 0 || vsp != 0) && !hitpause){
-		for(var n = 0; n <= 2; n++)
-		if(slTimer % 9 = n){
-			for(var m = 1; m <= 4; m++){
-				var xran = random_func(m, 90, true)
-				var yran = random_func_2(m, 90, true)
-				instance_create(x + (xran - 45) * spr_dir, y + yran - 80, "obj_article2")
+			for (var n = 0; n <= 8; n++)
+			if(slTimer % 20 = n){
+				for(var m = 1; m <= 1; m++){
+					var xran = random_func(m, 110, true)
+					var yran = random_func_2(m, 120, true)
+					instance_create(x + (xran - 70) * spr_dir, y + yran - 100, "obj_article2")
+				}
 			}
-		}
+		
 	}
 }
 
-if(state == PS_ATTACK_AIR && attack == AT_DSPECIAL_AIR){
-	for(var l = 0; l <= 2; l++)
-		if(slTimer % 9 = l){
+if(!hitpause && state == PS_ATTACK_AIR && (attack == AT_DSPECIAL_AIR || (attack == AT_USPECIAL && window == 2 && slActive))){
+	for(var q = 0; q <= 3; q++)
+		if(state_timer % 10 = q){
 			for(var v = 1; v <= 4; v++){
 				var xran = random_func(v, 90, true)
 				var yran = random_func_2(v, 90, true)
@@ -123,15 +124,6 @@ if(state == PS_ATTACK_AIR && attack == AT_DSPECIAL_AIR){
 			}
 		}
 }
-
-//#endregion
-
-
-//#region HUD Timer easing
-
-var temp_timer = floor((floor(slTimer)/slTimerLimit)*23*0.5)*2;
-hud_timer += (temp_timer>hud_timer?2:(temp_timer<hud_timer?-2:0));
-
 
 //#endregion
 
@@ -209,7 +201,7 @@ if(slActive){
 	set_window_value(AT_FSPECIAL, 1, AG_WINDOW_LENGTH, 18)
 	
 	set_window_value(AT_DTILT, 1, AG_WINDOW_LENGTH, 3)
-	set_window_value(AT_DTILT, 2, AG_WINDOW_HSPEED, 14)
+	set_window_value(AT_DTILT, 2, AG_WINDOW_HSPEED, 12)
 	
 	set_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH, 4)
 	set_window_value(AT_FTILT, 3, AG_WINDOW_LENGTH, 4)
@@ -221,8 +213,8 @@ if(slActive){
 	set_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED, 14)
 	set_window_value(AT_DATTACK, 3, AG_WINDOW_LENGTH, 7)
 	
-	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 4)
-	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 1)
+	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 5)
+	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 3)
 	
 	set_hitbox_value(AT_NSPECIAL, 1, HG_DAMAGE, 8)
 	set_hitbox_value(AT_NSPECIAL, 1, HG_KNOCKBACK_SCALING, 1.4)
@@ -284,7 +276,7 @@ if slActive {
     spr_airdodge_forward = sprite_get("SL_airdodge_forward")
     spr_airdodge_back = sprite_get("SL_airdodge_back")
     spr_airdodge_downforward = sprite_get("SL_airdodge_downforward")
-    spr_airdodge_downback = sprite_get("SL_airdodge_dowback")
+    spr_airdodge_downback = sprite_get("SL_airdodge_downback")
     spr_bair = sprite_get("SL_bair")
     spr_crouch = sprite_get("SL_crouch")
     spr_dair = sprite_get("SL_dair")
@@ -298,6 +290,7 @@ if slActive {
     spr_dtilt = sprite_get("SL_dtilt")
     spr_fair = sprite_get("SL_fair")
     spr_fspecial = sprite_get("SL_fspecial")
+    spr_dspecial = sprite_get("SL_dspecial")
     spr_fspecial_air = sprite_get("SL_fspecial_air")
     spr_fstrong = sprite_get("SL_fstrong")
     spr_ftilt = sprite_get("SL_ftilt")
@@ -351,6 +344,7 @@ else{
     spr_dtilt = sprite_get("dtilt")
     spr_fair = sprite_get("fair")
     spr_fspecial = sprite_get("fspecial")
+    spr_dspecial = sprite_get("dspecial")
     spr_fspeial_air = sprite_get("fspecial_air")
     spr_fstrong = sprite_get("fstrong")
     spr_ftilt = sprite_get("ftilt")

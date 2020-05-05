@@ -112,6 +112,7 @@ if useskins{
     changeAnim(spr_dstrong, sprite_get("dstrong"));
     changeAnim(spr_nspecial, sprite_get("nspecial"));
     changeAnim(spr_fspecial, sprite_get("fspecial"));
+    changeAnim(spr_dspecial, sprite_get("dspecial"));
     changeAnim(spr_fspecial_air, sprite_get("fspecial_air"));
     changeAnim(spr_uspecial, sprite_get("uspecial"));
     changeAnim(spr_dspecial, sprite_get("dspecial"));

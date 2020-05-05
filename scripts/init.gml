@@ -226,6 +226,7 @@ spr_ustrong = sprite_get("ustrong");
 spr_dstrong = sprite_get("dstrong");
 spr_nspecial = sprite_get("nspecial");
 spr_fspecial = sprite_get("fspecial");
+spr_dspecial = sprite_get("dspecial");
 spr_fspecial_air = sprite_get("fspecial_air");
 spr_uspecial = sprite_get("uspecial");
 spr_dspecial = sprite_get("dspecial");
@@ -235,9 +236,6 @@ spr_taunt = sprite_get("taunt");
 
 //Respawn
 spr_plat = sprite_get("plat");
-
-// hud meter ease
-hud_timer = 0;
 
 //#endregion
 

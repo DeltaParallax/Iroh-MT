@@ -160,8 +160,10 @@ if(my_hitboxID.attack == AT_DTILT){
 
 //#region SL Add
 if(!slActive){
-    slTimer += 9 * floor(my_hitboxID.damage)
+    slTimer += 8 * floor(my_hitboxID.damage)
 }
 if(slActive){
     slTimer += 6 * floor(my_hitboxID.damage)
 }
+
+//#endregion

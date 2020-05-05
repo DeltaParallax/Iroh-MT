@@ -240,6 +240,9 @@ spr_plat = sprite_get("plat");
 // hud meter ease
 hud_timer = 0;
 
+// Hikaru Support
+Hikaru_Title = "Fakie Werefox";
+
 //#endregion
 
 particles = ds_list_create()

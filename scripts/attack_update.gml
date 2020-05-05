@@ -7,6 +7,7 @@ case AT_DSPECIAL:
 case AT_USPECIAL:
 case AT_DAIR:
 case AT_DSPECIAL_AIR:
+case AT_DSPECIAL_2:
     trigger_b_reverse();
 	break;
 }
@@ -163,8 +164,8 @@ if(attack == AT_DSPECIAL_2){
     for(var i = 1; i <= 4; i++){
         set_hitbox_value(AT_DSPECIAL_2, i, HG_DAMAGE, 10 + DSP_dam)
     }
-    if(window == 1 && window_timer == 1){
-        slTimer = 1;
+    if(window == 2 && window_timer == 3){
+        slTimer = 0;
     }
     if(window == 1 || window == 2){
         soft_armor = 99999;
@@ -177,6 +178,8 @@ if(attack == AT_DSPECIAL_AIR){
     }
     if(window == 1 && window_timer == 1){
         dspec_airgrab = false;
+    }
+    if(window == 3 && window_timer == 6){
         slTimer = 0;
     }
     if(window == 1 || window == 2){

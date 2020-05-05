@@ -1,74 +1,6 @@
 // Lukaru's css draw, with Muno's base
 
-// Note from Luka: this runs every frame :(
-{
-	// Fur
-	set_color_profile_slot( 0, 0, 200, 200, 240 );
-	set_color_profile_slot_range( 0, 27, 24, 29 );
-	// Skin
-	set_color_profile_slot( 0, 1, 219, 119, 101 );
-	// Alt Fur
-	set_color_profile_slot( 0, 6, 253, 253, 253 );
-	set_color_profile_slot( 1, 0, 128, 171, 244 ); //Fur
-	set_color_profile_slot( 1, 1, 219, 119, 101 ); //Skin
-	set_color_profile_slot( 1, 6, 253, 253, 253 ); //Alt Fur
-
-	set_color_profile_slot( 2, 0, 239, 109, 86 ); //Fur
-	set_color_profile_slot( 2, 1, 230, 157, 145 ); //Skin
-	set_color_profile_slot( 2, 6, 253, 253, 253 ); //Alt Fur
-
-	set_color_profile_slot( 3, 0, 51, 85, 68 ); //Fur
-	set_color_profile_slot( 3, 1, 51, 85, 68 ); //Skin
-	set_color_profile_slot( 3, 6, 51, 85, 68 ); //Alt Fur
-
-	set_color_profile_slot( 4, 0, 104, 101, 133 ); //Fur
-	set_color_profile_slot( 4, 1, 104, 101, 133 ); //Skin
-	set_color_profile_slot( 4, 6, 104, 101, 133 ); //Alt Fur
-
-	set_color_profile_slot( 5, 0, 86, 58, 88 ); //Fur
-	set_color_profile_slot( 5, 1, 86, 58, 88 ); //Skin
-	set_color_profile_slot( 5, 6, 86, 58, 88 ); //Alt Fur
-
-	set_color_profile_slot( 6, 0, 104, 73, 139 ); //Fur
-	set_color_profile_slot( 6, 1, 104, 73, 139 ); //Skin
-	set_color_profile_slot( 6, 6, 104, 73, 139 ); //Alt Fur
-
-	set_color_profile_slot( 7, 0, 173, 179, 81 ); //Fur
-	set_color_profile_slot( 7, 1, 173, 179, 81 ); //Skin
-	set_color_profile_slot( 7, 6, 173, 179, 81 ); //Alt Fur
-
-	set_color_profile_slot( 8, 0, 168, 64, 147 ); //Fur
-	set_color_profile_slot( 8, 1, 168, 64, 147 ); //Skin
-	set_color_profile_slot( 8, 6, 168, 64, 147 ); //Alt Fur
-
-	set_color_profile_slot( 9, 0, 98, 90, 139 ); //Fur
-	set_color_profile_slot( 9, 1, 219, 119, 101 ); //Skin
-	set_color_profile_slot( 9, 6, 232, 232, 236 ); //Alt Fur
-
-	set_color_profile_slot( 10, 0, 119, 136, 187 ); //Fur
-	set_color_profile_slot( 10, 1, 219, 119, 101 ); //Skin
-	set_color_profile_slot( 10, 6, 253, 253, 253 ); //Alt Fur
-
-	set_color_profile_slot( 11, 0, 106, 99, 118 ); //Fur
-	set_color_profile_slot( 11, 1, 166, 150, 177 ); //Skin
-	set_color_profile_slot( 11, 6, 204, 194, 209 ); //Alt Fur
-
-	set_color_profile_slot( 12, 0, 140, 114, 175 ); //Fur
-	set_color_profile_slot( 12, 1, 166, 150, 177 ); //Skin
-	set_color_profile_slot( 12, 6, 228, 224, 233 ); //Alt Fur
-
-	set_color_profile_slot( 13, 0, 0, 0, 0 ); //Fur
-	set_color_profile_slot( 13, 1, 0, 0, 0 ); //Skin
-	set_color_profile_slot( 13, 6, 0, 0, 0 ); //Alt Fur
-
-	set_color_profile_slot( 14, 0, 0, 0, 0 ); //Fur
-	set_color_profile_slot( 14, 1, 0, 0, 0 ); //Skin
-	set_color_profile_slot( 14, 6, 0, 0, 0 ); //Alt Fur
-
-	set_color_profile_slot( 15, 0, 0, 0, 0 ); //Fur
-	set_color_profile_slot( 15, 1, 0, 0, 0 ); //Skin
-	set_color_profile_slot( 15, 6, 0, 0, 0 ); //Alt Fur
-}
+init_shader(); // Sanguine Lightning Colour Palette
 
 var temp_x = x + 8;
 var temp_y = y + 9;
@@ -83,28 +15,28 @@ patch_ver = "1.0";
 //patch_month = "MAR";
 image_alpha = max(image_alpha-0.02, 0);
 
-var num_alts = 16;
+var num_alts = 12;
 var alt_new = get_player_color(player);
 if ((alt_new != 15 && alt_new != image_index - 1) || (alt_new == 15 && (image_index == 15 || image_index == 1))) // image_index is global
 	image_alpha = 1.5;
 image_index = alt_new;
 
 alt_name[0]  = "Default";
-alt_name[1]  = "Never";
-alt_name[2]  = "Gonna";
-alt_name[3]  = "Give";
-alt_name[4]  = "You";
-alt_name[5]  = "Up";
-alt_name[6]  = "Never";
-alt_name[7]  = "Gonna";
-alt_name[8]  = "Let";
-alt_name[9]  = "You";
-alt_name[10] = "Down";
-alt_name[11] = "Haha";
-alt_name[12] = "Hahaha";
-alt_name[13] = "Hahahaha";
-alt_name[14] = "idk";
-alt_name[15] = "lmao";
+alt_name[1]  = "Blue";
+alt_name[2]  = "Red";
+alt_name[3]  = "Green";
+alt_name[4]  = "White";
+alt_name[5]  = "Pink";
+alt_name[6]  = "Abyss";
+alt_name[7]  = "Gameboy";
+alt_name[8]  = "Somebody";
+alt_name[9]  = "Once";
+alt_name[10] = "Told";
+alt_name[11] = "Me";
+alt_name[12] = "";
+alt_name[13] = "";
+alt_name[14] = "";
+alt_name[15] = "";
 
 draw_set_halign(fa_left);
 

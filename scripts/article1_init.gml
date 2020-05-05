@@ -7,3 +7,4 @@ dsEndScale = [1,1] //This is the ending x- and y- scales
 dsStartDisp = [0,0] //Relative displacement at start
 dsEndDisp = [1,1] //Relative displacement at end
 dsDispScaleChange = [1,1] //Scale
+uses_shader = true;

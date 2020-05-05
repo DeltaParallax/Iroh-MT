@@ -20,13 +20,22 @@
 //#endregion
 
 var bar, meter, cycle, bx, by;
-bar = sprite_get("slbaroutside")
-meter = sprite_get("slbarpurple")
-cycle = sprite_get("slbarhurtcycle")
-bx = 10
-by = -14
+bar = sprite_get("slbaroutside");
+meter = sprite_get("slbarpurple");
+cycle = sprite_get("slbarhurtcycle");
+bx = 10;
+by = -14;
 
-
-draw_sprite(bar,slBarIndex,temp_x+bx-9,temp_y+by-21)
-draw_sprite(meter,(floor(slTimer)/slTimerLimit)*23,temp_x+bx+11,temp_y+by-3)
-draw_sprite(cycle,(floor(slHurtTimer)/slMaxHurtTime)*12,temp_x+bx-9,temp_y+by-9)
+if ("slBarIndex" in self)
+{
+	shader_start();
+	draw_sprite(bar,slBarIndex,temp_x+bx-9,temp_y+by-21);
+	draw_sprite(cycle,(floor(slHurtTimer)/slMaxHurtTime)*12,temp_x+bx-9,temp_y+by-9);
+	if ("hud_timer" in self && hud_timer != 0)
+	{
+		//draw_rectangle_colour(temp_x+bx+11, temp_y+by-3, temp_x+bx+11+hud_timer*2-1, temp_y+by+2, c_white, c_white, c_white, c_white, false);
+		draw_sprite(meter,hud_timer,temp_x+bx+11,temp_y+by-3);
+		draw_rectangle_colour(temp_x+bx+11+hud_timer*2, temp_y+by-3, temp_x+bx+11+hud_timer*2+1, temp_y+by+2, c_black, c_black, c_black, c_black, false);
+	}
+	shader_end();
+}

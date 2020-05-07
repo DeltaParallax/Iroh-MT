@@ -15,7 +15,7 @@ patch_ver = "1.0";
 //patch_month = "MAR";
 image_alpha = max(image_alpha-0.02, 0);
 
-var num_alts = 12;
+var num_alts = 13;
 var alt_new = get_player_color(player);
 if ((alt_new != 15 && alt_new != image_index - 1) || (alt_new == 15 && (image_index == 15 || image_index == 1))) // image_index is global
 	image_alpha = 1.5;
@@ -29,11 +29,11 @@ alt_name[4]  = "White";
 alt_name[5]  = "Pink";
 alt_name[6]  = "Abyss";
 alt_name[7]  = "Gameboy";
-alt_name[8]  = "Somebody";
-alt_name[9]  = "Once";
-alt_name[10] = "Told";
-alt_name[11] = "Me";
-alt_name[12] = "";
+alt_name[8]  = "Wolf";
+alt_name[9]  = "Sabrewulf";
+alt_name[10] = "Talbain";
+alt_name[11] = "Yugo";
+alt_name[12] = "Infamous";
 alt_name[13] = "";
 alt_name[14] = "";
 alt_name[15] = "";

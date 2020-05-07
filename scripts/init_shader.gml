@@ -68,8 +68,8 @@ if("slActive" in self && slActive){
 		set_color_profile_slot( 11, 6, 236, 247, 255 ); //Alt Fur
 	break;
 	case 12:
-		set_color_profile_slot( 12, 1, 168, 64, 147 ); //Skin
-		set_color_profile_slot( 12, 6, 168, 64, 147 ); //Alt Fur
+		set_color_profile_slot( 12, 1, 74, 228, 255 ); //Skin
+		set_color_profile_slot( 12, 6, 252, 252, 211 ); //Alt Fur
 	break;
 	case 13:
 		set_color_profile_slot( 13, 1, 0, 0, 0 ); //Skin
@@ -141,8 +141,8 @@ else{
 		set_color_profile_slot( 11, 6, 204, 194, 209 ); //Alt Fur
 	break;
 	case 12:
-		set_color_profile_slot( 12, 1, 168, 64, 147 ); //Skin
-		set_color_profile_slot( 12, 6, 168, 64, 147 ); //Alt Fur
+		set_color_profile_slot( 12, 1, 176, 130, 204 ); //Skin
+		set_color_profile_slot( 12, 6, 253, 253, 253 ); //Alt Fur
 	break;
 	case 13:
 		set_color_profile_slot( 13, 1, 0, 0, 0 ); //Skin

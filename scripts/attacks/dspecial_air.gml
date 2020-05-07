@@ -12,9 +12,7 @@ set_window_value(AT_DSPECIAL_AIR, 1, AG_WINDOW_ANIM_FRAMES, 7);
 set_window_value(AT_DSPECIAL_AIR, 1, AG_WINDOW_HSPEED_TYPE, 2);
 set_window_value(AT_DSPECIAL_AIR, 1, AG_WINDOW_HSPEED, 0);
 set_window_value(AT_DSPECIAL_AIR, 1, AG_WINDOW_VSPEED, 0);
-set_window_value(AT_DSPECIAL_AIR, 1, AG_WINDOW_VSPEED_TYPE, 1);/*
-set_window_value(AT_DSPECIAL_AIR, 1, AG_WINDOW_HAS_SFX, 1);
-set_window_value(AT_DSPECIAL_AIR, 1, AG_WINDOW_SFX, asset_get("sfx_zetter_shine"));*/
+set_window_value(AT_DSPECIAL_AIR, 1, AG_WINDOW_VSPEED_TYPE, 1);/**/
 
 set_window_value(AT_DSPECIAL_AIR, 2, AG_WINDOW_TYPE, 9);
 set_window_value(AT_DSPECIAL_AIR, 2, AG_WINDOW_LENGTH, 4);
@@ -31,6 +29,8 @@ set_window_value(AT_DSPECIAL_AIR, 3, AG_WINDOW_ANIM_FRAMES, 5);
 set_window_value(AT_DSPECIAL_AIR, 3, AG_WINDOW_ANIM_FRAME_START, 8);
 set_window_value(AT_DSPECIAL_AIR, 3, AG_WINDOW_HSPEED, 0);
 set_window_value(AT_DSPECIAL_AIR, 3, AG_WINDOW_HSPEED_TYPE, 1);
+set_window_value(AT_DSPECIAL_AIR, 3, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_DSPECIAL_AIR, 3, AG_WINDOW_SFX, sound_get("sfx_dspecial_2"));
 
 set_window_value(AT_DSPECIAL_AIR, 4, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DSPECIAL_AIR, 4, AG_WINDOW_LENGTH, 25);
@@ -143,3 +143,4 @@ set_hitbox_value(AT_DSPECIAL_AIR, 5, HG_HEIGHT, 32);
 set_hitbox_value(AT_DSPECIAL_AIR, 5, HG_PRIORITY, 9);
 set_hitbox_value(AT_DSPECIAL_AIR, 5, HG_VISUAL_EFFECT, 1);
 set_hitbox_value(AT_DSPECIAL_AIR, 5, HG_HITBOX_GROUP, -1);
+set_hitbox_value(AT_DSPECIAL_AIR, 5, HG_HIT_SFX, asset_get("sfx_swipe_medium2"));

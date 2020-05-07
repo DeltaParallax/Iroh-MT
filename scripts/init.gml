@@ -1,6 +1,6 @@
-hurtbox_spr = asset_get("ex_guy_hurt_box");
-crouchbox_spr = asset_get("ex_guy_crouch_box");
-air_hurtbox_spr = -1;
+hurtbox_spr = sprite_get("idle_hurt");
+crouchbox_spr = sprite_get("crouch_hurt");
+air_hurtbox_spr = sprite_get("jump_hurt");
 hitstun_hurtbox_spr = -1;
 
 char_height = 52;
@@ -13,11 +13,11 @@ pratfall_anim_speed = .25;
 
 walk_speed = 2.75;
 walk_accel = 0.2;
-walk_turn_time = 2;
-initial_dash_time = 3;
-initial_dash_speed = 7.3;
-dash_speed = 6.8;
-dash_turn_time = 6;
+walk_turn_time = 5;
+initial_dash_time = 8;
+initial_dash_speed = 7.2;
+dash_speed = 6.0;
+dash_turn_time = 10;
 dash_turn_accel = 1.3;
 dash_stop_time = 5;
 dash_stop_percent = .35; //the value to multiply your hsp by when going into idle from dash or dashstop
@@ -29,21 +29,21 @@ jump_speed = 11;
 short_hop_speed = 7;
 djump_speed = 12;
 leave_ground_max = 7; //the maximum hsp you can have when you go from grounded to aerial without jumping
-max_jump_hsp = 5.8; //the maximum hsp you can have when jumping from the ground
+max_jump_hsp = 5.5; //the maximum hsp you can have when jumping from the ground
 air_max_speed = 6.5; //the maximum hsp you can accelerate to when in a normal aerial state
 jump_change = 3; //maximum hsp when double jumping. If already going faster, it will not slow you down
 air_accel = .4;
-prat_fall_accel = 2; //multiplier of air_accel while in pratfall
-air_friction = .07;
+prat_fall_accel = 0.85; //multiplier of air_accel while in pratfall
+air_friction = .055;
 max_djumps = 1;
 double_jump_time = 32; //the number of frames to play the djump animation. Can't be less than 31.
 walljump_hsp = 8;
-walljump_vsp = 12;
-walljump_time = 8;
-max_fall = 16; //maximum fall speed without fastfalling
-fast_fall = 15; //fast fall speed
+walljump_vsp = 9;
+walljump_time = 7;
+max_fall = 14; //maximum fall speed without fastfalling
+fast_fall = 16; //fast fall speed
 gravity_speed = .5;
-hitstun_grav = .6;
+hitstun_grav = .5;
 knockback_adj = 0.90; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
 
 land_time = 4; //normal landing frames
@@ -88,8 +88,8 @@ roll_back_recovery_frames = 2;
 roll_forward_max = 9; //roll speed
 roll_backward_max = 9;
 
-land_sound = asset_get("sfx_land_med");
-landing_lag_sound = asset_get("sfx_land");
+land_sound = sound_get("sfx_landing");
+landing_lag_sound = sound_get("sfx_landing");
 waveland_sound = asset_get("sfx_waveland_zet");
 jump_sound = asset_get("sfx_jumpground");
 djump_sound = asset_get("sfx_jumpair");

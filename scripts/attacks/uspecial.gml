@@ -20,7 +20,7 @@ set_window_value(AT_USPECIAL, 2, AG_WINDOW_LENGTH, 26);
 set_window_value(AT_USPECIAL, 2, AG_WINDOW_ANIM_FRAMES, 6);
 set_window_value(AT_USPECIAL, 2, AG_WINDOW_ANIM_FRAME_START, 4);
 set_window_value(AT_USPECIAL, 2, AG_WINDOW_HAS_SFX, 1);
-set_window_value(AT_USPECIAL, 2, AG_WINDOW_SFX, asset_get("sfx_forsburn_consume"));
+set_window_value(AT_USPECIAL, 2, AG_WINDOW_SFX, sound_get("U_Special"));
 
 set_window_value(AT_USPECIAL, 3, AG_WINDOW_TYPE, 7);
 set_window_value(AT_USPECIAL, 3, AG_WINDOW_LENGTH, 5);
@@ -48,7 +48,7 @@ set_hitbox_value(AT_USPECIAL, 1, HG_ANGLE, 70);
 set_hitbox_value(AT_USPECIAL, 1, HG_BASE_KNOCKBACK, 15);
 set_hitbox_value(AT_USPECIAL, 1, HG_BASE_HITPAUSE, 15);
 set_hitbox_value(AT_USPECIAL, 1, HG_VISUAL_EFFECT, 197);
-set_hitbox_value(AT_USPECIAL, 1, HG_HIT_SFX, asset_get("sfx_forsburn_reappear_hit"));
+set_hitbox_value(AT_USPECIAL, 1, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 set_hitbox_value(AT_USPECIAL, 1, HG_ANGLE_FLIPPER, 7);
 set_hitbox_value(AT_USPECIAL, 1, HG_HITBOX_GROUP, -1);
 set_hitbox_value(AT_USPECIAL, 1, HG_TECHABLE, 1);
@@ -87,4 +87,5 @@ set_hitbox_value(AT_USPECIAL, 3, HG_KNOCKBACK_SCALING, 0.85);
 set_hitbox_value(AT_USPECIAL, 3, HG_BASE_HITPAUSE, 20);
 set_hitbox_value(AT_USPECIAL, 3, HG_HITPAUSE_SCALING, 0.8);
 set_hitbox_value(AT_USPECIAL, 3, HG_VISUAL_EFFECT, 197);
+set_hitbox_value(AT_USPECIAL, 3, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 

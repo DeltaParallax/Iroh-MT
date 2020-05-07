@@ -45,6 +45,12 @@ switch (state){
 
 */
 
+if(state == PS_PRATFALL){
+	if(image_index >= 3){
+		image_index = 3;
+	}
+}
+
 //Fstrong Charge animation
 if(attack == AT_FSTRONG && window == 1 && state == PS_ATTACK_GROUND){
 	

@@ -181,7 +181,7 @@ if(attack == AT_DSPECIAL_2){
     for(var i = 1; i <= 4; i++){
         set_hitbox_value(AT_DSPECIAL_2, i, HG_DAMAGE, 10 + DSP_dam)
     }
-    if(window == 1 && window_timer == 2){
+    if(window == 2 && window_timer == 6){
         slTimer = 0;
     }
     if(window == 1 || window == 2){
@@ -197,7 +197,7 @@ if(attack == AT_DSPECIAL_AIR){
     	reset_hitbox_value(AT_DSPECIAL_AIR, 5, HG_HIT_SFX)
         dspec_airgrab = false;
     }
-    if(window == 2 && window_timer == 2){
+    if(window == 3 && window_timer == 6){
         slTimer = 0;
     }
     if(window == 1 || window == 2){
@@ -244,7 +244,7 @@ if(attack == AT_USTRONG){
 				if (hitstop == 0)
 				{
 					hit_player_obj.x = x + spr_dir * 15;
-					hit_player_obj.y = y - 85;
+					hit_player_obj.y = y - 65;
 				}
 				else
 				{
@@ -256,13 +256,13 @@ if(attack == AT_USTRONG){
 					{
 						hit_player_obj.x += ((x + spr_dir * 15) - hit_player_obj.x)/6;
 					}
-					if (hit_player_obj.y > (y - 85))
+					if (hit_player_obj.y > (y - 65))
 					{
-						hit_player_obj.y -= (hit_player_obj.y - (y - 85))/6;
+						hit_player_obj.y -= (hit_player_obj.y - (y - 65))/6;
 					}
-					else if (hit_player_obj.y < (y - 85))
+					else if (hit_player_obj.y < (y - 65))
 					{
-						hit_player_obj.y += ((y - 85) - hit_player_obj.y)/6;
+						hit_player_obj.y += ((y - 65) - hit_player_obj.y)/6;
 					}
 				}
 				hit_player_obj.hsp = 0;

@@ -37,11 +37,11 @@ if (slTimer >= slTimerLimit && !slActive)
 	SL_mode();
 	DSP_dam = 0;
 	slTimer = slTimerLimit
-	slHurtTimer = slMaxHurtTime;
+	slHurtTimer = slMaxHurtTime;/*
 	with(oPlayer){
 		hitpause = true;
 		hitstop += 45;
-	}
+	}*/
 	SL_trans_timer = 0;
 }
 	SL_trans_timer += 0.32;
@@ -56,7 +56,7 @@ if(slTimer < 0){
 if slActive
 {
 	if(!hitpause){
-		--slTimer;
+		slTimer -=1.2;
 		--slHurtTimer;
 	}
 	
@@ -93,7 +93,7 @@ else
 if(slActive){
 	for(var n = 0; n <= 1; n++)
 	if(!hitpause){
-		if(slTimer % 30 = n){
+		if(SL_sparkTimer % 30 = n){
 			for(var m = 1; m <= 4; m++){
 				var xran = random_func(m, 110, true)
 				var yran = random_func_2(m, 120, true)
@@ -103,7 +103,7 @@ if(slActive){
 	}
 	if((hsp != 0 || vsp != 0) && !hitpause){
 			for (var n = 0; n <= 8; n++)
-			if(slTimer % 20 = n){
+			if(SL_sparkTimer % 20 = n){
 				for(var m = 1; m <= 1; m++){
 					var xran = random_func(m, 110, true)
 					var yran = random_func_2(m, 120, true)
@@ -124,6 +124,7 @@ if(!hitpause && state == PS_ATTACK_AIR && (attack == AT_DSPECIAL_AIR || (attack 
 			}
 		}
 }
+SL_sparkTimer++
 
 //#endregion
 

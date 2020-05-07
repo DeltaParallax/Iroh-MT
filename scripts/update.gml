@@ -40,7 +40,7 @@ if (slTimer >= slTimerLimit && !slActive)
 	slHurtTimer = slMaxHurtTime;
 	with(oPlayer){
 		hitpause = true;
-		hitstop = 45;
+		hitstop += 45;
 	}
 	SL_trans_timer = 0;
 }
@@ -392,15 +392,15 @@ else{
 //#region Sanguine Lightning movement buff
 
 if(slActive){
-	dash_speed = 8.6;
+	dash_speed = 8;
 	initial_dash_speed = 9;
-	max_jump_hsp = 8;
+	max_jump_hsp = 7;
 	air_accel = 0.6;
 }
 else{
-	dash_speed = 6.8;
-	initial_dash_speed = 7.3;
-	max_jump_hsp = 5.8;
+	dash_speed = 6.0;
+	initial_dash_speed = 6.8;
+	max_jump_hsp = 5.5;
 	air_accel = 0.4;
 }
 

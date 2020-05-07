@@ -17,9 +17,12 @@ set_window_value(AT_TAUNT, 2, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_TAUNT, 2, AG_WINDOW_ANIM_FRAME_START, 1);
 
 set_window_value(AT_TAUNT, 3, AG_WINDOW_TYPE, 3);
-set_window_value(AT_TAUNT, 3, AG_WINDOW_LENGTH, 45);
+set_window_value(AT_TAUNT, 3, AG_WINDOW_LENGTH, 60);
 set_window_value(AT_TAUNT, 3, AG_WINDOW_ANIM_FRAMES, 11);
 set_window_value(AT_TAUNT, 3, AG_WINDOW_ANIM_FRAME_START, 3);
+set_window_value(AT_TAUNT, 1, AG_WINDOW_HAS_SFX, 1);
+set_window_value(AT_TAUNT, 1, AG_WINDOW_SFX_FRAME, 1);
+set_window_value(AT_TAUNT, 1, AG_WINDOW_SFX, sound_get("warwick_howl"));
 
 set_window_value(AT_TAUNT, 4, AG_WINDOW_TYPE, 3);
 set_window_value(AT_TAUNT, 4, AG_WINDOW_LENGTH, 10);

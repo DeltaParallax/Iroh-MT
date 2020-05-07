@@ -3,6 +3,8 @@
     //#region Fspecial
 if ( my_hitboxID.attack == AT_FSPECIAL && (my_hitboxID.hbox_num == 1 ||  my_hitboxID.hbox_num == 2)) {
   hit_player_obj.should_make_shockwave = false;
+    fspec_airgrab = true;
+    fspec_id = hit_player_obj;
 }
     //#endregion
     
@@ -30,6 +32,7 @@ if ( my_hitboxID.attack == AT_DSPECIAL_2 || my_hitboxID.attack == AT_DSPECIAL_AI
 if (my_hitboxID.attack == AT_DSPECIAL_AIR && my_hitboxID.hbox_num == 5){
     dspec_airgrab = true;
     dspec_id = hit_player_obj;
+    set_hitbox_value(AT_DSPECIAL_AIR, 5, HG_HIT_SFX, 0);
     
 }
     //#endregion
@@ -113,7 +116,7 @@ if(my_hitboxID.attack == AT_DSTRONG && (my_hitboxID.hbox_num == 2)){
         //#endregion
      }
      if(!slActive){
-        hit_player_obj.hitstop_full += floor(get_player_damage(hit_player_obj.player)/5) + floor(strong_charge * 10 / 15)
+        hit_player_obj.hitstop_full += 10 + floor(get_player_damage(hit_player_obj.player)/5) + floor(strong_charge * 10 / 15)
         hit_player_obj.hitstop = hit_player_obj.hitstop_full;
      }
     

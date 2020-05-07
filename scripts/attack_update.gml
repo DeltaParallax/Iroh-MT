@@ -54,13 +54,21 @@ if (attack == AT_NSPECIAL){
 
     //#region Fspecial
 if (attack == AT_FSPECIAL){
+	if(window == 1 && window_timer == 1){
+		
+		fspec_airgrab = false;
+	}
     if (window == 2){
         can_wall_jump = true;
+        if(fspec_airgrab){
+        	fspec_id.x = x + (60 * spr_dir)
+        	fspec_id.y = y - 10
+    	}
         if(was_parried){
             window = 3;
             window_timer = 0;
         }    
-        if(window_timer % 2 == 0){
+        if(window_timer % 3 == 0){
             create_hitbox(AT_FSPECIAL, 1, x, y)
         hsp = ease_cubeOut(30 * spr_dir, 10 * spr_dir, window_timer, 25);
         }
@@ -150,6 +158,15 @@ if(attack == AT_DSPECIAL){
     if(window == 2 || window == 3){
         soft_armor = 0;
     }
+    if(window == 3){
+    	if(window_timer == 1){
+    	
+    		attack_invince = true;
+    	}
+    	if(window_timer >= 18){
+    		attack_invince = false;
+    	}
+    }
     if(window == 2){
         if(shake == 30){
             state = PS_IDLE;
@@ -164,7 +181,7 @@ if(attack == AT_DSPECIAL_2){
     for(var i = 1; i <= 4; i++){
         set_hitbox_value(AT_DSPECIAL_2, i, HG_DAMAGE, 10 + DSP_dam)
     }
-    if(window == 2 && window_timer == 3){
+    if(window == 1 && window_timer == 2){
         slTimer = 0;
     }
     if(window == 1 || window == 2){
@@ -177,9 +194,10 @@ if(attack == AT_DSPECIAL_AIR){
         set_hitbox_value(AT_DSPECIAL_AIR, i, HG_DAMAGE, 10 + DSP_dam)
     }
     if(window == 1 && window_timer == 1){
+    	reset_hitbox_value(AT_DSPECIAL_AIR, 5, HG_HIT_SFX)
         dspec_airgrab = false;
     }
-    if(window == 3 && window_timer == 6){
+    if(window == 2 && window_timer == 2){
         slTimer = 0;
     }
     if(window == 1 || window == 2){
@@ -387,10 +405,10 @@ if(attack == AT_DAIR){
     //#endregion
 
 //#endregion
-
+/* Taunt for SL
 if(attack == AT_TAUNT && window == 1 && window_timer == 1 && !hitpause){
     slTimer += 600;
-}
+}*/
 
 if(slActive){
             set_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_SPRITE, sprite_get("SL_spark"))

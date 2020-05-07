@@ -16,7 +16,7 @@ set_window_value(AT_FSTRONG, 2, AG_WINDOW_ANIM_FRAME_START, 4);
 set_window_value(AT_FSTRONG, 2, AG_WINDOW_HSPEED, 0);
 set_window_value(AT_FSTRONG, 2, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_FSTRONG, 2, AG_WINDOW_HAS_SFX, 1);
-set_window_value(AT_FSTRONG, 2, AG_WINDOW_SFX, asset_get("sfx_swipe_heavy1"));
+set_window_value(AT_FSTRONG, 2, AG_WINDOW_SFX, sound_get("FStrong"));
 
 set_window_value(AT_FSTRONG, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FSTRONG, 3, AG_WINDOW_LENGTH, 10);
@@ -65,6 +65,7 @@ set_hitbox_value(AT_FSTRONG, 1, HG_EXTRA_HITPAUSE, 28);
 set_hitbox_value(AT_FSTRONG, 1, HG_VISUAL_EFFECT, 21);
 set_hitbox_value(AT_FSTRONG, 1, HG_VISUAL_EFFECT_X_OFFSET, 0);
 set_hitbox_value(AT_FSTRONG, 1, HG_HITBOX_GROUP, 1);
+set_hitbox_value(AT_FSTRONG, 1, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 set_hitbox_value(AT_FSTRONG, 1, HG_TECHABLE, 1);
 
 set_hitbox_value(AT_FSTRONG, 2, HG_PARENT_HITBOX, 2);
@@ -87,6 +88,7 @@ set_hitbox_value(AT_FSTRONG, 2, HG_EXTRA_HITPAUSE, 20);
 set_hitbox_value(AT_FSTRONG, 2, HG_VISUAL_EFFECT, 197);
 set_hitbox_value(AT_FSTRONG, 2, HG_VISUAL_EFFECT_X_OFFSET, 15);
 set_hitbox_value(AT_FSTRONG, 2, HG_HITBOX_GROUP, 1);
+set_hitbox_value(AT_FSTRONG, 2, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 set_hitbox_value(AT_FSTRONG, 2, HG_TECHABLE, 1);
 
 set_hitbox_value(AT_FSTRONG, 10, HG_PARENT_HITBOX, 10);
@@ -109,6 +111,7 @@ set_hitbox_value(AT_FSTRONG, 10, HG_EXTRA_HITPAUSE, 20);
 set_hitbox_value(AT_FSTRONG, 10, HG_VISUAL_EFFECT, 197);
 set_hitbox_value(AT_FSTRONG, 10, HG_VISUAL_EFFECT_X_OFFSET, 15);
 set_hitbox_value(AT_FSTRONG, 10, HG_TECHABLE, 1);
+set_hitbox_value(AT_FSTRONG, 10, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 set_hitbox_value(AT_FSTRONG, 10, HG_HITBOX_GROUP, 1);
 
 set_hitbox_value(AT_FSTRONG, 3, HG_PARENT_HITBOX, 3);
@@ -131,6 +134,7 @@ set_hitbox_value(AT_FSTRONG, 3, HG_EXTRA_HITPAUSE, 28);
 set_hitbox_value(AT_FSTRONG, 3, HG_VISUAL_EFFECT, 21);
 set_hitbox_value(AT_FSTRONG, 3, HG_VISUAL_EFFECT_X_OFFSET, 0);
 set_hitbox_value(AT_FSTRONG, 3, HG_HITBOX_GROUP, 1);
+set_hitbox_value(AT_FSTRONG, 3, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 set_hitbox_value(AT_FSTRONG, 3, HG_TECHABLE, 1);
 
 set_hitbox_value(AT_FSTRONG, 4, HG_PARENT_HITBOX, 4);
@@ -153,6 +157,7 @@ set_hitbox_value(AT_FSTRONG, 4, HG_EXTRA_HITPAUSE, 20);
 set_hitbox_value(AT_FSTRONG, 4, HG_VISUAL_EFFECT, 197);
 set_hitbox_value(AT_FSTRONG, 4, HG_VISUAL_EFFECT_X_OFFSET, 15);
 set_hitbox_value(AT_FSTRONG, 4, HG_HITBOX_GROUP, 1);
+set_hitbox_value(AT_FSTRONG, 4, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 set_hitbox_value(AT_FSTRONG, 4, HG_TECHABLE, 1);
 
 set_hitbox_value(AT_FSTRONG, 5, HG_PARENT_HITBOX, 5);
@@ -175,6 +180,7 @@ set_hitbox_value(AT_FSTRONG, 5, HG_EXTRA_HITPAUSE, 20);
 set_hitbox_value(AT_FSTRONG, 5, HG_VISUAL_EFFECT, 197);
 set_hitbox_value(AT_FSTRONG, 5, HG_VISUAL_EFFECT_X_OFFSET, 15);
 set_hitbox_value(AT_FSTRONG, 5, HG_TECHABLE, 1);
+set_hitbox_value(AT_FSTRONG, 5, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 set_hitbox_value(AT_FSTRONG, 5, HG_HITBOX_GROUP, 1);
 
 set_hitbox_value(AT_FSTRONG, 11, HG_PARENT_HITBOX, 11);
@@ -197,6 +203,7 @@ set_hitbox_value(AT_FSTRONG, 11, HG_EXTRA_HITPAUSE, 20);
 set_hitbox_value(AT_FSTRONG, 11, HG_VISUAL_EFFECT, 197);
 set_hitbox_value(AT_FSTRONG, 11, HG_VISUAL_EFFECT_X_OFFSET, 15);
 set_hitbox_value(AT_FSTRONG, 11, HG_HITBOX_GROUP, 1);
+set_hitbox_value(AT_FSTRONG, 11, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 set_hitbox_value(AT_FSTRONG, 11, HG_TECHABLE, 1);
 
 set_hitbox_value(AT_FSTRONG, 6, HG_PARENT_HITBOX, 6);
@@ -219,6 +226,7 @@ set_hitbox_value(AT_FSTRONG, 6, HG_EXTRA_HITPAUSE, 28);
 set_hitbox_value(AT_FSTRONG, 6, HG_VISUAL_EFFECT, 21);
 set_hitbox_value(AT_FSTRONG, 6, HG_VISUAL_EFFECT_X_OFFSET, 0);
 set_hitbox_value(AT_FSTRONG, 6, HG_TECHABLE, 1);
+set_hitbox_value(AT_FSTRONG, 6, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 set_hitbox_value(AT_FSTRONG, 6, HG_HITBOX_GROUP, 1);
 
 set_hitbox_value(AT_FSTRONG, 7, HG_PARENT_HITBOX, 7);
@@ -241,6 +249,7 @@ set_hitbox_value(AT_FSTRONG, 7, HG_EXTRA_HITPAUSE, 20);
 set_hitbox_value(AT_FSTRONG, 7, HG_VISUAL_EFFECT, 197);
 set_hitbox_value(AT_FSTRONG, 7, HG_VISUAL_EFFECT_X_OFFSET, 15);
 set_hitbox_value(AT_FSTRONG, 7, HG_TECHABLE, 1);
+set_hitbox_value(AT_FSTRONG, 7, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 set_hitbox_value(AT_FSTRONG, 7, HG_HITBOX_GROUP, 1);
 
 set_hitbox_value(AT_FSTRONG, 8, HG_PARENT_HITBOX, 8);
@@ -263,6 +272,7 @@ set_hitbox_value(AT_FSTRONG, 8, HG_EXTRA_HITPAUSE, 20);
 set_hitbox_value(AT_FSTRONG, 8, HG_VISUAL_EFFECT, 197);
 set_hitbox_value(AT_FSTRONG, 8, HG_VISUAL_EFFECT_X_OFFSET, 15);
 set_hitbox_value(AT_FSTRONG, 8, HG_HITBOX_GROUP, 1);
+set_hitbox_value(AT_FSTRONG, 8, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 set_hitbox_value(AT_FSTRONG, 8, HG_TECHABLE, 1);
 
 set_hitbox_value(AT_FSTRONG, 9, HG_PARENT_HITBOX, 9);
@@ -285,6 +295,7 @@ set_hitbox_value(AT_FSTRONG, 9, HG_EXTRA_HITPAUSE, 20);
 set_hitbox_value(AT_FSTRONG, 9, HG_VISUAL_EFFECT, 197);
 set_hitbox_value(AT_FSTRONG, 9, HG_VISUAL_EFFECT_X_OFFSET, 15);
 set_hitbox_value(AT_FSTRONG, 9, HG_HITBOX_GROUP, 1);
+set_hitbox_value(AT_FSTRONG, 9, HG_HIT_SFX, asset_get("sfx_absa_uair"));
 set_hitbox_value(AT_FSTRONG, 9, HG_TECHABLE, 1);
 
 set_hitbox_value(AT_FSTRONG, 12, HG_PARENT_HITBOX, 12);
@@ -308,3 +319,4 @@ set_hitbox_value(AT_FSTRONG, 12, HG_VISUAL_EFFECT, 197);
 set_hitbox_value(AT_FSTRONG, 12, HG_VISUAL_EFFECT_X_OFFSET, 15);
 set_hitbox_value(AT_FSTRONG, 12, HG_HITBOX_GROUP, 1);
 set_hitbox_value(AT_FSTRONG, 12, HG_TECHABLE, 1);
+set_hitbox_value(AT_FSTRONG, 12, HG_HIT_SFX, asset_get("sfx_absa_uair"));

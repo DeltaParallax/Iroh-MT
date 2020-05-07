@@ -161,6 +161,7 @@ spark_state = 0;
 SL_trans_timer = 0;
 SL_fizzle = noone;
 SL_fizzle_timer = 0;
+SL_sparkTimer = 0;
 
 //#region SL Sprites
 

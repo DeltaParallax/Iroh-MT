@@ -190,6 +190,7 @@ if(attack == AT_DSPECIAL_2){
 }
 
 if(attack == AT_DSPECIAL_AIR){
+	fall_through = down_down || down_stick_down;
     for(var i = 1; i <= 4; i++){
         set_hitbox_value(AT_DSPECIAL_AIR, i, HG_DAMAGE, 10 + DSP_dam)
     }
@@ -400,6 +401,7 @@ if(attack == AT_DAIR){
     //#region NAIR
     if(attack == AT_DAIR){
         air_accel = 0.2;
+		fall_through = down_down || down_stick_down;
     }
     
     //#endregion

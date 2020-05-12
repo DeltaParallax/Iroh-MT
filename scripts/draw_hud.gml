@@ -34,7 +34,7 @@ if ("slBarIndex" in self)
 	{
 		//draw_rectangle_colour(temp_x+bx+11, temp_y+by-3, temp_x+bx+11+hud_timer*2-1, temp_y+by+2, c_white, c_white, c_white, c_white, false);
 		draw_sprite(meter,hud_timer,temp_x+bx+11,temp_y+by-3);
-		draw_rectangle_colour(temp_x+bx+11+hud_timer*2, temp_y+by-3, temp_x+bx+11+hud_timer*2+1, temp_y+by+2, c_black, c_black, c_black, c_black, false);
+		draw_rectangle_colour(temp_x+bx+11+hud_timer*2, temp_y+by-3, temp_x+bx+12+hud_timer*2+1, temp_y+by+3, c_black, c_black, c_black, c_black, false);
 	}
 	shader_end();
 }

@@ -34,7 +34,7 @@ set_color_profile_slot_range( 4, 52, 35, 32 );
 
 
 // ALTERNATE COLORS
-set_num_palettes( 13 );
+set_num_palettes( 16 );
 
 // blue
 set_color_profile_slot( 1, 0, 128, 171, 244 ); //Fur
@@ -156,32 +156,33 @@ set_color_profile_slot( 12, 5, 72, 96, 157 ); //Fabric
 set_color_profile_slot( 12, 6, 253, 253, 253 ); //Alt Fur
 set_color_profile_slot( 12, 4, 255, 100, 217 ); //Fur
 
-// unnamed alt palette
-set_color_profile_slot( 13, 0, 0, 0, 0 ); //Fur
-set_color_profile_slot( 13, 1, 0, 0, 0 ); //Skin
-set_color_profile_slot( 13, 2, 0, 0, 0 ); //Pants
-set_color_profile_slot( 13, 3, 0, 0, 0 ); //Gold1
-set_color_profile_slot( 13, 4, 0, 0, 0 ); //Gold2
-set_color_profile_slot( 13, 5, 0, 0, 0 ); //Fabric
-set_color_profile_slot( 13, 6, 0, 0, 0 ); //Alt Fur
-set_color_profile_slot( 13, 7, 0, 0, 0 ); //Fur
 
-// unnamed alt palette
-set_color_profile_slot( 14, 0, 0, 0, 0 ); //Fur
-set_color_profile_slot( 14, 1, 0, 0, 0 ); //Skin
-set_color_profile_slot( 14, 2, 0, 0, 0 ); //Pants
-set_color_profile_slot( 14, 3, 0, 0, 0 ); //Gold1
-set_color_profile_slot( 14, 4, 0, 0, 0 ); //Gold2
-set_color_profile_slot( 14, 5, 0, 0, 0 ); //Fabric
-set_color_profile_slot( 14, 6, 0, 0, 0 ); //Alt Fur
-set_color_profile_slot( 14, 7, 0, 0, 0 ); //Fur
+// Golden
+set_color_profile_slot( 13, 0, 254, 225, 69 ); //Fur
+set_color_profile_slot( 13, 1, 242, 250, 171 ); //Skin
+set_color_profile_slot( 13, 2, 248, 143, 39 ); //Pants
+set_color_profile_slot( 13, 3, 254, 225, 69 ); //Gold1
+set_color_profile_slot( 13, 7, 190, 120, 37 ); //Gold2
+set_color_profile_slot( 13, 5, 88, 71, 86 ); //Fabric
+set_color_profile_slot( 13, 6, 253, 253, 253 ); //Alt Fur
+set_color_profile_slot( 13, 4, 255, 179, 74 ); //Fur
 
-// unnamed alt palette
-set_color_profile_slot( 15, 0, 0, 0, 0 ); //Fur
-set_color_profile_slot( 15, 1, 0, 0, 0 ); //Skin
-set_color_profile_slot( 15, 2, 0, 0, 0 ); //Pants
-set_color_profile_slot( 15, 3, 0, 0, 0 ); //Gold1
-set_color_profile_slot( 15, 4, 0, 0, 0 ); //Gold2
-set_color_profile_slot( 15, 5, 0, 0, 0 ); //Fabric
-set_color_profile_slot( 15, 6, 0, 0, 0 ); //Alt Fur
-set_color_profile_slot( 15, 7, 0, 0, 0 ); //Fur
+// Arcade
+set_color_profile_slot( 14, 0, 96, 117, 109 ); //Fur
+set_color_profile_slot( 14, 1, 222, 204, 143 ); //Skin
+set_color_profile_slot( 14, 2, 92, 105, 120 ); //Pants
+set_color_profile_slot( 14, 3, 134, 227, 97 ); //Gold1
+set_color_profile_slot( 14, 7, 82, 140, 81 ); //Gold2
+set_color_profile_slot( 14, 5, 134, 227, 97 ); //Fabric
+set_color_profile_slot( 14, 6, 245, 237, 205 ); //Alt Fur
+set_color_profile_slot( 14, 4, 167, 186, 74 ); //Fur
+
+// Summit
+set_color_profile_slot( 15, 0, 221, 45, 80 ); //Fur
+set_color_profile_slot( 15, 1, 174, 142, 172 ); //Skin
+set_color_profile_slot( 15, 2, 61, 57, 74 ); //Pants
+set_color_profile_slot( 15, 3, 106, 94, 117 ); //Gold1
+set_color_profile_slot( 15, 7, 65, 57, 74 ); //Gold2
+set_color_profile_slot( 15, 5, 221, 45, 80 ); //Fabric
+set_color_profile_slot( 15, 6, 253, 253, 253 ); //Alt Fur
+set_color_profile_slot( 15, 4, 61, 57, 74 ); //Fur

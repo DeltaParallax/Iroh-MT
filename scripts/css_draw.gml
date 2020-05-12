@@ -3,7 +3,7 @@
 init_shader(); // Sanguine Lightning Colour Palette
 
 var temp_x = x + 8;
-var temp_y = y + 9;
+var temp_y = y + 10;
 
 var red1 = get_color_profile_slot_r(get_player_color( player ), 0);
 var green1 = get_color_profile_slot_g(get_player_color( player ), 0);
@@ -15,7 +15,8 @@ patch_ver = "1.0";
 //patch_month = "MAR";
 image_alpha = max(image_alpha-0.02, 0);
 
-var num_alts = 13;
+var num_alts = 16;
+
 var alt_new = get_player_color(player);
 if ((alt_new != 15 && alt_new != image_index - 1) || (alt_new == 15 && (image_index == 15 || image_index == 1))) // image_index is global
 	image_alpha = 1.5;
@@ -34,9 +35,9 @@ alt_name[9]  = "Sabrewulf";
 alt_name[10] = "Talbain";
 alt_name[11] = "Yugo";
 alt_name[12] = "Infamous";
-alt_name[13] = "";
-alt_name[14] = "";
-alt_name[15] = "";
+alt_name[13] = "Golden";
+alt_name[14] = "Arcade";
+alt_name[15] = "Summit";
 
 draw_set_halign(fa_left);
 

@@ -15,7 +15,7 @@ sprite_change_offset("jumpstart", 53, 75);
 sprite_change_offset("jump", 51, 83);
 sprite_change_offset("doublejump", 51, 85);
 sprite_change_offset("walljump", 15, 62);
-sprite_change_offset("pratfall", 47, 80);
+sprite_change_offset("pratfall", 41, 84);
 sprite_change_offset("land", 49, 73);
 sprite_change_offset("landinglag", 50, 74);
 
@@ -49,14 +49,19 @@ sprite_change_offset("dstrong", 125, 75);
 sprite_change_offset("nspecial", 85, 100);
 sprite_change_offset("fspecial", 79, 88);
 sprite_change_offset("fspecial_air", 79, 88);
-sprite_change_offset("uspecial", 43, 166);
+sprite_change_offset("uspecial", 41, 146);
 sprite_change_offset("dspecial", 60, 86);
 sprite_change_offset("dspecial_2", 60, 134);
 sprite_change_offset("dspecial_air", 50, 138);
-sprite_change_offset("taunt", 50, 80);
+sprite_change_offset("taunt", 50, 79);
+
+
+sprite_change_offset("lightningpop", 115, 100);
+
+
 
 //#region SL Loads
-sprite_change_offset("SL_idle", 60, 70);
+sprite_change_offset("SL_idle", 48, 70);
 sprite_change_offset("SL_hurt", 47, 79);
 sprite_change_offset("SL_uphurt", 47, 79);
 sprite_change_offset("SL_crouch", 55, 64);
@@ -69,7 +74,7 @@ sprite_change_offset("SL_dashstart", 37, 70);
 sprite_change_offset("SL_dashstop", 55, 70);
 sprite_change_offset("SL_dashturn", 50, 73);
 
-sprite_change_offset("SL_jumpstart", 53, 75);
+sprite_change_offset("SL_jumpstart", 53, 65);
 sprite_change_offset("SL_jump", 51, 83);
 sprite_change_offset("SL_doublejump", 51, 85);
 sprite_change_offset("SL_walljump", 15, 62);
@@ -87,7 +92,7 @@ sprite_change_offset("SL_airdodge_upback", 32, 62);
 sprite_change_offset("SL_airdodge_downforward", 32, 62);
 sprite_change_offset("SL_airdodge_downback", 32, 62);
 sprite_change_offset("SL_airdodge", 32, 62);
-sprite_change_offset("SL_waveland", 70, 55);
+sprite_change_offset("SL_waveland", 70, 65);
 sprite_change_offset("SL_tech", 32, 96);
 
 sprite_change_offset("SL_jab", 64, 78);
@@ -111,7 +116,11 @@ sprite_change_offset("SL_uspecial", 43, 184);
 sprite_change_offset("SL_dspecial", 60, 86);
 sprite_change_offset("SL_dspecial_2", 60, 134);
 sprite_change_offset("SL_dspecial_air", 50, 138);
-sprite_change_offset("SL_taunt", 65, 80);
+sprite_change_offset("SL_taunt", 55, 79);
+
+
+sprite_change_offset("SL_lightningpop", 115, 100);
+
 
 //#endregion
 

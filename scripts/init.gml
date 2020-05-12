@@ -163,6 +163,10 @@ SL_fizzle = noone;
 SL_fizzle_timer = 0;
 SL_sparkTimer = 0;
 
+//hiteffects
+
+    lightningpop = hit_fx_create(sprite_get("lightningpop"), 30) 
+    SL_lightningpop = hit_fx_create(sprite_get("SL_lightningpop"), 30) 
 //#region SL Sprites
 
 useskins = false;
@@ -234,6 +238,9 @@ spr_dspecial = sprite_get("dspecial");
 spr_dspecial_2 = sprite_get("dspecial_2");
 spr_dspecial_air = sprite_get("dspecial_air");
 spr_taunt = sprite_get("taunt");
+
+//hiteffects
+spr_lightningpop = sprite_get("lightningpop")
 
 //Respawn
 spr_plat = sprite_get("plat");

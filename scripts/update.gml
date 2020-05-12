@@ -37,12 +37,15 @@ if (slTimer >= slTimerLimit && !slActive)
 	SL_mode();
 	DSP_dam = 0;
 	slTimer = slTimerLimit
-	slHurtTimer = slMaxHurtTime;/*
+	slHurtTimer = slMaxHurtTime;
+	SL_trans_timer = 0;
+	sound_play(sound_get("warwick_howl"));
+	
+	/*				Time Stop, removed
 	with(oPlayer){
 		hitpause = true;
 		hitstop += 45;
 	}*/
-	SL_trans_timer = 0;
 }
 	SL_trans_timer += 0.32;
 
@@ -138,6 +141,8 @@ hud_timer = clamp(hud_timer,0,23);
 
 //#endregion
 
+
+
 #define SL_mode
 
 //#region Sangiune Lightning Strong Hitboxes
@@ -166,8 +171,8 @@ if(slActive){
     	set_hitbox_value(AT_FSTRONG, i, HG_EXTRA_HITPAUSE, 0);
     	set_hitbox_value(AT_FSTRONG, i, HG_DAMAGE, 10);
     }
-    
-    
+    //hiteffect shift
+    lightningpop = hit_fx_create(sprite_get("SL_lightningpop"), 30)
 }
 else{
     //Ustrong reset
@@ -194,6 +199,8 @@ else{
     	reset_hitbox_value(AT_FSTRONG, i, HG_EXTRA_HITPAUSE);
     	reset_hitbox_value(AT_FSTRONG, i, HG_DAMAGE);
     }
+    //hit effect shift
+    lightningpop = hit_fx_create(sprite_get("lightningpop"), 30)
 }
 
 //#endregion

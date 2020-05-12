@@ -5,12 +5,34 @@ if ( my_hitboxID.attack == AT_FSPECIAL && (my_hitboxID.hbox_num == 1 ||  my_hitb
   hit_player_obj.should_make_shockwave = false;
     fspec_airgrab = true;
     fspec_id = hit_player_obj;
+    if(my_hitboxID.hbox_num == 2){
+        var pop = spawn_hit_fx( hit_player_obj.x + 30*my_hitboxID.spr_dir, hit_player_obj.y -45, lightningpop );
+        pop.depth = -10;
+        
+    }
 }
     //#endregion
     
     //#region Uspecial
 if (my_hitboxID.attack == AT_USPECIAL && my_hitboxID.hbox_num == 1){
     my_hitboxID.player_id.USPpow = true;
+    var pop = spawn_hit_fx( hit_player_obj.x + 10*my_hitboxID.spr_dir, hit_player_obj.y -45, lightningpop );
+
+    pop.depth = -10;
+}
+
+if (my_hitboxID.attack == AT_NSPECIAL && my_hitboxID.hbox_num == 1){
+    
+    var pop = spawn_hit_fx( hit_player_obj.x + 30*my_hitboxID.spr_dir, hit_player_obj.y -45, lightningpop );
+    pop.depth = -10;
+}
+
+
+if (my_hitboxID.attack == AT_USPECIAL && my_hitboxID.hbox_num == 3){
+    my_hitboxID.player_id.USPpow = false;
+    var pop = spawn_hit_fx( hit_player_obj.x + 30*my_hitboxID.spr_dir, hit_player_obj.y -45, lightningpop );
+    pop.depth = -10;
+    
 }
 
 if ( my_hitboxID.attack == AT_USPECIAL && (my_hitboxID.hbox_num == 1 ||  my_hitboxID.hbox_num == 2)) {
@@ -23,6 +45,10 @@ if ( my_hitboxID.attack == AT_USPECIAL && (my_hitboxID.hbox_num == 1 ||  my_hitb
     //#region Dspecial_2
 if ( my_hitboxID.attack == AT_DSPECIAL_2 || my_hitboxID.attack == AT_DSPECIAL_AIR) {
         hit_player_obj.should_make_shockwave = false;
+        if(my_hitboxID.hbox_num != 5){
+            var pop = spawn_hit_fx( hit_player_obj.x + 30*my_hitboxID.spr_dir, hit_player_obj.y -45, SL_lightningpop );
+            pop.depth = -10;
+        }
 }
     //#endregion
     
@@ -120,12 +146,17 @@ if(my_hitboxID.attack == AT_DSTRONG && (my_hitboxID.hbox_num == 2)){
         hit_player_obj.hitstop = hit_player_obj.hitstop_full;
      }
     
+    var pop = spawn_hit_fx( hit_player_obj.x + 30*my_hitboxID.spr_dir, hit_player_obj.y -45, lightningpop );
+    pop.depth = -10;
 }
 
     //#endregion
 
     //#region Fstrong
 if(my_hitboxID.attack == AT_FSTRONG){
+    
+    var pop = spawn_hit_fx( hit_player_obj.x + 30*my_hitboxID.spr_dir, hit_player_obj.y -45, lightningpop );
+    pop.depth = -10;
     id.window = 7;
     id.window_timer = 0;
     id.image_index = 0;
@@ -142,11 +173,37 @@ if(my_hitboxID.attack == AT_FSTRONG){
 
     //#region Dair
 if(my_hitboxID.attack == AT_DAIR){
-    id.window = 4;
-    id.window_timer = 0;
-    id.image_index = 0;
+    if(my_hitboxID.hbox_num == 1){
+        id.window = 4;
+        id.window_timer = 0;
+        id.image_index = 0;
+        var pop = spawn_hit_fx( hit_player_obj.x + 30*my_hitboxID.spr_dir, hit_player_obj.y -45, lightningpop );
+        pop.depth = -10;
+    }
+    
+    if(my_hitboxID.hbox_num == 2){
+        if(get_player_damage(hit_player_obj.player) <= 100){
+            set_hitbox_value(AT_DAIR, 1, HG_ANGLE, 90);
+            set_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK, 10);
+            set_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING, 0);
+            
+        }
+        else{
+            reset_hitbox_value(AT_DAIR, 1, HG_ANGLE);
+            reset_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK);
+            reset_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING);
+        }
+    }
+    
 }
 
+    //#endregion
+    
+    //#region Bair
+if (my_hitboxID.attack == AT_BAIR && (my_hitboxID.hbox_num == 1 ||  my_hitboxID.hbox_num == 5)) {
+    var pop = spawn_hit_fx( hit_player_obj.x + 30*my_hitboxID.spr_dir, hit_player_obj.y -45, lightningpop );
+    pop.depth = -10;    
+}
     //#endregion
 
 //#endregion

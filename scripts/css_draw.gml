@@ -16,6 +16,7 @@ patch_ver = "1.0";
 image_alpha = max(image_alpha-0.02, 0);
 
 var num_alts = 16;
+
 var alt_new = get_player_color(player);
 if ((alt_new != 15 && alt_new != image_index - 1) || (alt_new == 15 && (image_index == 15 || image_index == 1))) // image_index is global
 	image_alpha = 1.5;

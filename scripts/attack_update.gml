@@ -61,8 +61,8 @@ if (attack == AT_FSPECIAL){
     if (window == 2){
         can_wall_jump = true;
         if(fspec_airgrab){
-        	fspec_id.x = x + (60 * spr_dir)
-        	fspec_id.y = y - 10
+        	fspec_id.x = ease_linear(fspec_id.x, x + (60 * spr_dir), window_timer, 25);
+        	fspec_id.y = ease_linear(fspec_id.y, y - 10, window_timer, 25);
     	}
         if(was_parried){
             window = 3;
@@ -86,6 +86,7 @@ if (attack == AT_FSPECIAL){
 
     //#region Uspecial
 if(attack == AT_USPECIAL){
+	can_wall_jump = true;
     if(window == 2 && window_timer == 6){
         can_US = false;
     }
@@ -98,15 +99,15 @@ if(attack == AT_USPECIAL){
         }
         if(!hitpause){
             if((USPdir >= 80 && USPdir <= 100) || (USPdir >= 170 && USPdir <= 360) || USPdir <= 10){
-                vsp = ease_cubeOut(-30, 0, window_timer, 26);
+                vsp = ease_cubeOut(-26, 0, window_timer, 26);
             }
             if(USPdir > 100 && USPdir < 170){
-                vsp = sin((110 / 180) * 3.14) * ease_cubeOut(-30, 0, window_timer, 26);
-                hsp = cos((110 / 180) * 3.14) * ease_cubeOut(30, 0, window_timer, 26);
+                vsp = sin((110 / 180) * 3.14) * ease_cubeOut(-26, 0, window_timer, 26);
+                hsp = cos((110 / 180) * 3.14) * ease_cubeOut(26, 0, window_timer, 26);
             }
             if(USPdir > 10 && USPdir < 80){
-                vsp = sin((70 / 180) * 3.14) * ease_cubeOut(-30, 0, window_timer, 26);
-                hsp = cos((70 / 180) * 3.14) * ease_cubeOut(30, 0, window_timer, 26);
+                vsp = sin((70 / 180) * 3.14) * ease_cubeOut(-26, 0, window_timer, 26);
+                hsp = cos((70 / 180) * 3.14) * ease_cubeOut(26, 0, window_timer, 26);
             }
         }
         else{
@@ -136,8 +137,11 @@ if(attack == AT_USPECIAL){
     if(window == 3){
         USPpow = false;
     }
-    
     can_move = true;
+    air_accel = 0.25;
+}
+else{
+	air_accel = 0.4;
 }
 //#endregion
 
@@ -377,6 +381,9 @@ if(attack == AT_DTILT){
     //#region DAIR
 if(attack == AT_DAIR){
     if(window == 1 && window_timer == 14){
+        reset_hitbox_value(AT_DAIR, 1, HG_ANGLE);
+        reset_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK);
+        reset_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING);
         DAIR_jcTimer = 1;
     }
     if(window == 2){
@@ -407,10 +414,15 @@ if(attack == AT_DAIR){
     //#endregion
 
 //#endregion
-/* Taunt for SL
+ //Taunt for SL
+ 
 if(attack == AT_TAUNT && window == 1 && window_timer == 1 && !hitpause){
+	
     slTimer += 600;
-}*/
+
+ 	
+ }
+	
 
 if(slActive){
             set_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_SPRITE, sprite_get("SL_spark"))

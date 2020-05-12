@@ -156,6 +156,7 @@ set_color_profile_slot( 12, 5, 72, 96, 157 ); //Fabric
 set_color_profile_slot( 12, 6, 253, 253, 253 ); //Alt Fur
 set_color_profile_slot( 12, 4, 255, 100, 217 ); //Fur
 
+
 // Golden
 set_color_profile_slot( 13, 0, 254, 225, 69 ); //Fur
 set_color_profile_slot( 13, 1, 242, 250, 171 ); //Skin

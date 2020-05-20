@@ -3,7 +3,7 @@
 init_shader(); // Sanguine Lightning Colour Palette
 
 var temp_x = x + 8;
-var temp_y = y + 10;
+var temp_y = y + 9;
 
 var red1 = get_color_profile_slot_r(get_player_color( player ), 0);
 var green1 = get_color_profile_slot_g(get_player_color( player ), 0);
@@ -31,7 +31,7 @@ alt_name[5]  = "Pink";
 alt_name[6]  = "Abyss";
 alt_name[7]  = "Gameboy";
 alt_name[8]  = "Wolf";
-alt_name[9]  = "Sabrewulf";
+alt_name[9]  = "Warwick";
 alt_name[10] = "Talbain";
 alt_name[11] = "Yugo";
 alt_name[12] = "Infamous";
@@ -50,7 +50,7 @@ if (image_alpha > 0)
 if (image_alpha > 0.5)
 	for(i = 0; i < num_alts; ++i)
 	{
-	    var draw_color = (i == image_index) ? colourrrrr : c_gray;
+	    var draw_color = (i==image_index?colourrrrr:c_gray);
 	    var draw_x = temp_x + 2 + 10 * i;
 		rectDraw(draw_x, temp_y + 143 - floor((image_alpha>1?1:image_alpha)*3.5)*2, draw_x + 7, temp_y + 140, draw_color);
 	}

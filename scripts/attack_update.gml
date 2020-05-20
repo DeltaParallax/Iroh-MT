@@ -416,12 +416,12 @@ if(attack == AT_DAIR){
 //#endregion
  //Taunt for SL
  
-if(attack == AT_TAUNT && window == 1 && window_timer == 1 && !hitpause){
+/*if(attack == AT_TAUNT && window == 1 && window_timer == 1 && !hitpause){
 	
     slTimer += 600;
 
  	
- }
+}*/
 	
 
 if(slActive){

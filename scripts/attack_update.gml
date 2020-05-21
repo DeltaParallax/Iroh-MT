@@ -15,8 +15,12 @@ case AT_DSPECIAL_2:
 //#region Specials
     //#region Nspecial
 if (attack == AT_NSPECIAL){
+	if(window == 1 && window_timer == 1){
+		set_hitbox_value(AT_NSPECIAL, 2, HG_ANGLE_FLIPPER, 9);
+	}
+		
     if(window == 2 && !hit_pause){
-        if(state_timer % 2 == 0){
+        if(state_timer % 8 == 0){
             create_hitbox(AT_NSPECIAL, 2, x, y)
         }
         if(state_timer % 5 == 0){
@@ -28,6 +32,11 @@ if (attack == AT_NSPECIAL){
             image_index = 0;
         }
     }
+    
+       if(window == 2 && window_timer == 9){
+		set_hitbox_value(AT_NSPECIAL, 2, HG_ANGLE_FLIPPER, 4);
+       }
+    
     if(window == 3){
         can_strong = true;
         if(special_down){
@@ -430,3 +439,4 @@ if(slActive){
         else{
             reset_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_SPRITE)
         }
+

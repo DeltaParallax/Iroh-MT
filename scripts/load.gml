@@ -47,7 +47,7 @@ sprite_change_offset("fstrong_charge", 64, 106);
 sprite_change_offset("ustrong", 48, 116);
 sprite_change_offset("dstrong", 125, 75);
 sprite_change_offset("nspecial", 85, 100);
-sprite_change_offset("fspecial", 79, 88);
+sprite_change_offset("fspecial", 79, 86);
 sprite_change_offset("fspecial_air", 79, 88);
 sprite_change_offset("uspecial", 41, 146);
 sprite_change_offset("dspecial", 60, 86);

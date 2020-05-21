@@ -5,7 +5,7 @@ if(attack == AT_DSPECIAL && window == 1 && !slActive){
 	
 	slTimer += 200
 }
-else
-{
-	slTimer += 6 * enemy_hitboxID.damage;
+
+if(!slActive){
+		slTimer += 6 * enemy_hitboxID.damage;
 }

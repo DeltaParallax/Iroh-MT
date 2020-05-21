@@ -235,7 +235,7 @@ if(slActive){
 	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 3)
 	
 	set_hitbox_value(AT_NSPECIAL, 1, HG_DAMAGE, 8)
-	set_hitbox_value(AT_NSPECIAL, 1, HG_KNOCKBACK_SCALING, 1.4)
+	set_hitbox_value(AT_NSPECIAL, 1, HG_KNOCKBACK_SCALING, 1.0)
 	
 	set_hitbox_value(AT_JAB, 3, HG_DAMAGE, 6)
 	set_hitbox_value(AT_JAB, 2, HG_DAMAGE, 6)
@@ -406,10 +406,10 @@ if(slActive){
 	air_accel = 0.6;
 }
 else{
-	dash_speed = 6.0;
-	initial_dash_speed = 6.8;
-	max_jump_hsp = 5.5;
-	air_accel = 0.4;
+	dash_speed = 5.2;
+	initial_dash_speed = 6.1;
+	max_jump_hsp = 5.1;
+	air_accel = 0.33;
 }
 
 

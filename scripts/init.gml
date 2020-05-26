@@ -133,6 +133,12 @@ USPdir = 0; //Angle direction input.
 
 //Uspecial
 can_US = false;
+uspec_grab = false;
+uspec_id = -1;
+
+//Fspecial
+fspec_id = -1;
+fspec_airgrab = false;
 
 //Nspecial
 explode = false;
@@ -140,11 +146,18 @@ explode = false;
 //Dspecial
 shake = 0;
 dspec_airgrab = false;
-dspec_id = 0;
+dspec_id = -1;
 DSP_dam = 0;
+
+//Fspecial
+fspec_angle = 0;
 
 //Fstrong
 staticloop = 0;
+
+//stun timer
+stun_timer = 90;
+stun_limit = 90;
 
 //Dtilt
 dtiltjumpcancel = false;
@@ -230,6 +243,7 @@ spr_fstrong = sprite_get("fstrong");
 spr_ustrong = sprite_get("ustrong");
 spr_dstrong = sprite_get("dstrong");
 spr_nspecial = sprite_get("nspecial");
+spr_nspecial_air = sprite_get("nspecial_air");
 spr_fspecial = sprite_get("fspecial");
 spr_dspecial = sprite_get("dspecial");
 spr_fspecial_air = sprite_get("fspecial_air");

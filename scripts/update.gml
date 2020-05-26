@@ -58,8 +58,11 @@ if(slTimer < 0){
 
 if slActive
 {
+		if(slTimer > 600){
+			slTimer = 600;
+		}
 	if(!hitpause){
-		slTimer -=1.2;
+		slTimer -= 0.95;
 		--slHurtTimer;
 	}
 	
@@ -79,6 +82,7 @@ if slActive
 		take_damage(player,-1,slHurtAmount)
 		DSP_dam += slHurtAmount;
 	}
+	
 }
 else
 {
@@ -86,6 +90,8 @@ else
 	slDamageMult = slNormalDamage
 	slKBMult = slNormalKB
 }
+
+
 
 
 
@@ -97,7 +103,7 @@ if(slActive){
 	for(var n = 0; n <= 1; n++)
 	if(!hitpause){
 		if(SL_sparkTimer % 30 = n){
-			for(var m = 1; m <= 4; m++){
+			for(var m = 1; m <= 2; m++){
 				var xran = random_func(m, 110, true)
 				var yran = random_func_2(m, 120, true)
 				instance_create(x + (xran - 70) * spr_dir, y + yran - 100, "obj_article2")
@@ -105,8 +111,8 @@ if(slActive){
 		}
 	}
 	if((hsp != 0 || vsp != 0) && !hitpause){
-			for (var n = 0; n <= 8; n++)
-			if(SL_sparkTimer % 20 = n){
+			for (var n = 0; n <= 6; n++)
+			if(SL_sparkTimer % 13 = n){
 				for(var m = 1; m <= 1; m++){
 					var xran = random_func(m, 110, true)
 					var yran = random_func_2(m, 120, true)
@@ -118,8 +124,8 @@ if(slActive){
 }
 
 if(!hitpause && state == PS_ATTACK_AIR && (attack == AT_DSPECIAL_AIR || (attack == AT_USPECIAL && window == 2 && slActive))){
-	for(var q = 0; q <= 3; q++)
-		if(state_timer % 10 = q){
+	for(var q = 0; q <= 2; q++)
+		if(state_timer % 15 = q){
 			for(var v = 1; v <= 4; v++){
 				var xran = random_func(v, 90, true)
 				var yran = random_func_2(v, 90, true)
@@ -132,11 +138,20 @@ SL_sparkTimer++
 //#endregion
 
 
+
+
 //#region HUD Timer easing
 
 var temp_timer = floor((floor(slTimer)/slTimerLimit)*23);
 hud_timer += (temp_timer>hud_timer?1:(temp_timer<hud_timer?-1:0));
 hud_timer = clamp(hud_timer,0,23);
+
+
+//#endregion
+
+//#region Stun timer ZSS Fix
+
+stun_timer++
 
 
 //#endregion
@@ -231,7 +246,7 @@ if(slActive){
 	set_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED, 14)
 	set_window_value(AT_DATTACK, 3, AG_WINDOW_LENGTH, 7)
 	
-	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 5)
+	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 10)
 	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 3)
 	
 	set_hitbox_value(AT_NSPECIAL, 1, HG_DAMAGE, 8)
@@ -240,6 +255,8 @@ if(slActive){
 	set_hitbox_value(AT_JAB, 3, HG_DAMAGE, 6)
 	set_hitbox_value(AT_JAB, 2, HG_DAMAGE, 6)
 	set_hitbox_value(AT_JAB, 1, HG_DAMAGE, 6)
+	
+	set_hitbox_value(AT_USTRONG, 1, HG_HITSTUN_MULTIPLIER, 1)
 	
 	
 }
@@ -276,6 +293,8 @@ else{
 	reset_hitbox_value(AT_JAB, 3, HG_DAMAGE)
 	reset_hitbox_value(AT_JAB, 2, HG_DAMAGE)
 	reset_hitbox_value(AT_JAB, 1, HG_DAMAGE)
+	
+	reset_hitbox_value(AT_USTRONG, 1, HG_HITSTUN_MULTIPLIER)
 	
 	
 }
@@ -322,6 +341,7 @@ if slActive {
     spr_landinglag = sprite_get("SL_landinglag")
     spr_nair = sprite_get("SL_nair")
     spr_nspecial = sprite_get("SL_nspecial")
+    spr_nspecial_air = sprite_get("SL_nspecial_air")
     spr_parry = sprite_get("SL_parry")
     spr_pratfall = sprite_get("SL_pratfall")
     spr_spark = sprite_get("SL_spark")
@@ -376,6 +396,7 @@ else{
     spr_landinglag = sprite_get("landinglag")
     spr_nair = sprite_get("nair")
     spr_nspecial = sprite_get("nspecial")
+    spr_nspecial_air = sprite_get("nspecial_air")
     spr_parry = sprite_get("parry")
     spr_pratfall = sprite_get("pratfall")
     spr_spark = sprite_get("spark")

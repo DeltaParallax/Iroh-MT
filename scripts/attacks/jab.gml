@@ -73,10 +73,11 @@ set_hitbox_value(AT_JAB, 1, HG_ANGLE, 60);
 set_hitbox_value(AT_JAB, 1, HG_BASE_KNOCKBACK, 4);
 set_hitbox_value(AT_JAB, 1, HG_BASE_HITPAUSE, 6);
 set_hitbox_value(AT_JAB, 1, HG_HITPAUSE_SCALING, 0.3);
+set_hitbox_value(AT_JAB, 1, HG_FORCE_FLINCH, 1); //i added this to make tilts link more reliably
 //set_hitbox_value(AT_JAB, 1, HG_VISUAL_EFFECT, small_wood_hfx);
 //set_hitbox_value(AT_JAB, 1, HG_VISUAL_EFFECT_X_OFFSET, 24);
 //set_hitbox_value(AT_JAB, 1, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
-set_hitbox_value(AT_JAB, 1, HG_TECHABLE, 0);
+set_hitbox_value(AT_JAB, 1, HG_TECHABLE, 0); //this is the default
 
 set_hitbox_value(AT_JAB, 2, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_JAB, 2, HG_WINDOW, 5);
@@ -87,8 +88,8 @@ set_hitbox_value(AT_JAB, 2, HG_WIDTH, 83);
 set_hitbox_value(AT_JAB, 2, HG_HEIGHT, 31);
 set_hitbox_value(AT_JAB, 2, HG_PRIORITY, 2);
 set_hitbox_value(AT_JAB, 2, HG_DAMAGE, 4);
-set_hitbox_value(AT_JAB, 2, HG_ANGLE, 240);
-set_hitbox_value(AT_JAB, 2, HG_BASE_KNOCKBACK, 6);
+set_hitbox_value(AT_JAB, 2, HG_ANGLE, 361); //i had to remove the spike angle to make the jab2->jab3 confirm techable
+set_hitbox_value(AT_JAB, 2, HG_BASE_KNOCKBACK, 4); //base knockback was reduced once the angle was changed, as the base 6 knockback was too high for teching
 set_hitbox_value(AT_JAB, 2, HG_BASE_HITPAUSE, 6);
 set_hitbox_value(AT_JAB, 2, HG_HITPAUSE_SCALING, 0.3);
 //set_hitbox_value(AT_JAB, 2, HG_VISUAL_EFFECT, small_wood_hfx);
@@ -109,7 +110,7 @@ set_hitbox_value(AT_JAB, 3, HG_PRIORITY, 2);
 set_hitbox_value(AT_JAB, 3, HG_DAMAGE, 4);
 set_hitbox_value(AT_JAB, 3, HG_ANGLE, 40);
 set_hitbox_value(AT_JAB, 3, HG_BASE_KNOCKBACK, 6);
-set_hitbox_value(AT_JAB, 3, HG_KNOCKBACK_SCALING, .3);
+set_hitbox_value(AT_JAB, 3, HG_KNOCKBACK_SCALING, .5); //increased slightly because the jab finisher right now is kind of very weak. i feel it could even be stronger
 set_hitbox_value(AT_JAB, 3, HG_BASE_HITPAUSE, 10);
 set_hitbox_value(AT_JAB, 3, HG_HITPAUSE_SCALING, .6);
 set_hitbox_value(AT_JAB, 3, HG_VISUAL_EFFECT_X_OFFSET, 24);

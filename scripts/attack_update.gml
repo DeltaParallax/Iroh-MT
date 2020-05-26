@@ -14,17 +14,18 @@ case AT_DSPECIAL_2:
 
 //#region Specials
     //#region Nspecial
+    // Old Nspecial
 if (attack == AT_NSPECIAL){
 	if(window == 1 && window_timer == 1){
 		set_hitbox_value(AT_NSPECIAL, 2, HG_ANGLE_FLIPPER, 9);
 	}
 		
     if(window == 2 && !hit_pause){
-        if(state_timer % 8 == 0){
+        if(window_timer % 1 == 0){
             create_hitbox(AT_NSPECIAL, 2, x, y)
         }
-        if(state_timer % 5 == 0){
-            create_hitbox(AT_NSPECIAL, 3, x, y)
+        if(window_timer % 5 == 0){
+           create_hitbox(AT_NSPECIAL, 3, x, y)
         }
         if(state_timer == 30){
             window = 3;
@@ -33,7 +34,7 @@ if (attack == AT_NSPECIAL){
         }
     }
     
-       if(window == 2 && window_timer == 9){
+       if(window == 2 && window_timer == 15){
 		set_hitbox_value(AT_NSPECIAL, 2, HG_ANGLE_FLIPPER, 4);
        }
     
@@ -59,42 +60,88 @@ if (attack == AT_NSPECIAL){
     }
 	vsp = clamp(vsp, -4, 3.5);
 }
+
+/*if(attack == AT_NSPECIAL){
+	if(window == 1){
+		if(window_timer == 1){
+			Nspec_grab = false;
+		}	
+	
+	}
+	
+	
+}*/
     //#endregion
 
     //#region Fspecial
 if (attack == AT_FSPECIAL){
-	if(window == 1 && window_timer == 1){
+	if(window == 1){
+		if(window_timer == 1){
+			fspec_airgrab = false;
+		}
+		if(!joy_pad_idle){
+			if(joy_dir <= 20 || joy_dir >= 340 || (joy_dir <= 200 && joy_dir >= 160)){
+				fspec_angle = 0;
+			}
+			if(joy_dir > 20 && joy_dir < 160){
+				fspec_angle = 15;
+			}
+			if(joy_dir < 340 && joy_dir > 200){
+				if(free){
+					fspec_angle = 345;
+				}
+				else{
+						fspec_angle = 0;
+				}
+			}
+			
+		}
 		
-		fspec_airgrab = false;
 	}
     if (window == 2){
         can_wall_jump = true;
+        if( fspec_angle = 345 && !free){
+        	fspec_angle = 0;
+        }
         if(fspec_airgrab){
-        	fspec_id.x = ease_linear(fspec_id.x, x + (60 * spr_dir), window_timer, 25);
-        	fspec_id.y = ease_linear(fspec_id.y, y - 10, window_timer, 25);
+        	fspec_id.x = ease_linear(fspec_id.x, x + (60 * spr_dir), window_timer, 19);
+        	fspec_id.y = ease_linear(fspec_id.y, y - 10, window_timer, 19);
     	}
         if(was_parried){
             window = 3;
             window_timer = 0;
         }    
-        if(window_timer % 3 == 0){
-            create_hitbox(AT_FSPECIAL, 1, x, y)
-        hsp = ease_cubeOut(30 * spr_dir, 10 * spr_dir, window_timer, 25);
+        if(window_timer % 4 == 0){
+            create_hitbox(AT_FSPECIAL, 1, x, y);
         }
+        //movement
+        hsp = cos(degtorad(fspec_angle)) * ease_cubeOut(30 * spr_dir, 10 * spr_dir, window_timer, 19);
+        vsp = sin(degtorad(fspec_angle)) * ease_cubeOut(30 , 10 , window_timer, 19) * -1;
+        
+        //angle
+        spr_angle = fspec_angle * spr_dir;	
+ 
     }
+    
     if (window == 3){
         can_jump = true;
         can_special = true;
         can_strong = true;
+        can_ustrong = true;
+        spr_angle = 0;
     }
     can_fast_fall = false;
-    move_cooldown[AT_FSPECIAL] = 40;
+    move_cooldown[AT_FSPECIAL] = 30;
 	x = clamp(x, 0, room_width);
 }
 //#endregion
 
     //#region Uspecial
 if(attack == AT_USPECIAL){
+	if(window == 1 && window_timer == 1){
+		uspec_grab = false;
+		uspec_id = -1;
+	}
 	can_wall_jump = true;
     if(window == 2 && window_timer == 6){
         can_US = false;
@@ -127,13 +174,13 @@ if(attack == AT_USPECIAL){
                     
             
         
-        if(window_timer % 2 == 0 && window_timer < 25){
+        if(window_timer % 5 == 0 && window_timer < 25){
             var uspdrag = create_hitbox(AT_USPECIAL, 2, x, y);
 
-            if(window_timer <= 3 && USPpow == true){
+            /*if(window_timer <= 3 && USPpow == true){
                 uspdrag.image_xscale = 0.9
                 uspdrag.kb_value = 18;
-            }
+            }*/
             if(window_timer >= 20){
                 uspdrag.kb_value = 4;
             }
@@ -142,6 +189,15 @@ if(attack == AT_USPECIAL){
             create_hitbox(AT_USPECIAL, 3, x, y)
         }
             
+           
+        if(window_timer >= 21){
+        	uspec_grab = false;
+        }
+        if(uspec_grab){
+        
+        	uspec_id.x = ease_expoOut(uspec_id.x, x + (30 * spr_dir), window_timer, 26);
+        	uspec_id.y = ease_linear(uspec_id.y, y - 80, window_timer, 26);
+    	}    
     }
     if(window == 3){
         USPpow = false;
@@ -203,6 +259,7 @@ if(attack == AT_DSPECIAL_2){
 }
 
 if(attack == AT_DSPECIAL_AIR){
+	can_move = false;
 	fall_through = down_down || down_stick_down;
     for(var i = 1; i <= 4; i++){
         set_hitbox_value(AT_DSPECIAL_AIR, i, HG_DAMAGE, 10 + DSP_dam)
@@ -228,7 +285,7 @@ if(attack == AT_DSPECIAL_AIR){
         image_index = 0;
     }
     if(window == 3){
-        dspec_id = 0;
+        dspec_id = -1;
     }
 }
 
@@ -255,32 +312,34 @@ if(attack == AT_USTRONG){
 		{
 			if (hit_player)
 			{
-				if (hitstop == 0)
-				{
-					hit_player_obj.x = x + spr_dir * 15;
-					hit_player_obj.y = y - 65;
+				if(hit_player_obj.soft_armor <= 0 || hit_player_obj.super_armor == true){
+					if (hitstop == 0)
+					{
+						hit_player_obj.x = x + spr_dir * 15;
+						hit_player_obj.y = y - 65;
+					}
+					else
+					{
+						if (hit_player_obj.x > (x + spr_dir * 15))
+						{
+							hit_player_obj.x -= (hit_player_obj.x - (x + spr_dir * 15))/6;
+						}
+						else if (hit_player_obj.x < (x + spr_dir * 15))
+						{
+							hit_player_obj.x += ((x + spr_dir * 15) - hit_player_obj.x)/6;
+						}
+						if (hit_player_obj.y > (y - 65))
+						{
+							hit_player_obj.y -= (hit_player_obj.y - (y - 65))/6;
+						}
+						else if (hit_player_obj.y < (y - 65))
+						{
+							hit_player_obj.y += ((y - 65) - hit_player_obj.y)/6;
+						}
+					}
+					hit_player_obj.hsp = 0;
+					hit_player_obj.vsp = 0;
 				}
-				else
-				{
-					if (hit_player_obj.x > (x + spr_dir * 15))
-					{
-						hit_player_obj.x -= (hit_player_obj.x - (x + spr_dir * 15))/6;
-					}
-					else if (hit_player_obj.x < (x + spr_dir * 15))
-					{
-						hit_player_obj.x += ((x + spr_dir * 15) - hit_player_obj.x)/6;
-					}
-					if (hit_player_obj.y > (y - 65))
-					{
-						hit_player_obj.y -= (hit_player_obj.y - (y - 65))/6;
-					}
-					else if (hit_player_obj.y < (y - 65))
-					{
-						hit_player_obj.y += ((y - 65) - hit_player_obj.y)/6;
-					}
-				}
-				hit_player_obj.hsp = 0;
-				hit_player_obj.vsp = 0;
 			}
 		}
 		else
@@ -317,7 +376,7 @@ if(attack == AT_USTRONG){
 }
 
 
-//#endregion
+	//#endregion
 
     //#region Fstrong
 if(attack == AT_FSTRONG){
@@ -341,6 +400,26 @@ if(attack == AT_FSTRONG){
     }
 }
 //#endregion
+
+	//#region Dstrong
+if(attack == AT_DSTRONG){
+	if(window == 1 && window_timer == 1){
+    	dspec_grab = false;
+		dstrong_cap = false;
+		/*if(!slActive){
+        	reset_hitbox_value(AT_DSTRONG, 2, HG_ANGLE);
+        	reset_hitbox_value(AT_DSTRONG, 2, HG_BASE_KNOCKBACK);
+        	reset_hitbox_value(AT_DSTRONG, 2, HG_KNOCKBACK_SCALING);
+		}*/
+	}
+	if(dspec_grab && window == 3){
+        dspec_id.x = ease_linear(dspec_id.x, x - (60 * spr_dir), window_timer, 9);
+        dspec_id.y = ease_linear(dspec_id.y, y - 12, window_timer, 9);
+        dspec_id.state = PS_HITSTUN;
+    }
+}
+	
+	//#endregion
 
 //#endregion
 
@@ -415,28 +494,86 @@ if(attack == AT_DAIR){
     //#endregion
 
     //#region NAIR
-    if(attack == AT_DAIR){
-        air_accel = 0.2;
-		fall_through = down_down || down_stick_down;
-    }
+if(attack == AT_DAIR){
+	air_accel = 0.2;
+	fall_through = down_down || down_stick_down;
+}
     
     //#endregion
 
+	//#region Bair
+if(attack == AT_BAIR){
+	if(window == 3){
+		can_jump = true;
+		can_wall_jump = true;
+		can_special = true;
+	}
+}
+	
+	
+	//#endregion
+
+
 //#endregion
  //Taunt for SL
- 
-/*if(attack == AT_TAUNT && window == 1 && window_timer == 1 && !hitpause){
+ if(attack == AT_TAUNT && window == 1 && window_timer == 1 && !hitpause && down_down && !slActive){
 	
-    slTimer += 600;
+   slTimer += 600;
 
  	
-}*/
+}
 	
+	
+//#region Grab End on kill
+if(uspec_id.state == PS_RESPAWN || fspec_id.state == PS_RESPAWN || dspec_id.state == PS_RESPAWN){
+	uspec_grab = false;
+	fspec_airgrab = false;
+	dspec_airgrab = false;
+}
+
+
+//#endregion
 
 if(slActive){
-            set_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_SPRITE, sprite_get("SL_spark"))
-        }
-        else{
-            reset_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_SPRITE)
-        }
+    set_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_SPRITE, sprite_get("SL_spark"))
+}
+else{
+    reset_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_SPRITE)
+}
 
+if(!slActive && stun_timer > stun_limit){
+	stun_shift();
+}
+
+#define stun_shift
+if(stun_timer > stun_limit){
+	
+	reset_hitbox_value(AT_DSTRONG, 2, HG_BASE_KNOCKBACK);
+	reset_hitbox_value(AT_DSTRONG, 2, HG_ANGLE);
+	reset_hitbox_value(AT_DSTRONG, 2, HG_KNOCKBACK_SCALING);
+	
+	for(var i = 1; i <= 12; ++i){
+		reset_hitbox_value(AT_FSTRONG, i, HG_BASE_KNOCKBACK);
+		reset_hitbox_value(AT_FSTRONG, i, HG_ANGLE);
+		reset_hitbox_value(AT_FSTRONG, i, HG_KNOCKBACK_SCALING);
+		reset_hitbox_value(AT_FSTRONG, i, HG_EXTRA_HITPAUSE);
+	}
+	
+	reset_hitbox_value(AT_USTRONG, 1, HG_BASE_KNOCKBACK);
+	reset_hitbox_value(AT_USTRONG, 1, HG_KNOCKBACK_SCALING);
+}
+else{
+	set_hitbox_value(AT_DSTRONG, 2, HG_BASE_KNOCKBACK, 8);
+	set_hitbox_value(AT_DSTRONG, 2, HG_ANGLE, 135);
+	set_hitbox_value(AT_DSTRONG, 2, HG_KNOCKBACK_SCALING, 0.4);
+	
+	for(var i = 1; i <= 12; ++i){
+		set_hitbox_value(AT_FSTRONG, i, HG_BASE_KNOCKBACK, 7);
+		set_hitbox_value(AT_FSTRONG, i, HG_ANGLE, 55);
+		set_hitbox_value(AT_FSTRONG, i, HG_KNOCKBACK_SCALING, 0.5);
+		set_hitbox_value(AT_FSTRONG, i, HG_EXTRA_HITPAUSE, 0);
+	}
+	
+	set_hitbox_value(AT_USTRONG, 1, HG_BASE_KNOCKBACK, 18)
+	set_hitbox_value(AT_USTRONG, 1, HG_KNOCKBACK_SCALING, 0.5)
+}

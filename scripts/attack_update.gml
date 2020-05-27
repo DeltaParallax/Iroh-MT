@@ -11,6 +11,17 @@ case AT_DSPECIAL_2:
     trigger_b_reverse();
 	break;
 }
+	
+	
+//#region Grab End on kill
+if(uspec_id.state == PS_RESPAWN || fspec_id.state == PS_RESPAWN || dspec_id.state == PS_RESPAWN){ // take priority
+	uspec_grab = false;
+	fspec_airgrab = false;
+	dspec_airgrab = false;
+}
+
+
+//#endregion
 
 //#region Specials
     //#region Nspecial
@@ -124,6 +135,7 @@ if (attack == AT_FSPECIAL){
     }
     
     if (window == 3){
+        can_wall_jump = true;
         can_jump = true;
         can_special = true;
         can_strong = true;
@@ -281,8 +293,8 @@ if(attack == AT_DSPECIAL_AIR){
         soft_armor = 9999;
     }
     if(window == 2 && dspec_airgrab){
-        dspec_id.x = x + (60 * spr_dir)
-        dspec_id.y = y + 30
+        dspec_id.x = x + (60 * spr_dir);
+        dspec_id.y = y + 30;
     }
     
     if(window == 2 && !free){
@@ -423,7 +435,8 @@ if(attack == AT_DSTRONG){
         dspec_id.y = ease_linear(dspec_id.y, y - 12, window_timer, 9);
 		with (dspec_id)
 		{
-			set_state(PS_HITSTUN);
+			if (state != PS_RESPAWN || state != PS_DEAD)
+				set_state(PS_HITSTUN);
 		}
     }
 }
@@ -528,17 +541,6 @@ if(attack == AT_BAIR){
  if(inPractice && attack == AT_TAUNT && window == 1 && window_timer == 1 && !hitpause && down_down && !slActive){
    slTimer += 600;
 }
-	
-	
-//#region Grab End on kill
-if(uspec_id.state == PS_RESPAWN || fspec_id.state == PS_RESPAWN || dspec_id.state == PS_RESPAWN){
-	uspec_grab = false;
-	fspec_airgrab = false;
-	dspec_airgrab = false;
-}
-
-
-//#endregion
 
 if(slActive){
     set_hitbox_value(AT_USTRONG, 3, HG_PROJECTILE_SPRITE, sprite_get("SL_spark"))

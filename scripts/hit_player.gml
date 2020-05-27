@@ -217,8 +217,7 @@ if(my_hitboxID.attack == AT_DAIR){
         pop.depth = -10;
 		if(get_player_damage(hit_player_obj.player) <= 70)
 		{
-			hit_player_obj.orig_knock *= -1;
-			hit_player_obj.old_hsp *= -1;
+			hit_player_obj.old_vsp *= -1;
 		}
     }
     

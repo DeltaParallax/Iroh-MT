@@ -136,10 +136,12 @@ if (attack == AT_FSPECIAL){
     
     if (window == 3){
         can_wall_jump = true;
-        can_jump = true;
-        can_special = true;
-        can_strong = true;
-        can_ustrong = true;
+        if !was_parried {
+            can_jump = true;
+            can_special = true;
+            can_strong = true;
+            can_ustrong = true;
+        }
         spr_angle = 0;
     }
     can_fast_fall = false;
@@ -477,7 +479,8 @@ if(attack == AT_DTILT){
         dtiltjumpcancel = false;
     }
     if(dtiltjumpcancel){
-        can_jump = true;
+        //can_jump = true;
+        can_strong = true;
     }
 }
 

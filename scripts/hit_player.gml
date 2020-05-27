@@ -215,21 +215,26 @@ if(my_hitboxID.attack == AT_DAIR){
         id.image_index = 0;
         var pop = spawn_hit_fx( hit_player_obj.x + 30*my_hitboxID.spr_dir, hit_player_obj.y -45, lightningpop );
         pop.depth = -10;
+		if(get_player_damage(hit_player_obj.player) <= 70)
+		{
+			hit_player_obj.orig_knock *= -1;
+			hit_player_obj.old_hsp *= -1;
+		}
     }
     
-    if(my_hitboxID.hbox_num == 2){
-        if(get_player_damage(hit_player_obj.player) <= 70){
-            set_hitbox_value(AT_DAIR, 1, HG_ANGLE, 90);
-            set_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK, 9);
-            set_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING, 0.2);
-            
-        }
-        else{
-            reset_hitbox_value(AT_DAIR, 1, HG_ANGLE);
-            reset_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK);
-            reset_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING);
-        }
-    }
+    //if(my_hitboxID.hbox_num == 2){
+    //    if(get_player_damage(hit_player_obj.player) <= 70){
+    //        set_hitbox_value(AT_DAIR, 1, HG_ANGLE, 90);
+    //        set_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK, 9);
+    //        set_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING, 0.2);
+    //        
+    //    }
+    //    else{
+    //        reset_hitbox_value(AT_DAIR, 1, HG_ANGLE);
+    //        reset_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK);
+    //        reset_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING);
+    //    }
+    //}
     
 }
 

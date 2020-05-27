@@ -33,7 +33,7 @@ if (!free || state == PS_WALL_JUMP || state_cat == SC_HITSTUN) {
 //#region Sanguine Lightning
 if (slTimer >= slTimerLimit && !slActive)
 {
-	slActive = true
+	slActive = true;
 	SL_mode();
 	DSP_dam = 0;
 	slTimer = slTimerLimit
@@ -91,8 +91,13 @@ else
 	slKBMult = slNormalKB
 }
 
+slHUDshakeOffset = (slHUDshake>0?slHUDshakeOffset+(floor(get_gameplay_time()/3)%2==0?2:-2):0);
+--slHUDshake;
 
+if (!inPractice && get_training_cpu_action() != CPU_FIGHT)
+	inPractice = true;
 
+hudtip = max(hudtip-0.1,0);
 
 
 //#endregion
@@ -161,6 +166,7 @@ stun_timer++
 #define SL_mode
 
 //#region Sangiune Lightning Strong Hitboxes
+slHUDshake = 16;
 if(slActive){
     //Ustrong Kill Version
     set_hitbox_value(AT_USTRONG, 1, HG_BASE_KNOCKBACK, 15);

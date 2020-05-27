@@ -25,7 +25,7 @@ if ("slBarIndex" in self)
 	bar = sprite_get("slbaroutside");
 	meter = sprite_get("slbarpurple");
 	cycle = sprite_get("slbarhurtcycle");
-	bx = 10;
+	bx = 10 + slHUDshakeOffset*2;
 	by = -14;
 	shader_start();
 	draw_sprite(bar,slBarIndex,temp_x+bx-9,temp_y+by-21);
@@ -44,4 +44,12 @@ if ("slActive" in self && slActive)
 	shader_start();
 	draw_sprite(sprite_get(state_cat==SC_HITSTUN?"SL_hurts":"SL_huds"),0,temp_x+28,temp_y+8);
 	shader_end();
+}
+
+if ("inPractice" in self && inPractice && "hudtip" in self && hudtip != 0)
+{
+	var hudtipclamp = clamp(hudtip,0,1);
+	draw_set_alpha(hudtipclamp);
+	draw_debug_text(temp_x,temp_y - 8 + floor(hudtipclamp*4)*2-8,"Taunt + Down for SL");
+	draw_set_alpha(1);
 }

@@ -102,11 +102,15 @@ bubble_y = 8;
 //Iroh variables
 walk_indicate = -1 //-1 = not walking, 0 = start, 1 = end, go directly to -1
 jump_loop = 0
+inPractice = false;
+hudtip = 12;
 
 //Sanguine Lightning Variables
 slActive = false;
 slTimer = 0;
 slTimerLimit = 600; //10 seconds worth of frames
+slHUDshake = false;
+slHUDshakeOffset = 0;
 
 //self-damage
 slHurtTimer = 0;
@@ -177,9 +181,9 @@ SL_fizzle_timer = 0;
 SL_sparkTimer = 0;
 
 //hiteffects
+lightningpop = hit_fx_create(sprite_get("lightningpop"), 30);
+SL_lightningpop = hit_fx_create(sprite_get("SL_lightningpop"), 30);
 
-    lightningpop = hit_fx_create(sprite_get("lightningpop"), 30) 
-    SL_lightningpop = hit_fx_create(sprite_get("SL_lightningpop"), 30) 
 //#region SL Sprites
 
 useskins = false;
@@ -262,9 +266,10 @@ spr_plat = sprite_get("plat");
 // hud meter ease
 hud_timer = 0;
 
-// Hikaru Support
+// Support
 Hikaru_Title = "Fakie Werefox";
+tcoart = sprite_get("notcoart");
 
 //#endregion
 
-particles = ds_list_create()
+particles = ds_list_create();

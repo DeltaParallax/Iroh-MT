@@ -516,11 +516,8 @@ if(attack == AT_BAIR){
 
 //#endregion
  //Taunt for SL
- if(attack == AT_TAUNT && window == 1 && window_timer == 1 && !hitpause && down_down && !slActive){
-	
+ if(inPractice && attack == AT_TAUNT && window == 1 && window_timer == 1 && !hitpause && down_down && !slActive){
    slTimer += 600;
-
- 	
 }
 	
 	

@@ -238,7 +238,7 @@ if(attack == AT_DSPECIAL){
     }
     if(window == 2){
         if(shake == 30){
-            state = PS_IDLE;
+			set_state(PS_IDLE);
         }
     }
     
@@ -415,7 +415,10 @@ if(attack == AT_DSTRONG){
 	if(dspec_grab && window == 3){
         dspec_id.x = ease_linear(dspec_id.x, x - (60 * spr_dir), window_timer, 9);
         dspec_id.y = ease_linear(dspec_id.y, y - 12, window_timer, 9);
-        dspec_id.state = PS_HITSTUN;
+		with (dspec_id)
+		{
+			set_state(PS_HITSTUN);
+		}
     }
 }
 	

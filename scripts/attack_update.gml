@@ -251,7 +251,10 @@ if(attack == AT_DSPECIAL_2){
         set_hitbox_value(AT_DSPECIAL_2, i, HG_DAMAGE, 10 + DSP_dam)
     }
     if(window == 2 && window_timer == 6){
-        slTimer = 0;
+		if (dspec_buff)
+			dspec_buff = false;
+		else
+			slTimer = 0;
     }
     if(window == 1 || window == 2){
         soft_armor = 99999;
@@ -269,7 +272,10 @@ if(attack == AT_DSPECIAL_AIR){
         dspec_airgrab = false;
     }
     if(window == 3 && window_timer == 6){
-        slTimer = 0;
+		if (dspec_buff)
+			dspec_buff = false;
+		else
+			slTimer = 0;
     }
     if(window == 1 || window == 2){
         soft_armor = 9999;

@@ -1,4 +1,49 @@
 
+
+if (runesUpdated) { // example
+	if (runeA) {
+		//dash_speed = 8.5;
+		//initial_dash_speed = 9;
+	} else {
+		//dash_speed = 6.2;
+		//initial_dash_speed = 7.6;
+	}
+}
+
+if (runeL && slActive)
+{
+	switch (command_input)
+	{
+	case 0:
+		if (down_pressed)
+			command_input++;
+		if (joy_pad_idle)
+		{
+			command_input = 0;
+		}
+		break;
+	case 1:
+		if (down_down&&(spr_dir==1?right_pressed:left_pressed))
+			command_input++;
+		if (joy_pad_idle)
+		{
+			command_input = 0;
+		}
+		break;
+	default:
+		command_input++;
+		if (command_input>10)
+		{
+			command_input = 0;
+		}
+		break;
+	}
+}
+else
+{
+	command_input = 0;
+}
+
 //#region Shadow dash
 //shadow dash spawn
 if slActive createParticle(particles, 1, 0, 0, sprite_index, image_index, x, y, 0, 0, 0, 0, 0, 1,-0.2,10)
@@ -79,7 +124,8 @@ if slActive
 	if slHurtTimer <= 0
 	{
 		slHurtTimer = slMaxHurtTime;
-		take_damage(player,-1,slHurtAmount)
+		if (!runeA)
+			take_damage(player,-1,slHurtAmount)
 		DSP_dam += slHurtAmount;
 	}
 	

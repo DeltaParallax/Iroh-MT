@@ -257,10 +257,14 @@ spr_dspecial_2 = sprite_get("dspecial_2");
 spr_dspecial_air = sprite_get("dspecial_air");
 spr_taunt = sprite_get("taunt");
 
-//hiteffects
+// Hit Effects
 spr_lightningpop = sprite_get("lightningpop")
 
-//Respawn
+// Command Input state (for runeL)
+command_input = 0;
+dspec_buff = false;
+
+// Respawn
 spr_plat = sprite_get("plat");
 
 // hud meter ease
@@ -269,6 +273,37 @@ hud_timer = 0;
 // Support
 Hikaru_Title = "Fakie Werefox";
 tcoart = sprite_get("notcoart");
+
+//Rune Support
+abyssEnabled = false;
+abyss_paused = false;
+enum runes {A = 1,B = 2,C = 3,D = 4,E = 5,F = 6,G = 7,H = 8,I = 9,J = 10,K = 11,L = 12,M = 13,N = 14,O = 15}
+runeA = false; runeB = false; runeC = false; runeD = false; runeE = false; runeF = false; runeG = false; runeH = false; runeI = false; runeJ = false; runeK = false; runeL = false; runeM = false; runeN = false; runeO = false; runesUpdated = false;
+ab_hud_x = 0;
+ab_hud_y = 0;
+
+//abyssMods[1 to 15] = [type, description];
+//types are: -1 - disabled
+// 0 - object mod: Modifies a static object left behind after an attack.
+// 1 - ranged mod: Modifies a projectile attack.
+// 2 - hit mod: Modifies a direct physical interaction with an opponent.
+// 3 - ability boost: Powers up a character attribute or action.
+abyssMods = array_create(16,[-1,"Not Implemented."]);
+abyssMods[@ runes.A] = [0, "SL Mode does not hurt you."];
+abyssMods[@ runes.B] = [-1, ""];
+abyssMods[@ runes.C] = [-1, ""];
+abyssMods[@ runes.D] = [-1, ""];
+abyssMods[@ runes.E] = [-1, ""];
+abyssMods[@ runes.F] = [-1, ""];
+abyssMods[@ runes.G] = [0, "SL Meter increases 3x faster."];
+abyssMods[@ runes.H] = [-1, ""];
+abyssMods[@ runes.I] = [-1, ""];
+abyssMods[@ runes.J] = [-1, ""];
+abyssMods[@ runes.K] = [-1, ""];
+abyssMods[@ runes.L] = [0, "SL DSPEC does not remove SL mode if Power Geyser command input is used."];
+abyssMods[@ runes.M] = [-1, ""];
+abyssMods[@ runes.N] = [-1, ""];
+abyssMods[@ runes.O] = [-1, ""];
 
 //#endregion
 

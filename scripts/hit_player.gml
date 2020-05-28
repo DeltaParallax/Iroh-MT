@@ -252,9 +252,9 @@ if (my_hitboxID.attack == AT_BAIR && (my_hitboxID.hbox_num == 1 ||  my_hitboxID.
 //#region Tilts
 
     //#region Dtilt
-if(my_hitboxID.attack == AT_DTILT){
+/*if(my_hitboxID.attack == AT_DTILT){
     id.dtiltjumpcancel = true;
-}
+}*/
     //#endregion
 //#endregion
 

@@ -35,7 +35,7 @@ if (attack == AT_NSPECIAL){
         if(window_timer % 1 == 0){
             create_hitbox(AT_NSPECIAL, 2, x, y)
         }
-        if(window_timer % 5 == 0){
+        if(window_timer % 5 == 1 && !hit_pause){
            create_hitbox(AT_NSPECIAL, 3, x, y)
         }
         if(state_timer == 30){
@@ -156,6 +156,12 @@ if(attack == AT_USPECIAL){
 	if(window == 1 && window_timer == 1){
 		uspec_grab = false;
 		uspec_id = -1;
+		if(FtoU_timer < 30){
+			FtoU = true;
+		}
+		else{
+			FtoU = false;
+		}
 	}
 	can_wall_jump = true;
     if(window == 2 && window_timer == 6){
@@ -167,18 +173,24 @@ if(attack == AT_USPECIAL){
             if(!joy_pad_idle){
 				USPdir = joy_dir;    
             }
+            if(FtoU){
+            	Fspec_speed = 12;
+            }
+            else{
+            	Fspec_speed = 26;
+            }
         }
         if(!hitpause){
             if((USPdir >= 80 && USPdir <= 100) || (USPdir >= 170 && USPdir <= 360) || USPdir <= 10){
-                vsp = ease_cubeOut(-26, 0, window_timer, 26);
+                vsp = ease_cubeOut(-Fspec_speed, 0, window_timer, 26);
             }
             if(USPdir > 100 && USPdir < 170){
-                vsp = sin((110 / 180) * 3.14) * ease_cubeOut(-26, 0, window_timer, 26);
-                hsp = cos((110 / 180) * 3.14) * ease_cubeOut(26, 0, window_timer, 26);
+                vsp = sin((110 / 180) * 3.14) * ease_cubeOut(-Fspec_speed, 0, window_timer, 26);
+                hsp = cos((110 / 180) * 3.14) * ease_cubeOut(Fspec_speed, 0, window_timer, 26);
             }
             if(USPdir > 10 && USPdir < 80){
-                vsp = sin((70 / 180) * 3.14) * ease_cubeOut(-26, 0, window_timer, 26);
-                hsp = cos((70 / 180) * 3.14) * ease_cubeOut(26, 0, window_timer, 26);
+                vsp = sin((70 / 180) * 3.14) * ease_cubeOut(-Fspec_speed, 0, window_timer, 26);
+                hsp = cos((70 / 180) * 3.14) * ease_cubeOut(Fspec_speed, 0, window_timer, 26);
             }
         }
         else{

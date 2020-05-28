@@ -200,7 +200,10 @@ hud_timer = clamp(hud_timer,0,23);
 
 //#endregion
 
-//#region Stun timer ZSS Fix
+
+//#region Timers
+
+	//#region Stun timer ZSS Fix
 
 switch state {
 	case 5: //aerial attack
@@ -214,7 +217,16 @@ switch state {
 	break;
 }
 
+	//#endregion
+	
+	//#region FtoU timer
+FtoU_timer++;
+
+
+	//#endregion
+	
 //#endregion
+
 
 
 

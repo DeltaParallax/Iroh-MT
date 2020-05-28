@@ -1,16 +1,20 @@
 //#region Specials
 
     //#region Fspecial
-if ( my_hitboxID.attack == AT_FSPECIAL && (my_hitboxID.hbox_num == 1 ||  my_hitboxID.hbox_num == 2)) {
-  hit_player_obj.should_make_shockwave = false;
-    if(hit_player_obj.soft_armor <= 0 && hit_player_obj.super_armor == false){
-        fspec_airgrab = true;
-        fspec_id = hit_player_obj;
+if ( my_hitboxID.attack == AT_FSPECIAL) {
+	if(my_hitboxID.hbox_num == 1 ||  my_hitboxID.hbox_num == 2){
+		hit_player_obj.should_make_shockwave = false;
+    	if(hit_player_obj.soft_armor <= 0 && hit_player_obj.super_armor == false){
+    	    fspec_airgrab = true;
+    	    fspec_id = hit_player_obj;
+    	}
+    	if(my_hitboxID.hbox_num == 2){
+    	    var pop = spawn_hit_fx( hit_player_obj.x + 30*my_hitboxID.spr_dir, hit_player_obj.y -45, lightningpop );
+    	    pop.depth = -10;
+    	}
     }
     if(my_hitboxID.hbox_num == 2){
-        var pop = spawn_hit_fx( hit_player_obj.x + 30*my_hitboxID.spr_dir, hit_player_obj.y -45, lightningpop );
-        pop.depth = -10;
-        
+    	FtoU_timer = 0;
     }
 }
     //#endregion
@@ -215,25 +219,25 @@ if(my_hitboxID.attack == AT_DAIR){
         id.image_index = 0;
         var pop = spawn_hit_fx( hit_player_obj.x + 30*my_hitboxID.spr_dir, hit_player_obj.y -45, lightningpop );
         pop.depth = -10;
-		if(get_player_damage(hit_player_obj.player) <= 70)
+		/*if(get_player_damage(hit_player_obj.player) <= 70)
 		{
 			hit_player_obj.old_vsp *= -1;
-		}
+		}*/
     }
     
-    //if(my_hitboxID.hbox_num == 2){
-    //    if(get_player_damage(hit_player_obj.player) <= 70){
-    //        set_hitbox_value(AT_DAIR, 1, HG_ANGLE, 90);
-    //        set_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK, 9);
-    //        set_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING, 0.2);
-    //        
-    //    }
-    //    else{
-    //        reset_hitbox_value(AT_DAIR, 1, HG_ANGLE);
-    //        reset_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK);
-    //        reset_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING);
-    //    }
-    //}
+    if(my_hitboxID.hbox_num == 2){
+        if(get_player_damage(hit_player_obj.player) <= 70){
+            set_hitbox_value(AT_DAIR, 1, HG_ANGLE, 90);
+            set_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK, 9);
+            set_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING, 0.2);
+            
+        }
+        else{
+            reset_hitbox_value(AT_DAIR, 1, HG_ANGLE);
+            reset_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK);
+            reset_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING);
+        }
+    }
     
 }
 

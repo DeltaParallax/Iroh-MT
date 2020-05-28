@@ -134,6 +134,8 @@ slBarIndex = 0
 //Uspecial 
 USPpow = false; //Sweet Spot Kill box
 USPdir = 0; //Angle direction input.
+FtoU_timer = 20;
+FtoU = false;
 
 //Uspecial
 can_US = false;

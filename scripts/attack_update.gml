@@ -480,7 +480,7 @@ if(attack == AT_DTILT){
     }
     if(dtiltjumpcancel){
         //can_jump = true;
-        can_strong = true;
+        //can_strong = true; //temporarily disabled for balance reasons
     }
 }
 

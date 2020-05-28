@@ -483,6 +483,7 @@ if(attack == AT_DTILT){
         //can_jump = true;
         can_strong = true;
         can_ustrong = true;
+
     }
 }
 

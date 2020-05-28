@@ -308,7 +308,7 @@ if(slActive){
 	set_window_value(AT_DATTACK, 3, AG_WINDOW_LENGTH, 7)
 	
 	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 10)
-	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 3)
+	set_window_value(AT_BAIR, 3, AG_WINDOW_LENGTH, 6)
 	
 	set_hitbox_value(AT_NSPECIAL, 1, HG_DAMAGE, 8)
 	set_hitbox_value(AT_NSPECIAL, 1, HG_KNOCKBACK_SCALING, 1.0)

@@ -202,8 +202,17 @@ hud_timer = clamp(hud_timer,0,23);
 
 //#region Stun timer ZSS Fix
 
-stun_timer++
-
+switch state {
+	case 5: //aerial attack
+	case 6: //grounded attack
+		if attack != AT_NSPECIAL {
+			stun_timer++;
+		}
+	break;
+	default:
+		stun_timer++;
+	break;
+}
 
 //#endregion
 

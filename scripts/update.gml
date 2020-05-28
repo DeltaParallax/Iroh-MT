@@ -307,6 +307,7 @@ if(slActive){
 	set_window_value(AT_DATTACK, 2, AG_WINDOW_HSPEED, 14)
 	set_window_value(AT_DATTACK, 3, AG_WINDOW_LENGTH, 7)
 	
+
 	set_window_value(AT_BAIR, 1, AG_WINDOW_LENGTH, 10)
 	set_window_value(AT_BAIR, 3, AG_WINDOW_LENGTH, 6)
 	

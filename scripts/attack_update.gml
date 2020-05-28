@@ -51,6 +51,7 @@ if (attack == AT_NSPECIAL){
     
     if(window == 3){
         can_strong = true;
+        can_ustrong = true;
         if(special_down){
             explode = true;
         }
@@ -480,7 +481,9 @@ if(attack == AT_DTILT){
     }
     if(dtiltjumpcancel){
         //can_jump = true;
-        //can_strong = true; //temporarily disabled for balance reasons
+        can_strong = true;
+        can_ustrong = true;
+
     }
 }
 

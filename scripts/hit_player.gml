@@ -2,7 +2,7 @@
 
     //#region Fspecial
 if ( my_hitboxID.attack == AT_FSPECIAL) {
-	if(my_hitboxID.hbox_num == 1 ||  my_hitboxID.hbox_num == 2){
+	if((my_hitboxID.hbox_num == 1 ||  my_hitboxID.hbox_num == 2)  && hit_player_obj.clone == false){
 		hit_player_obj.should_make_shockwave = false;
     	if(hit_player_obj.soft_armor <= 0 && hit_player_obj.super_armor == false){
     	    fspec_airgrab = true;
@@ -45,7 +45,7 @@ if (my_hitboxID.attack == AT_USPECIAL && my_hitboxID.hbox_num == 3){
     
 }
 
-if ( my_hitboxID.attack == AT_USPECIAL && (my_hitboxID.hbox_num == 1 ||  my_hitboxID.hbox_num == 2)) {
+if ( my_hitboxID.attack == AT_USPECIAL && (my_hitboxID.hbox_num == 1 ||  my_hitboxID.hbox_num == 2) && hit_player_obj.clone == false) {
     hit_player_obj.should_make_shockwave = false;
     if(hit_player_obj.soft_armor <= 0 && hit_player_obj.super_armor == false){
         uspec_grab = true;
@@ -127,7 +127,7 @@ if(my_hitboxID.attack == AT_USTRONG && (my_hitboxID.hbox_num == 1)){
     //#endregion
     
     //#region Dstrong
-if(my_hitboxID.attack == AT_DSTRONG && (my_hitboxID.hbox_num == 1)){
+if(my_hitboxID.attack == AT_DSTRONG && (my_hitboxID.hbox_num == 1) && hit_player_obj.clone == false){
     hit_player_obj.should_make_shockwave = false;
     if(hit_player_obj.soft_armor <= 0 && hit_player_obj.super_armor == false){
         dspec_grab = true;
@@ -263,7 +263,7 @@ if (my_hitboxID.attack == AT_BAIR && (my_hitboxID.hbox_num == 1 ||  my_hitboxID.
 //#endregion
 
 //#region SL Add
-slTimer += (slActive?4:6) * floor(my_hitboxID.damage) * (runeG?3:1);
+slTimer += (slActive?5:8) * floor(my_hitboxID.damage) * (runeG?3:1);
 
 //#endregion
 
@@ -284,6 +284,7 @@ if(stun_timer > stun_limit){
 	
 	reset_hitbox_value(AT_USTRONG, 1, HG_BASE_KNOCKBACK);
 	reset_hitbox_value(AT_USTRONG, 1, HG_KNOCKBACK_SCALING);
+	reset_hitbox_value(AT_USTRONG, 1, HG_HITSTUN_MULTIPLIER);
 }
 else{
 	set_hitbox_value(AT_DSTRONG, 2, HG_BASE_KNOCKBACK, 8);
@@ -298,5 +299,6 @@ else{
 	}
 	
 	set_hitbox_value(AT_USTRONG, 1, HG_BASE_KNOCKBACK, 18)
-	set_hitbox_value(AT_USTRONG, 1, HG_KNOCKBACK_SCALING, 0.5)
+	set_hitbox_value(AT_USTRONG, 1, HG_KNOCKBACK_SCALING, 0.8)
+	set_hitbox_value(AT_USTRONG, 1, HG_HITSTUN_MULTIPLIER, 0.5)
 }

@@ -64,3 +64,4 @@ set_hitbox_value(AT_NAIR, 2, HG_BASE_HITPAUSE, 8);
 set_hitbox_value(AT_NAIR, 2, HG_HITPAUSE_SCALING, 0.5);
 set_hitbox_value(AT_NAIR, 2, HG_ANGLE, 30);
 set_hitbox_value(AT_NAIR, 2, HG_DAMAGE, 4);
+set_hitbox_value(AT_NAIR, 2, HG_HIT_SFX, asset_get("sfx_blow_weak2"));

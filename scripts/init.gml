@@ -167,6 +167,8 @@ stun_limit = 90;
 
 //Dtilt
 dtiltjumpcancel = false;
+dtparry_timer = 61;
+dtparry_limit = 60;
 
 //DAIR
 DAIR_jcTimer = 0;

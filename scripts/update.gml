@@ -204,6 +204,7 @@ hud_timer = clamp(hud_timer,0,23);
 //#region Timers
 
 	//#region Stun timer ZSS Fix
+	
 
 switch state {
 	case 5: //aerial attack
@@ -220,8 +221,16 @@ switch state {
 	//#endregion
 	
 	//#region FtoU timer
+	
 FtoU_timer++;
 
+	//#endregion
+	
+	//#region dtparry timer
+	
+if(dtparry_timer <= dtparry_limit){
+	dtparry_timer++;
+}	
 
 	//#endregion
 	
@@ -311,7 +320,7 @@ if(slActive){
 	
 	set_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH, 4)
 	set_window_value(AT_FTILT, 3, AG_WINDOW_LENGTH, 4)
-	set_window_value(AT_FTILT, 4, AG_WINDOW_LENGTH, 3)
+	set_window_value(AT_FTILT, 4, AG_WINDOW_LENGTH, 5)
 	
 	set_hitbox_value(AT_UTILT, 1, HG_DAMAGE, 11)
 	set_hitbox_value(AT_UTILT, 10, HG_DAMAGE, 11)

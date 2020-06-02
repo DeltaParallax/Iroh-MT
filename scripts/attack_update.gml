@@ -486,10 +486,28 @@ if(attack == AT_DATTACK){
 
 //#region Tilts
 
+
+	//#region Utilt
+if(attack == AT_DTILT){
+	if(window == 3){
+		can_jump = true;
+	}
+}
+	
+	
+	
+	//#endregion
+
     //#region DTILT
 if(attack == AT_DTILT){
     if(window == 1 && window_timer == 1){
         dtiltjumpcancel = false;
+        if(dtparry_timer < dtparry_limit){
+        	set_attack_value(AT_DTILT, AG_OFF_LEDGE, 0);
+        }
+        else{
+        	reset_attack_value(AT_DTILT, AG_OFF_LEDGE);
+        }
     }
     if(dtiltjumpcancel){
         //can_jump = true;
@@ -587,6 +605,7 @@ if(stun_timer > stun_limit){
 	
 	reset_hitbox_value(AT_USTRONG, 1, HG_BASE_KNOCKBACK);
 	reset_hitbox_value(AT_USTRONG, 1, HG_KNOCKBACK_SCALING);
+	reset_hitbox_value(AT_USTRONG, 1, HG_HITSTUN_MULTIPLIER);
 }
 else{
 	set_hitbox_value(AT_DSTRONG, 2, HG_BASE_KNOCKBACK, 8);
@@ -601,5 +620,6 @@ else{
 	}
 	
 	set_hitbox_value(AT_USTRONG, 1, HG_BASE_KNOCKBACK, 18)
-	set_hitbox_value(AT_USTRONG, 1, HG_KNOCKBACK_SCALING, 0.5)
+	set_hitbox_value(AT_USTRONG, 1, HG_KNOCKBACK_SCALING, 0.8)
+	set_hitbox_value(AT_USTRONG, 1, HG_HITSTUN_MULTIPLIER, 0.5)
 }

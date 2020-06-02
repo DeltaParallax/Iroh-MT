@@ -488,7 +488,7 @@ if(attack == AT_DATTACK){
 
 
 	//#region Utilt
-if(attack == AT_DTILT){
+if(attack == AT_UTILT){
 	if(window == 3){
 		can_jump = true;
 	}

@@ -46,7 +46,7 @@ else
 
 //#region Shadow dash
 //shadow dash spawn
-if slActive createParticle(particles, 1, 0, 0, sprite_index, image_index, x, y, 0, 0, 0, 0, 0, 1,-0.2,10)
+if (slActive && (abs(hsp) + abs(vsp) > 3)) createParticle(particles, 1, 0, 0, sprite_index, image_index, x, y, 0, 0, 0, 0, 0, .7,-0.15,10)
 
 p_process(particles)
 //#endregion

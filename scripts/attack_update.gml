@@ -477,7 +477,7 @@ switch attack {
         }
     break;
 
-    case AT_UTILT:
+    /*case AT_UTILT:
         switch window {
             case 3:
                 if (!was_parried) {
@@ -485,7 +485,7 @@ switch attack {
                 }
             break;
         }
-    break;
+    break;*/
     //#endregion
 
 	//#region Aerials

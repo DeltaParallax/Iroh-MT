@@ -44,7 +44,7 @@ max_fall = 14; //maximum fall speed without fastfalling
 fast_fall = 16; //fast fall speed
 gravity_speed = .5;
 hitstun_grav = .5;
-knockback_adj = 0.90; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
+knockback_adj = 0.95; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
 
 land_time = 4; //normal landing frames
 prat_land_time = 15;
@@ -115,7 +115,7 @@ slHUDshakeOffset = 0;
 //self-damage
 slHurtTimer = 0;
 slMaxHurtTime = 120; //2 seconds worth of frames
-slHurtAmount = 4 
+slHurtAmount = 6;
 
 //damage
 slNormalDamage = 1;
@@ -130,6 +130,9 @@ slKBMult = slNormalKB;
 //bar stuff
 slBarShake = 0
 slBarIndex = 0
+
+slSoundPlayed = false
+slSoundReady = sound_get("SL_READY")
 
 //Uspecial 
 USPpow = false; //Sweet Spot Kill box

@@ -19,31 +19,43 @@
 
 //#endregion
 
-if ("slBarIndex" in self)
+
+if ("slBarIndex" in self and "slActive" in self)
 {
+	//check to see if you're ready to start SL mode.
+	var slReady, rate;
+	slReady = (!slActive and slTimer >= slTimerLimit)
+	rate = slReady ? round((get_gameplay_time() mod 10) / 10) : 1
+	
+	//Prepare SL bar sprites, and offsets
 	var bar, meter, cycle, bx, by;
-	bar = sprite_get("slbaroutside");
+	bar = sprite_get(slReady ? "hud_shine" : "slbaroutside");
 	meter = sprite_get("slbarpurple");
 	cycle = sprite_get("slbarhurtcycle");
 	bx = 10 + slHUDshakeOffset*2;
-	by = -14;
+	by = -15;
+	
+	//Draw
 	shader_start();
-	draw_sprite(bar,slBarIndex,temp_x+bx-9,temp_y+by-21);
+	draw_roundrect_color(temp_x+bx+8, temp_y+by-6, temp_x+bx+12+46,temp_y+by+4, c_gray,  c_gray, false);
 	draw_sprite(cycle,(floor(slHurtTimer)/slMaxHurtTime)*12,temp_x+bx-9,temp_y+by-9);
-	if ("hud_timer" in self && hud_timer != 0)
+	draw_sprite(bar,slReady ? rate : floor(slBarIndex),temp_x+bx-9,temp_y+by-21);
+	if ("hud_timer" in self && hud_timer != 0 and !slReady)
 	{
 		//draw_rectangle_colour(temp_x+bx+11, temp_y+by-3, temp_x+bx+11+hud_timer*2-1, temp_y+by+2, c_white, c_white, c_white, c_white, false);
 		draw_sprite(meter,hud_timer,temp_x+bx+11,temp_y+by-3);
 		draw_rectangle_colour(temp_x+bx+11+hud_timer*2, temp_y+by-3, temp_x+bx+12+hud_timer*2, temp_y+by+2, c_black, c_black, c_black, c_black, false);
 	}
 	shader_end();
-}
 
-if ("slActive" in self && slActive)
-{
-	shader_start();
-	draw_sprite(sprite_get(state_cat==SC_HITSTUN?"SL_hurts":"SL_huds"),0,temp_x+28,temp_y+8);
-	shader_end();
+	if slActive
+	{
+		shader_start();
+		draw_sprite(sprite_get(state_cat==SC_HITSTUN?"SL_hurts":"SL_huds"),0,temp_x+28,temp_y+8);
+		shader_end();
+	}
+	
+	draw_sprite(sprite_get("buttons"),rate,temp_x+73,temp_y-46)
 }
 
 if ("inPractice" in self && inPractice && "hudtip" in self && hudtip != 0)

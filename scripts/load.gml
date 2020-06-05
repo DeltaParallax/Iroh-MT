@@ -121,8 +121,6 @@ sprite_change_offset("SL_taunt", 55, 79);
 
 sprite_change_offset("SL_lightningpop", 115, 100);
 
-sprite_change_offset("hud_shine", 2, -6);
-
 
 //#endregion
 

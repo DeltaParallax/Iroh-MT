@@ -1,23 +1,4 @@
-var slReady = (!slActive and slTimer >= slTimerLimit);
 
-if !array_equals(outline_color,[0,0,0])
-{
-	var out = clamp(outline_color[0]-10,0,255)
-	outline_color = [out,out,out]
-}
-
-if (slReady and !slSoundPlayed)
-{
-	outline_color = [255,255,255]
-	slSoundPlayed = true;
-    sound_play(slSoundReady,false);
-    
-}
-else if !slReady
-{
-	slSoundPlayed = false;
-}
-init_shader()
 
 if (runesUpdated) { // example
 	if (runeA) {
@@ -95,31 +76,7 @@ if (!free || state == PS_WALL_JUMP || state_cat == SC_HITSTUN) {
 
 
 //#region Sanguine Lightning
-
-if(slTimer > slTimerLimit){
-	slTimer = slTimerLimit;
-}
-	
-if(slTimer >= slTimerLimit - 30){
-	if(attack_down 
-	&& special_down 
-	&& (state != PS_ATTACK_AIR 
-	&& state != PS_ATTACK_GROUND
-	|| ((state == PS_ATTACK_AIR
-	|| state == PS_ATTACK_GROUND)
-	&& state_timer < 4))){
-		if(free){
-			state = PS_IDLE_AIR;
-		}
-		else{
-			state = PS_IDLE;
-		}
-	}
-}
-if (slTimer >= slTimerLimit 
-&& !slActive 
-&& special_down
-&& attack_down)
+if (slTimer >= slTimerLimit && !slActive)
 {
 	slActive = true;
 	SL_mode();
@@ -144,18 +101,11 @@ if(slTimer < 0){
 	
 }
 
-if floor(slBarIndex) >= 1 and slBarIndex < 2.8
-{
-	slBarIndex +=0.2
-}
-else if slBarIndex >= 2.8
-{
-	slBarIndex = 0
-}
-
 if slActive
 {
-	
+		if(slTimer > 600){
+			slTimer = 600;
+		}
 	if(!hitpause){
 		slTimer -= 0.95;
 		--slHurtTimer;
@@ -175,11 +125,7 @@ if slActive
 	{
 		slHurtTimer = slMaxHurtTime;
 		if (!runeA)
-		{
-			sound_play(sound_get("SL_HURT"))
 			take_damage(player,-1,slHurtAmount)
-			slBarIndex = 1
-		}
 		DSP_dam += slHurtAmount;
 	}
 	
